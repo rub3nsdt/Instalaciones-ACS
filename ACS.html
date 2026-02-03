@@ -1151,7 +1151,75 @@
             display: inline-block;
         }
 
-        
+        /* Cards para elementos del sistema */
+        .element-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-left: 5px solid;
+        }
+
+        .element-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 1rem;
+        }
+
+        .element-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .element-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .element-subtitle {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.2rem;
+        }
+
+        .element-content {
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .element-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .element-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.8rem;
+            position: relative;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .element-list li:before {
+            content: '•';
+            position: absolute;
+            left: 0.5rem;
+            top: 0.3rem;
+            color: #FF9800;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }                
 
     </style>
 </head>
@@ -2274,63 +2342,55 @@
                         </div>
 
                         <!-- Depósitos -->
-                        <div class="compact-card" style="border-top-color: #FF9800; margin-bottom: 1.5rem;">
-                            <div class="compact-header">
-                                <div class="compact-icon" style="background: #FF9800;">
+                        <div class="element-card" style="border-left-color: #FF9800;">
+                            <div class="element-header">
+                                <div class="element-icon" style="background: #FF9800;">
                                     <i class="fas fa-database"></i>
                                 </div>
-                                <div class="compact-title">Depósitos</div>
-                            </div>
-                            <div style="font-size: 0.9rem; margin-top: 0.5rem;">
-                                <p>Los depósitos de acumulación de ACS pueden ser interacumuladores o acumuladores, según sean capaces (interacumuladores) o no (acumuladores) de producir ACS.</p>
-                                
-                                <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 1rem 0;">
-                                    <div style="flex: 1; min-width: 150px; padding: 0.8rem; background: #FFF3E0; border-radius: 6px;">
-                                        <div style="font-weight: 700; color: #FF8F00;">Presión mínima</div>
-                                        <div style="font-size: 0.85rem;"><span class="red-number">6 bar</span> (recomendable 8 bar)</div>
-                                    </div>
-                                    <div style="flex: 1; min-width: 150px; padding: 0.8rem; background: #FFF3E0; border-radius: 6px;">
-                                        <div style="font-weight: 700; color: #FF8F00;">Temperatura</div>
-                                        <div style="font-size: 0.85rem;">No inferior a <span class="red-number">70°C</span> (prevención legionelosis)</div>
-                                    </div>
+                                <div>
+                                    <div class="element-title">Depósitos de acumulación</div>
+                                    <div class="element-subtitle">Interacumuladores o acumuladores según capacidad de producción ACS</div>
                                 </div>
-
-                                <h4 style="color: #FF8F00; margin-top: 1rem; margin-bottom: 0.5rem;">Tipos de depósitos:</h4>
+                            </div>
+                            
+                            <div class="element-content">
+                                <p><strong>Características principales:</strong></p>
+                                <ul class="element-list">
+                                    <li><strong>Presión mínima:</strong> <span class="red-number">6 bar</span> (recomendable 8 bar)</li>
+                                    <li><strong>Temperatura:</strong> No inferior a <span class="red-number">70°C</span> (prevención legionelosis)</li>
+                                </ul>
                                 
-                                <div class="compact-grid">
-                                    <div class="compact-card" style="border-top-color: #FF9800;">
-                                        <div class="compact-header">
-                                            <div class="compact-icon" style="background: #FF9800; font-size: 1rem;">
-                                                <i class="fas fa-box"></i>
+                                <div style="margin-top: 1rem;">
+                                    <p><strong>Tipos de depósitos:</strong></p>
+                                    <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 0.5rem;">
+                                        <div style="flex: 1; min-width: 200px; padding: 1rem; border: 1px solid #FFE0B2; border-radius: 8px;">
+                                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.5rem;">
+                                                <div style="width: 30px; height: 30px; background: #FF9800; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: white;">
+                                                    <i class="fas fa-box"></i>
+                                                </div>
+                                                <strong style="color: #FF8F00;">Acumulador</strong>
                                             </div>
-                                            <div class="compact-title">Acumulador</div>
+                                            <div style="font-size: 0.85rem;">Únicamente almacena ACS. Requiere intercambiador exterior + bomba secundario.</div>
                                         </div>
-                                        <div style="font-size: 0.85rem;">
-                                            <p>Únicamente almacena el ACS, por lo que requiere de un intercambiador de calor exterior y una bomba que haga circular el agua a calentar entre el depósito y el intercambiador (bomba de secundario).</p>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="compact-card" style="border-top-color: #FF9800;">
-                                        <div class="compact-header">
-                                            <div class="compact-icon" style="background: #FF9800; font-size: 1rem;">
-                                                <i class="fas fa-layer-group"></i>
+                                        
+                                        <div style="flex: 1; min-width: 200px; padding: 1rem; border: 1px solid #FFE0B2; border-radius: 8px;">
+                                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.5rem;">
+                                                <div style="width: 30px; height: 30px; background: #FF9800; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: white;">
+                                                    <i class="fas fa-layer-group"></i>
+                                                </div>
+                                                <strong style="color: #FF8F00;">Interacumulador doble pared</strong>
                                             </div>
-                                            <div class="compact-title">Interacumulador de doble pared</div>
+                                            <div style="font-size: 0.85rem;">Envolvente exterior por la que circula agua calderas rodeando acumulador.</div>
                                         </div>
-                                        <div style="font-size: 0.85rem;">
-                                            <p>Con una envolvente exterior al depósito por la que circula el agua de calderas rodeando al acumulador, por el que se produce la cesión térmica, terminado con un aislamiento exterior.</p>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="compact-card" style="border-top-color: #FF9800;">
-                                        <div class="compact-header">
-                                            <div class="compact-icon" style="background: #FF9800; font-size: 1rem;">
-                                                <i class="fas fa-coil"></i>
+                                        
+                                        <div style="flex: 1; min-width: 200px; padding: 1rem; border: 1px solid #FFE0B2; border-radius: 8px;">
+                                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.5rem;">
+                                                <div style="width: 30px; height: 30px; background: #FF9800; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: white;">
+                                                    <i class="fas fa-coil"></i>
+                                                </div>
+                                                <strong style="color: #FF8F00;">Interacumulador serpentín interior</strong>
                                             </div>
-                                            <div class="compact-title">Interacumulador de serpentín interior</div>
-                                        </div>
-                                        <div style="font-size: 0.85rem;">
-                                            <p>Con un intercambiador tubular encargado de la cesión térmica y el pertinente aislamiento exterior.</p>
+                                            <div style="font-size: 0.85rem;">Intercambiador tubular interior para cesión térmica + aislamiento exterior.</div>
                                         </div>
                                     </div>
                                 </div>
@@ -2338,202 +2398,311 @@
                         </div>
 
                         <!-- Conexiones obligatorias depósitos -->
-                        <div class="info-box" style="margin-bottom: 1.5rem;">
-                            <div class="box-icon" style="background: #FF9800;">
-                                <i class="fas fa-plug"></i>
+                        <div class="element-card" style="border-left-color: #FF9800; margin-top: 1.5rem;">
+                            <div class="element-header">
+                                <div class="element-icon" style="background: #FF9800;">
+                                    <i class="fas fa-plug"></i>
+                                </div>
+                                <div>
+                                    <div class="element-title">Conexiones obligatorias en depósitos</div>
+                                    <div class="element-subtitle">Según normativa y para mantenimiento</div>
+                                </div>
                             </div>
-                            <div>
-                                <h4 style="margin-top: 0;">Conexiones obligatorias en depósitos</h4>
+                            
+                            <div class="element-content">
                                 <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 0.5rem;">
-                                    <div style="flex: 1; min-width: 200px; padding: 0.8rem; background: #FFF3E0; border-radius: 6px;">
-                                        <div style="font-weight: 700; color: #FF8F00;">Entrada agua consumo</div>
-                                        <div style="font-size: 0.85rem;">Parte inferior o con deflector interno que la dirija hacia la parte inferior del depósito, reduciendo la zona de mezcla y favoreciendo la estratificación.</div>
+                                    <div style="flex: 1; min-width: 200px;">
+                                        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 1rem;">
+                                            <div style="width: 24px; height: 24px; background: #FF9800; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem; flex-shrink: 0;">
+                                                1
+                                            </div>
+                                            <div>
+                                                <strong style="color: #FF8F00;">Entrada agua consumo</strong>
+                                                <div style="font-size: 0.85rem;">Parte inferior o con deflector interno</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 1rem;">
+                                            <div style="width: 24px; height: 24px; background: #FF9800; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem; flex-shrink: 0;">
+                                                2
+                                            </div>
+                                            <div>
+                                                <strong style="color: #FF8F00;">Salida ACS consumo</strong>
+                                                <div style="font-size: 0.85rem;">Parte superior del depósito</div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div style="flex: 1; min-width: 200px; padding: 0.8rem; background: #FFF3E0; border-radius: 6px;">
-                                        <div style="font-weight: 700; color: #FF8F00;">Salida ACS consumo</div>
-                                        <div style="font-size: 0.85rem;">Situada en la parte superior del depósito.</div>
-                                    </div>
-                                    <div style="flex: 1; min-width: 200px; padding: 0.8rem; background: #FFF3E0; border-radius: 6px;">
-                                        <div style="font-weight: 700; color: #FF8F00;">Vaciado</div>
-                                        <div style="font-size: 0.85rem;">Parte inferior para purga de lodos y toma de muestras para análisis de Legionela.</div>
-                                    </div>
-                                    <div style="flex: 1; min-width: 200px; padding: 0.8rem; background: #FFF3E0; border-radius: 6px;">
-                                        <div style="font-weight: 700; color: #FF8F00;">Registro limpieza</div>
-                                        <div style="font-size: 0.85rem;">&lt;750L: tamaño que permita limpieza manual<br>&gt;750L: mínimo DN400 ("Boca de Hombre")</div>
+                                    
+                                    <div style="flex: 1; min-width: 200px;">
+                                        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 1rem;">
+                                            <div style="width: 24px; height: 24px; background: #FF9800; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem; flex-shrink: 0;">
+                                                3
+                                            </div>
+                                            <div>
+                                                <strong style="color: #FF8F00;">Vaciado</strong>
+                                                <div style="font-size: 0.85rem;">Parte inferior para purga de lodos y toma de muestras legionela</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 1rem;">
+                                            <div style="width: 24px; height: 24px; background: #FF9800; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem; flex-shrink: 0;">
+                                                4
+                                            </div>
+                                            <div>
+                                                <strong style="color: #FF8F00;">Registro limpieza</strong>
+                                                <div style="font-size: 0.85rem;">&lt;750L: limpieza manual<br>&gt;750L: mínimo DN400 ("Boca de Hombre")</div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 
-                                <div style="margin-top: 1rem; padding: 0.8rem; background: #FFF3E0; border-radius: 6px;">
-                                    <div style="font-weight: 700; color: #FF8F00;">Protección catódica</div>
-                                    <div style="font-size: 0.85rem;">Por tratarse de equipos metálicos con riesgo de corrosión, incorporan protecciones catódicas, ya sea mediante ánodos de sacrificio o de corriente inducida.</div>
+                                <div style="margin-top: 1rem; padding: 1rem; background: #FFF3E0; border-radius: 8px;">
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <i class="fas fa-shield-alt" style="color: #FF9800;"></i>
+                                        <div>
+                                            <strong>Protección catódica:</strong> Por tratarse de equipos metálicos con riesgo de corrosión, incorporan protecciones catódicas (ánodos de sacrificio o de corriente inducida).
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Circuito de retorno -->
-                        <div class="compact-card" style="border-top-color: #2196F3; margin-bottom: 1.5rem;">
-                            <div class="compact-header">
-                                <div class="compact-icon" style="background: #2196F3;">
+                        <div class="element-card" style="border-left-color: #2196F3; margin-top: 1.5rem;">
+                            <div class="element-header">
+                                <div class="element-icon" style="background: #2196F3;">
                                     <i class="fas fa-retweet"></i>
                                 </div>
-                                <div class="compact-title">Circuito de retorno</div>
+                                <div>
+                                    <div class="element-title">Circuito de retorno</div>
+                                    <div class="element-subtitle">Red de tuberías desde puntos más alejados hasta acumulador</div>
+                                </div>
                             </div>
-                            <div style="font-size: 0.9rem; margin-top: 0.5rem;">
-                                <p>Red de tuberías que transportan el agua de vuelta desde los puntos más alejados de la red de suministro hasta el acumulador.</p>
-                                <div class="tip-box" style="margin-top: 1rem;">
-                                    <div class="box-icon" style="background: #2196F3;">
-                                        <i class="fas fa-info-circle"></i>
-                                    </div>
-                                    <div>
-                                        <strong>Objeto:</strong> Mantener un nivel aceptable de temperatura del agua caliente en toda la red de suministro, aún cuando los elementos terminales no demanden consumo durante largos periodos de tiempo.
+                            
+                            <div class="element-content">
+                                <p>Transporta el agua de vuelta desde los puntos más alejados de la red de suministro hasta el acumulador.</p>
+                                
+                                <div style="margin-top: 1rem; padding: 1rem; background: #E3F2FD; border-radius: 8px;">
+                                    <div style="display: flex; align-items: flex-start; gap: 10px;">
+                                        <i class="fas fa-thermometer-half" style="color: #2196F3; margin-top: 0.2rem;"></i>
+                                        <div>
+                                            <strong>Objeto:</strong> Mantener un nivel aceptable de temperatura del agua caliente en toda la red de suministro, aún cuando los elementos terminales no demanden consumo durante largos periodos de tiempo.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Intercambiadores -->
-                        <div class="compact-card" style="border-top-color: #4CAF50; margin-bottom: 1.5rem;">
-                            <div class="compact-header">
-                                <div class="compact-icon" style="background: #4CAF50;">
+                        <div class="element-card" style="border-left-color: #4CAF50; margin-top: 1.5rem;">
+                            <div class="element-header">
+                                <div class="element-icon" style="background: #4CAF50;">
                                     <i class="fas fa-exchange-alt"></i>
                                 </div>
-                                <div class="compact-title">Intercambiadores</div>
+                                <div>
+                                    <div class="element-title">Intercambiadores</div>
+                                    <div class="element-subtitle">Separan agua de calderas del agua de consumo (características sanitarias)</div>
+                                </div>
                             </div>
-                            <div style="font-size: 0.9rem; margin-top: 0.5rem;">
-                                <p>Con el fin de conservar las características sanitarias deben existir elementos que separen el agua de las calderas del agua de consumo; estos son los intercambiadores.</p>
-                                
-                                <div class="two-columns" style="margin-top: 1rem;">
-                                    <div style="padding: 1rem; background: #E8F5E9; border-radius: 8px;">
-                                        <h5 style="color: #388E3C; margin-bottom: 0.5rem;">Intercambiador de placas</h5>
-                                        <p style="font-size: 0.85rem;">Compuesto por un conjunto de placas y juntas a través de los cuales circulan los fluidos primario y secundario produciéndose la cesión de temperatura entre ambos circuitos.</p>
+                            
+                            <div class="element-content">
+                                <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1rem;">
+                                    <div style="flex: 1; min-width: 250px;">
+                                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem;">
+                                            <div style="width: 40px; height: 40px; background: #4CAF50; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white;">
+                                                <i class="fas fa-th-large"></i>
+                                            </div>
+                                            <strong style="color: #388E3C;">Intercambiador de placas</strong>
+                                        </div>
+                                        <div style="font-size: 0.9rem;">
+                                            Compuesto por un conjunto de placas y juntas a través de los cuales circulan los fluidos primario y secundario produciéndose la cesión de temperatura entre ambos circuitos.
+                                        </div>
                                     </div>
                                     
-                                    <div style="padding: 1rem; background: #E8F5E9; border-radius: 8px;">
-                                        <h5 style="color: #388E3C; margin-bottom: 0.5rem;">Intercambiador tubular</h5>
-                                        <p style="font-size: 0.85rem;">Consta de un haz tubular por el interior del cual discurre el agua caliente primaria, colocado en el interior de una carcasa cilíndrica, por la que circula el agua a calentar (secundario ACS). Utilizado en interacumuladores de serpentín interior.</p>
+                                    <div style="flex: 1; min-width: 250px;">
+                                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem;">
+                                            <div style="width: 40px; height: 40px; background: #4CAF50; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white;">
+                                                <i class="fas fa-pipe"></i>
+                                            </div>
+                                            <strong style="color: #388E3C;">Intercambiador tubular</strong>
+                                        </div>
+                                        <div style="font-size: 0.9rem;">
+                                            Consta de un haz tubular por el interior del cual discurre el agua caliente primaria, colocado en el interior de una carcasa cilíndrica, por la que circula el agua a calentar (secundario ACS).
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Contadores de agua -->
-                        <div class="compact-card" style="border-top-color: #9C27B0; margin-bottom: 1.5rem;">
-                            <div class="compact-header">
-                                <div class="compact-icon" style="background: #9C27B0;">
+                        <div class="element-card" style="border-left-color: #9C27B0; margin-top: 1.5rem;">
+                            <div class="element-header">
+                                <div class="element-icon" style="background: #9C27B0;">
                                     <i class="fas fa-tachometer-alt"></i>
                                 </div>
-                                <div class="compact-title">Contadores de agua</div>
+                                <div>
+                                    <div class="element-title">Contadores de agua</div>
+                                    <div class="element-subtitle">Instrumento para medir e indicar el volumen (m³) de agua</div>
+                                </div>
                             </div>
-                            <div style="font-size: 0.9rem; margin-top: 0.5rem;">
-                                <p>Instrumento diseñado para medir e indicar el volumen (m³) del agua que lo atraviesa. Deben estar homologados, precintados y verificados según normativa.</p>
-                                
-                                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin: 1rem 0;">
-                                    <div style="flex: 1; min-width: 200px; padding: 0.8rem; background: #F3E5F5; border-radius: 6px;">
-                                        <div style="font-weight: 700; color: #7B1FA2;">Contador agua fría</div>
-                                        <div style="font-size: 0.85rem;">Temperatura <span class="red-number">&lt;30°C</span></div>
+                            
+                            <div class="element-content">
+                                <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1rem;">
+                                    <div style="flex: 1; min-width: 200px;">
+                                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.5rem;">
+                                            <div style="width: 32px; height: 32px; background: #2196F3; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem;">
+                                                <i class="fas fa-snowflake"></i>
+                                            </div>
+                                            <strong style="color: #1976D2;">Agua fría</strong>
+                                        </div>
+                                        <div style="font-size: 0.9rem;">
+                                            Temperatura <span class="red-number">&lt;30°C</span>
+                                        </div>
                                     </div>
-                                    <div style="flex: 1; min-width: 200px; padding: 0.8rem; background: #F3E5F5; border-radius: 6px;">
-                                        <div style="font-weight: 700; color: #7B1FA2;">Contador agua caliente</div>
-                                        <div style="font-size: 0.85rem;">Temperatura <span class="red-number">30°C a 90°C</span></div>
+                                    
+                                    <div style="flex: 1; min-width: 200px;">
+                                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.5rem;">
+                                            <div style="width: 32px; height: 32px; background: #D32F2F; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem;">
+                                                <i class="fas fa-fire"></i>
+                                            </div>
+                                            <strong style="color: #B71C1C;">Agua caliente</strong>
+                                        </div>
+                                        <div style="font-size: 0.9rem;">
+                                            Temperatura <span class="red-number">30°C a 90°C</span>
+                                        </div>
                                     </div>
                                 </div>
                                 
-                                <div class="warning-box">
-                                    <div class="box-icon" style="background: #9C27B0;">
-                                        <i class="fas fa-exclamation-triangle"></i>
-                                    </div>
-                                    <div>
-                                        <strong>Obligatorio:</strong> Se deberá instalar un contador de ACS por cada uno de los usuarios de un edificio comunitario si el sistema de producción de agua caliente sanitaria es centralizado.
+                                <div style="margin-top: 1.5rem; padding: 1rem; background: #F3E5F5; border-radius: 8px;">
+                                    <div style="display: flex; align-items: flex-start; gap: 10px;">
+                                        <i class="fas fa-exclamation-circle" style="color: #9C27B0; margin-top: 0.2rem;"></i>
+                                        <div>
+                                            <strong>Obligatorio:</strong> Se deberá instalar un contador de ACS por cada uno de los usuarios de un edificio comunitario si el sistema de producción de agua caliente sanitaria es centralizado.
+                                        </div>
                                     </div>
                                 </div>
                                 
-                                <div style="margin-top: 1rem; padding: 0.8rem; background: #F3E5F5; border-radius: 6px;">
-                                    <div style="font-weight: 700; color: #7B1FA2;">Correcta instalación</div>
-                                    <div style="font-size: 0.85rem;">El fabricante debe indicar: posición del contador, caudal mínimo/máximo/nominal, intervalo de temperaturas, presión máxima de trabajo. Todo contador debe tener una válvula de corte a su entrada y los de ACS, además, dispondrán de una válvula antirretorno.</div>
+                                <div style="margin-top: 1rem;">
+                                    <p><strong>Correcta instalación:</strong> El fabricante debe indicar posición del contador, caudal mínimo/máximo/nominal, intervalo de temperaturas, presión máxima de trabajo. Todo contador debe tener una válvula de corte a su entrada y los de ACS, además, dispondrán de una válvula antirretorno.</p>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Conducciones -->
-                        <div class="compact-card" style="border-top-color: #607D8B; margin-bottom: 1.5rem;">
-                            <div class="compact-header">
-                                <div class="compact-icon" style="background: #607D8B;">
+                        <div class="element-card" style="border-left-color: #607D8B; margin-top: 1.5rem;">
+                            <div class="element-header">
+                                <div class="element-icon" style="background: #607D8B;">
                                     <i class="fas fa-pipe"></i>
                                 </div>
-                                <div class="compact-title">Conducciones</div>
+                                <div>
+                                    <div class="element-title">Conducciones</div>
+                                    <div class="element-subtitle">Sistema de transporte de fluido entre dos puntos de una instalación</div>
+                                </div>
                             </div>
-                            <div style="font-size: 0.9rem; margin-top: 0.5rem;">
-                                <p>Sistema de transporte de un fluido entre dos puntos de una instalación. Además de tuberías y uniones, incluyen soportes, aislamiento térmico, dilatadores, protecciones mecánicas, etc.</p>
-                                
-                                <div class="two-columns" style="margin-top: 1rem;">
-                                    <div style="padding: 1rem; background: #ECEFF1; border-radius: 8px;">
-                                        <h5 style="color: #455A64; margin-bottom: 0.5rem;">Temperatura</h5>
-                                        <ul class="compact-list">
-                                            <li>Trabajo normal: <span class="red-number">&gt;50°C</span></li>
-                                            <li>Periódica (legionelosis): <span class="red-number">70°C</span></li>
-                                            <li>CTE HS4 prohibe acero galvanizado para <span class="red-number">&gt;60°C</span></li>
-                                            <li>Permitido: acero inoxidable, cobre, termoplásticos adecuados</li>
-                                        </ul>
+                            
+                            <div class="element-content">
+                                <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1rem;">
+                                    <div style="flex: 1; min-width: 250px;">
+                                        <div style="margin-bottom: 1rem;">
+                                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.5rem;">
+                                                <i class="fas fa-thermometer-three-quarters" style="color: #D32F2F;"></i>
+                                                <strong style="color: #455A64;">Temperatura</strong>
+                                            </div>
+                                            <ul class="element-list">
+                                                <li>Trabajo normal: <span class="red-number">&gt;50°C</span></li>
+                                                <li>Periódica (legionelosis): <span class="red-number">70°C</span></li>
+                                                <li>CTE HS4 prohibe acero galvanizado para <span class="red-number">&gt;60°C</span></li>
+                                            </ul>
+                                        </div>
                                     </div>
                                     
-                                    <div style="padding: 1rem; background: #ECEFF1; border-radius: 8px;">
-                                        <h5 style="color: #455A64; margin-bottom: 0.5rem;">Presión</h5>
-                                        <ul class="compact-list">
-                                            <li>Mínima garantizada: <span class="red-number">1 bar</span></li>
-                                            <li>Máxima: <span class="red-number">5 bar</span></li>
-                                            <li>Materiales termoplásticos: menor presión soportan a mayor temperatura</li>
-                                            <li>Seleccionar tipo/categoría según certificación del fabricante</li>
-                                        </ul>
+                                    <div style="flex: 1; min-width: 250px;">
+                                        <div style="margin-bottom: 1rem;">
+                                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.5rem;">
+                                                <i class="fas fa-tachometer-alt" style="color: #2196F3;"></i>
+                                                <strong style="color: #455A64;">Presión</strong>
+                                            </div>
+                                            <ul class="element-list">
+                                                <li>Mínima garantizada: <span class="red-number">1 bar</span></li>
+                                                <li>Máxima: <span class="red-number">5 bar</span></li>
+                                                <li>Materiales termoplásticos: menor presión a mayor temperatura</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                                 
-                                <div class="info-box" style="margin-top: 1rem;">
-                                    <div class="box-icon" style="background: #607D8B;">
-                                        <i class="fas fa-search"></i>
-                                    </div>
-                                    <div>
-                                        <strong>Detectar fugas:</strong> Posibilidad de identificar una fuga de agua sin apariencia, a través del movimiento de la palomilla sin existir consumo. Denota claramente la existencia de un problema por posible pérdida o fuga en el circuito de ACS.
+                                <div style="margin-top: 1rem; padding: 1rem; background: #ECEFF1; border-radius: 8px;">
+                                    <div style="display: flex; align-items: flex-start; gap: 10px;">
+                                        <i class="fas fa-search" style="color: #607D8B; margin-top: 0.2rem;"></i>
+                                        <div>
+                                            <strong>Detectar fugas:</strong> Posibilidad de identificar una fuga de agua sin apariencia, a través del movimiento de la palomilla sin existir consumo. Denota claramente la existencia de un problema por posible pérdida o fuga en el circuito de ACS.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Depósito de expansión -->
-                        <div class="compact-card" style="border-top-color: #2196F3; margin-bottom: 1.5rem;">
-                            <div class="compact-header">
-                                <div class="compact-icon" style="background: #2196F3;">
+                        <div class="element-card" style="border-left-color: #2196F3; margin-top: 1.5rem;">
+                            <div class="element-header">
+                                <div class="element-icon" style="background: #2196F3;">
                                     <i class="fas fa-compress-alt"></i>
                                 </div>
-                                <div class="compact-title">Depósito de expansión</div>
+                                <div>
+                                    <div class="element-title">Depósito de expansión</div>
+                                    <div class="element-subtitle">Elemento de seguridad para absorber cambios de presión por temperatura</div>
+                                </div>
                             </div>
-                            <div style="font-size: 0.9rem; margin-top: 0.5rem;">
-                                <p>Elemento de seguridad de cualquier instalación hidráulica que absorbe los aumentos y disminuciones de presión cuando se incrementa o desciende la temperatura del fluido interior.</p>
-                                
-                                <div style="padding: 1rem; background: #E3F2FD; border-radius: 8px; margin-top: 1rem;">
-                                    <h5 style="color: #1976D2; margin-bottom: 0.5rem;">Funcionamiento</h5>
-                                    <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
-                                        <div style="flex: 1; min-width: 150px;">
-                                            <div style="font-weight: 700; color: #1976D2; font-size: 0.9rem;">Depósito metálico</div>
-                                            <div style="font-size: 0.85rem;">Dividido en dos zonas por membrana elástica impermeable</div>
+                            
+                            <div class="element-content">
+                                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+                                    <div style="flex: 1; min-width: 200px;">
+                                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem;">
+                                            <div style="width: 30px; height: 30px; background: #2196F3; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem;">
+                                                <i class="fas fa-box"></i>
+                                            </div>
+                                            <strong style="color: #1976D2;">Depósito metálico</strong>
                                         </div>
-                                        <div style="flex: 1; min-width: 150px;">
-                                            <div style="font-weight: 700; color: #1976D2; font-size: 0.9rem;">Zona fluido</div>
-                                            <div style="font-size: 0.85rem;">En contacto con el agua del sistema</div>
-                                        </div>
-                                        <div style="flex: 1; min-width: 150px;">
-                                            <div style="font-weight: 700; color: #1976D2; font-size: 0.9rem;">Zona gas</div>
-                                            <div style="font-size: 0.85rem;">Llena de aire o gas inerte (nitrógeno)</div>
+                                        <div style="font-size: 0.9rem;">
+                                            Dos zonas separadas por membrana elástica impermeable
                                         </div>
                                     </div>
                                     
-                                    <div class="two-columns" style="margin-top: 1rem;">
-                                        <div style="padding: 0.8rem; background: #BBDEFB; border-radius: 6px;">
-                                            <div style="font-weight: 700; color: #1976D2;">Aumento temperatura</div>
-                                            <div style="font-size: 0.85rem;">Sobrepresión del líquido comprime el gas evitando averías en las uniones.</div>
+                                    <div style="flex: 1; min-width: 200px;">
+                                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem;">
+                                            <div style="width: 30px; height: 30px; background: #2196F3; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem;">
+                                                <i class="fas fa-tint"></i>
+                                            </div>
+                                            <strong style="color: #1976D2;">Zona fluido</strong>
                                         </div>
-                                        <div style="padding: 0.8rem; background: #BBDEFB; border-radius: 6px;">
-                                            <div style="font-weight: 700; color: #1976D2;">Disminución temperatura</div>
-                                            <div style="font-size: 0.85rem;">La membrana se desplaza hacia la parte inferior, aumentando el espacio ocupado por el gas.</div>
+                                        <div style="font-size: 0.9rem;">
+                                            En contacto con el agua del sistema
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="flex: 1; min-width: 200px;">
+                                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem;">
+                                            <div style="width: 30px; height: 30px; background: #2196F3; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem;">
+                                                <i class="fas fa-wind"></i>
+                                            </div>
+                                            <strong style="color: #1976D2;">Zona gas</strong>
+                                        </div>
+                                        <div style="font-size: 0.9rem;">
+                                            Llena de aire o gas inerte (nitrógeno)
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div style="margin-top: 1.5rem;">
+                                    <p><strong>Funcionamiento:</strong></p>
+                                    <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 0.5rem;">
+                                        <div style="flex: 1; min-width: 200px; padding: 1rem; border: 1px solid #BBDEFB; border-radius: 8px;">
+                                            <div style="font-weight: 700; color: #1976D2; margin-bottom: 0.5rem;">Aumento temperatura</div>
+                                            <div style="font-size: 0.9rem;">Sobrepresión del líquido comprime el gas evitando averías.</div>
+                                        </div>
+                                        <div style="flex: 1; min-width: 200px; padding: 1rem; border: 1px solid #BBDEFB; border-radius: 8px;">
+                                            <div style="font-weight: 700; color: #1976D2; margin-bottom: 0.5rem;">Disminución temperatura</div>
+                                            <div style="font-size: 0.9rem;">Membrana se desplaza, aumentando espacio ocupado por el gas.</div>
                                         </div>
                                     </div>
                                 </div>
@@ -2541,134 +2710,113 @@
                         </div>
 
                         <!-- Bombas circuladoras -->
-                        <div class="compact-card" style="border-top-color: #9C27B0; margin-bottom: 1.5rem;">
-                            <div class="compact-header">
-                                <div class="compact-icon" style="background: #9C27B0;">
+                        <div class="element-card" style="border-left-color: #9C27B0; margin-top: 1.5rem;">
+                            <div class="element-header">
+                                <div class="element-icon" style="background: #9C27B0;">
                                     <i class="fas fa-pump"></i>
                                 </div>
-                                <div class="compact-title">Bombas circuladoras</div>
+                                <div>
+                                    <div class="element-title">Bombas circuladoras</div>
+                                    <div class="element-subtitle">Mecanismos de impulsión de fluidos caloportadores</div>
+                                </div>
                             </div>
-                            <div style="font-size: 0.9rem; margin-top: 0.5rem;">
-                                <p>Mecanismos de impulsión de fluidos que mueven el fluido caloportador hasta los calorreceptores.</p>
-                                
-                                <div class="two-columns" style="margin-top: 1rem;">
-                                    <div style="padding: 1rem; background: #F3E5F5; border-radius: 8px;">
-                                        <h5 style="color: #7B1FA2; margin-bottom: 0.5rem;">Tipos según función</h5>
-                                        <ul class="compact-list">
-                                            <li><strong>Bombas de primario:</strong> Transferencia calor calderas → primer intercambiador</li>
-                                            <li><strong>Bombas de secundario:</strong> Movimiento fluido entre intercambiadores externos y depósito</li>
-                                            <li><strong>Bombas de recirculación:</strong> Movimiento agua calentada desde depósito hasta último elemento terminal (<span class="red-number">≤15 m</span> longitud)</li>
-                                        </ul>
+                            
+                            <div class="element-content">
+                                <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1rem;">
+                                    <div style="flex: 1; min-width: 250px;">
+                                        <div style="margin-bottom: 1.5rem;">
+                                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem;">
+                                                <i class="fas fa-tasks" style="color: #9C27B0;"></i>
+                                                <strong style="color: #7B1FA2;">Por función</strong>
+                                            </div>
+                                            <ul class="element-list">
+                                                <li><strong>Bombas de primario:</strong> Transferencia calor calderas → primer intercambiador</li>
+                                                <li><strong>Bombas de secundario:</strong> Movimiento fluido entre intercambiadores externos y depósito</li>
+                                                <li><strong>Bombas de recirculación:</strong> Movimiento agua calentada desde depósito hasta último elemento terminal (<span class="red-number">≤15 m</span> longitud)</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                     
-                                    <div style="padding: 1rem; background: #F3E5F5; border-radius: 8px;">
-                                        <h5 style="color: #7B1FA2; margin-bottom: 0.5rem;">Tipos constructivos</h5>
-                                        <ul class="compact-list">
-                                            <li><strong>Rotor seco:</strong> Componentes en contacto con fluido separados del motor</li>
-                                            <li><strong>Rotor húmedo:</strong> Fluido accede hasta el rotor, refrigerando y lubricando el equipo</li>
-                                        </ul>
+                                    <div style="flex: 1; min-width: 250px;">
+                                        <div style="margin-bottom: 1.5rem;">
+                                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem;">
+                                                <i class="fas fa-cog" style="color: #9C27B0;"></i>
+                                                <strong style="color: #7B1FA2;">Por construcción</strong>
+                                            </div>
+                                            <ul class="element-list">
+                                                <li><strong>Rotor seco:</strong> Componentes en contacto con fluido separados del motor</li>
+                                                <li><strong>Rotor húmedo:</strong> Fluido accede hasta el rotor, refrigerando y lubricando</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                                 
-                                <div class="info-box" style="margin-top: 1rem;">
-                                    <div class="box-icon" style="background: #9C27B0;">
-                                        <i class="fas fa-info-circle"></i>
-                                    </div>
-                                    <div>
-                                        <strong>Nota:</strong> Circuito primario es cerrado con poca agresividad. Circuitos secundarios y de recirculación son abiertos, recibiendo continuadamente agua de consumo (más agresiva). Materiales adecuados: bronce o acero inoxidable.
+                                <div style="margin-top: 1rem; padding: 1rem; background: #F3E5F5; border-radius: 8px;">
+                                    <div style="display: flex; align-items: flex-start; gap: 10px;">
+                                        <i class="fas fa-info-circle" style="color: #9C27B0; margin-top: 0.2rem;"></i>
+                                        <div>
+                                            <strong>Nota:</strong> Circuito primario es cerrado con poca agresividad. Circuitos secundarios y de recirculación son abiertos, recibiendo continuadamente agua de consumo (más agresiva). Materiales adecuados: bronce o acero inoxidable.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Válvulas de regulación -->
-                        <div class="compact-card" style="border-top-color: #4CAF50; margin-bottom: 1.5rem;">
-                            <div class="compact-header">
-                                <div class="compact-icon" style="background: #4CAF50;">
-                                    <i class="fas fa-tachometer-alt"></i>
+                        <div class="element-card" style="border-left-color: #4CAF50; margin-top: 1.5rem;">
+                            <div class="element-header">
+                                <div class="element-icon" style="background: #4CAF50;">
+                                    <i class="fas fa-filter"></i>
                                 </div>
-                                <div class="compact-title">Válvulas de regulación</div>
+                                <div>
+                                    <div class="element-title">Válvulas de regulación</div>
+                                    <div class="element-subtitle">Para regulación de temperaturas de ACS</div>
+                                </div>
                             </div>
-                            <div style="font-size: 0.9rem; margin-top: 0.5rem;">
-                                <p>Para la regulación de las temperaturas de ACS se emplean dos tipos de válvulas:</p>
-                                
-                                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin: 1rem 0;">
-                                    <div style="flex: 1; min-width: 200px; padding: 0.8rem; background: #E8F5E9; border-radius: 6px;">
-                                        <div style="font-weight: 700; color: #388E3C;">Motorizadas</div>
-                                        <div style="font-size: 0.85rem;">Actúan mediante servomotores comandados por las señales recibidas de las sondas de temperatura del sistema.</div>
+                            
+                            <div class="element-content">
+                                <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1rem;">
+                                    <div style="flex: 1; min-width: 200px;">
+                                        <div style="margin-bottom: 1.5rem;">
+                                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem;">
+                                                <i class="fas fa-motorcycle" style="color: #4CAF50;"></i>
+                                                <strong style="color: #388E3C;">Motorizadas</strong>
+                                            </div>
+                                            <div style="font-size: 0.9rem;">
+                                                Actúan mediante servomotores comandados por señales de sondas de temperatura.
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div style="flex: 1; min-width: 200px; padding: 0.8rem; background: #E8F5E9; border-radius: 6px;">
-                                        <div style="font-weight: 700; color: #388E3C;">Termostáticas</div>
-                                        <div style="font-size: 0.85rem;">Funcionan mediante un elemento sensible a temperatura que se posiciona en modo abierto o cerrado.</div>
+                                    
+                                    <div style="flex: 1; min-width: 200px;">
+                                        <div style="margin-bottom: 1.5rem;">
+                                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem;">
+                                                <i class="fas fa-thermometer-half" style="color: #4CAF50;"></i>
+                                                <strong style="color: #388E3C;">Termostáticas</strong>
+                                            </div>
+                                            <div style="font-size: 0.9rem;">
+                                                Funcionan mediante elemento sensible a temperatura que se posiciona en modo abierto o cerrado.
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 
                                 <div style="margin-top: 1rem;">
-                                    <h5 style="color: #388E3C; margin-bottom: 0.5rem;">Tipos según número de vías:</h5>
-                                    <div class="two-columns">
-                                        <div style="padding: 0.8rem; background: #C8E6C9; border-radius: 6px;">
-                                            <div style="font-weight: 700; color: #2E7D32;">Válvulas 4 vías</div>
-                                            <div style="font-size: 0.85rem;">Salida depósitos acumulación (acumulación, agua fría, ACS y recirculación). El caudal de recirculación mantiene la válvula continuamente en actuación.</div>
+                                    <p><strong>Por número de vías:</strong></p>
+                                    <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 0.5rem;">
+                                        <div style="flex: 1; min-width: 200px; padding: 1rem; border: 1px solid #C8E6C9; border-radius: 8px;">
+                                            <div style="font-weight: 700; color: #2E7D32; margin-bottom: 0.5rem;">Válvulas 4 vías</div>
+                                            <div style="font-size: 0.9rem;">Salida depósitos acumulación (acumulación, agua fría, ACS, recirculación).</div>
                                         </div>
-                                        <div style="padding: 0.8rem; background: #C8E6C9; border-radius: 6px;">
-                                            <div style="font-weight: 700; color: #2E7D32;">Válvulas 3 vías</div>
-                                            <div style="font-size: 0.85rem;">Ubicación próxima a puntos de consumo, no admiten recirculación.</div>
+                                        <div style="flex: 1; min-width: 200px; padding: 1rem; border: 1px solid #C8E6C9; border-radius: 8px;">
+                                            <div style="font-weight: 700; color: #2E7D32; margin-bottom: 0.5rem;">Válvulas 3 vías</div>
+                                            <div style="font-size: 0.9rem;">Ubicación próxima a puntos de consumo, no admiten recirculación.</div>
                                         </div>
-                                        <div style="padding: 0.8rem; background: #C8E6C9; border-radius: 6px;">
-                                            <div style="font-weight: 700; color: #2E7D32;">Válvulas 2 vías</div>
-                                            <div style="font-size: 0.85rem;">Exclusivamente en montantes de recirculación, reducen el caudal al necesario para mantener temperaturas de consigna.</div>
+                                        <div style="flex: 1; min-width: 200px; padding: 1rem; border: 1px solid #C8E6C9; border-radius: 8px;">
+                                            <div style="font-weight: 700; color: #2E7D32; margin-bottom: 0.5rem;">Válvulas 2 vías</div>
+                                            <div style="font-size: 0.9rem;">Exclusivamente en montantes de recirculación, reducen caudal al necesario.</div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Resumen elementos -->
-                        <div class="stat-highlight">
-                            <div class="stat-highlight-number">7</div>
-                            <div class="stat-highlight-label">Elementos principales de un sistema centralizado</div>
-                            <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; justify-content: center;">
-                                <div style="text-align: center; padding: 0.8rem; min-width: 120px;">
-                                    <div style="width: 50px; height: 50px; background: #FF9800; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; margin: 0 auto 0.5rem;">
-                                        <i class="fas fa-database"></i>
-                                    </div>
-                                    <div style="font-weight: 700; font-size: 0.8rem;">Depósitos</div>
-                                </div>
-                                <div style="text-align: center; padding: 0.8rem; min-width: 120px;">
-                                    <div style="width: 50px; height: 50px; background: #2196F3; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; margin: 0 auto 0.5rem;">
-                                        <i class="fas fa-retweet"></i>
-                                    </div>
-                                    <div style="font-weight: 700; font-size: 0.8rem;">Circuito retorno</div>
-                                </div>
-                                <div style="text-align: center; padding: 0.8rem; min-width: 120px;">
-                                    <div style="width: 50px; height: 50px; background: #4CAF50; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; margin: 0 auto 0.5rem;">
-                                        <i class="fas fa-exchange-alt"></i>
-                                    </div>
-                                    <div style="font-weight: 700; font-size: 0.8rem;">Intercambiadores</div>
-                                </div>
-                                <div style="text-align: center; padding: 0.8rem; min-width: 120px;">
-                                    <div style="width: 50px; height: 50px; background: #9C27B0; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; margin: 0 auto 0.5rem;">
-                                        <i class="fas fa-tachometer-alt"></i>
-                                    </div>
-                                    <div style="font-weight: 700; font-size: 0.8rem;">Contadores</div>
-                                </div>
-                                <div style="text-align: center; padding: 0.8rem; min-width: 120px;">
-                                    <div style="width: 50px; height: 50px; background: #607D8B; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; margin: 0 auto 0.5rem;">
-                                        <i class="fas fa-pipe"></i>
-                                    </div>
-                                    <div style="font-weight: 700; font-size: 0.8rem;">Conducciones</div>
-                                </div>
-                                <div style="text-align: center; padding: 0.8rem; min-width: 120px;">
-                                    <div style="width: 50px; height: 50px; background: #2196F3; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; margin: 0 auto 0.5rem;">
-                                        <i class="fas fa-compress-alt"></i>
-                                    </div>
-                                    <div style="font-weight: 700; font-size: 0.8rem;">Depósito expansión</div>
-                                </div>
-                                <div style="text-align: center; padding: 0.8rem; min-width: 120px;">
-                                    <div style="width: 50px; height: 50px; background: #9C27B0; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; margin: 0 auto 0.5rem;">
-                                        <i class="fas fa-pump"></i>
-                                    </div>
-                                    <div style="font-weight: 700; font-size: 0.8rem;">Bombas</div>
                                 </div>
                             </div>
                         </div>
