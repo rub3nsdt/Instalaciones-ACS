@@ -1221,43 +1221,476 @@
             font-size: 1.2rem;
         }                
 
+        /* HEADER VISUAL ACS */
+        .hero-header-acs {
+            background: var(--gradient-acs);
+            color: white;
+            padding: 2.5rem 0 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 2.5rem;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+            box-shadow: 0 10px 30px rgba(33, 150, 243, 0.4);
+            min-height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Animación de gotas de agua */
+        .water-drops {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .drop {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(33, 150, 243, 0.5);
+            animation: dropFall linear infinite;
+        }
+
+        .drop:nth-child(1) {
+            width: 12px;
+            height: 12px;
+            left: 10%;
+            animation-duration: 8s;
+            animation-delay: 0s;
+        }
+
+        .drop:nth-child(2) {
+            left: 25%;
+            animation-duration: 10s;
+            animation-delay: 1s;
+        }
+
+        .drop:nth-child(3) {
+            width: 8px;
+            height: 8px;
+            left: 40%;
+            animation-duration: 12s;
+            animation-delay: 2s;
+        }
+
+        .drop:nth-child(4) {
+            left: 60%;
+            animation-duration: 9s;
+            animation-delay: 0.5s;
+        }
+
+        .drop:nth-child(5) {
+            width: 14px;
+            height: 14px;
+            left: 80%;
+            animation-duration: 11s;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes dropFall {
+            0% {
+                top: -50px;
+                opacity: 1;
+            }
+            100% {
+                top: 100%;
+                opacity: 0;
+            }
+        }
+
+        /* Animación de ondas de calor */
+        .heat-waves {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .wave {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border: 2px solid rgba(255, 82, 82, 0.2);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: heatWave 4s infinite ease-out;
+        }
+
+        .wave:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .wave:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        .wave:nth-child(3) {
+            animation-delay: 2s;
+        }
+
+        @keyframes heatWave {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 1;
+            }
+            100% {
+                width: 600px;
+                height: 600px;
+                opacity: 0;
+            }
+        }
+
+        /* Iconos flotantes de agua y fuego */
+        .floating-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .floating-icon {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.2;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .fa-tint {
+            color: var(--color-water-light);
+        }
+
+        .fa-fire {
+            color: var(--color-heat-light);
+        }
+
+        .fa-fire-flame-curved {
+            color: var(--color-heat);
+        }
+
+        .floating-icon:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-duration: 20s;
+        }
+
+        .floating-icon:nth-child(2) {
+            top: 60%;
+            left: 15%;
+            animation-duration: 18s;
+            animation-delay: 2s;
+        }
+
+        .floating-icon:nth-child(3) {
+            top: 30%;
+            right: 15%;
+            animation-duration: 22s;
+            animation-delay: 1s;
+        }
+
+        .floating-icon:nth-child(4) {
+            top: 70%;
+            right: 10%;
+            animation-duration: 19s;
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-20px) rotate(120deg);
+            }
+            66% {
+                transform: translateY(10px) rotate(240deg);
+            }
+        }
+
+        /* Contenido del header */
+        .header-content-acs {
+            position: relative;
+            z-index: 3;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .main-title-acs {
+            margin-bottom: 1rem;
+        }
+
+        .title-text-acs {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .title-word-acs {
+            font-size: 2.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            line-height: 1.1;
+        }
+
+        .title-1-acs {
+            color: white;
+            animation: titleGlowWater 4s infinite alternate;
+            margin-top: 2rem;
+        }
+
+        .title-2-acs {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 2.2rem;
+        }
+
+        .title-3-acs {
+            color: #FF9800;
+            text-shadow: 0 0 15px rgba(255, 152, 0, 0.5);
+            position: relative;
+        }
+
+        .title-3-acs:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #2196F3, #FF5252, transparent);
+            animation: waterFireLine 3s infinite;
+        }
+
+        @keyframes titleGlowWater {
+            0% { text-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); }
+            100% { text-shadow: 0 5px 20px rgba(33, 150, 243, 0.6); }
+        }
+
+        @keyframes waterFireLine {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .subtitle-acs {
+            margin-bottom: 1.5rem;
+            margin-top: 5rem;
+        }
+
+        .subtitle-text-acs {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+            line-height: 1.5;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            color: rgb(156, 145, 145);
+        }
+
+        .title-line-acs {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+            
+        }
+
+        .line-part-acs {
+            height: 2px;
+            background: rgb(245, 216, 216);
+            flex: 1;
+            
+        }
+
+        .line-center-acs {
+            width: 40px;
+            height: 40px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+
+        .water-icon {
+            width: 20px;
+            height: 20px;
+            background: rgba(250, 173, 173, 0.2);
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            position: relative;
+            animation: waterPulse 2s infinite;
+        }
+
+        .water-icon:before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            width: 30px;
+            height: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            animation: waterPulse 2s infinite reverse;
+        }
+
+        @keyframes waterPulse {
+            0% { 
+                transform: rotate(-45deg) scale(1); 
+                opacity: 0.7; 
+                box-shadow: 0 0 0 0 rgba(33, 150, 243, 0.7);
+            }
+            70% { 
+                transform: rotate(-45deg) scale(1.2); 
+                opacity: 1;
+                box-shadow: 0 0 0 10px rgba(33, 150, 243, 0);
+            }
+            100% { 
+                transform: rotate(-45deg) scale(1); 
+                opacity: 0.7;
+                box-shadow: 0 0 0 0 rgba(33, 150, 243, 0);
+            }
+        }
+
+        /* Estadísticas animadas */
+        .stats-container-acs {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 3;
+        }
+        
+        .stat-box-acs {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            min-width: 200px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-box-acs:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-box-acs:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .stat-box-acs:hover:before {
+            left: 100%;
+        }
+        
+        .stat-number-acs {
+            font-size: 2rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 0.3rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .stat-label-acs {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .stat-number-acs.red {
+            color: #FFEB3B;
+            animation: heatPulse 2s infinite;
+        }
+
+        @keyframes heatPulse {
+            0%, 100% { 
+                color: #FFEB3B;
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            }
+            50% { 
+                color: #FF9800;
+                text-shadow: 0 2px 8px rgba(255, 152, 0, 0.5);
+            }
+        }
+
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header class="hero-header">
-        <div class="container header-content">
-            <div class="logo-container">
-                <div class="logo-icon" style="background: var(--gradient-water);">
-                    <i class="fas fa-tint"></i>
-                </div>
-                <div class="logo-icon" style="background: var(--gradient-heat);">
-                    <i class="fas fa-fire"></i>
-                </div>
-                <div class="logo-icon" style="background: var(--gradient-solar);">
-                    <i class="fas fa-sun"></i>
-                </div>
-                <div class="logo-icon" style="background: var(--gradient-legal);">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
+    <header class="hero-header-acs">
+        <!-- Sistema de gotas de agua animadas -->
+        <div class="water-drops">
+            <div class="drop"></div>
+            <div class="drop"></div>
+            <div class="drop"></div>
+            <div class="drop"></div>
+            <div class="drop"></div>
+        </div>
+        
+        <!-- Animación de ondas de calor -->
+        <div class="heat-waves">
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+        </div>
+        
+        <!-- Iconos flotantes de agua y calor -->
+        <div class="floating-icons">
+            <div class="floating-icon"><i class="fas fa-tint"></i></div>
+            <div class="floating-icon"><i class="fas fa-fire"></i></div>
+            <div class="floating-icon"><i class="fas fa-fire-flame-curved"></i></div>
+            <div class="floating-icon"><i class="fas fa-tint"></i></div>
+        </div>
+        
+        <!-- Contenido principal -->
+        <div class="container header-content-acs">
+            <!-- Título principal -->
+            <div class="main-title-acs">
+                <h1 class="title-text-acs">
+                    <span class="title-word-acs title-1-acs">INSTALACIONES DE</span>
+                    <span class="title-word-acs title-3-acs">AGUA CALIENTE SANITARIA</span>
+                    <span class="title-word-acs title-2-acs">(ACS)</span>
+                </h1>
             </div>
             
-            <h1>🚿 INSTALACIONES DE AGUA CALIENTE SANITARIA (ACS)</h1>
-            <p>Guía visual completa de sistemas de producción, distribución y normativa según CTE, RITE y RD 487/2022</p>
+            <!-- Subtítulo -->
+            <div class="subtitle-acs">
+                <p class="subtitle-text-acs">Guía visual completa de sistemas de producción, distribución y normativa según CTE, RITE y RD 487/2022</p>
+            </div>
             
-            <div class="stats-container">
-                <div class="stat-box">
-                    <div class="stat-number red">60°C</div>
-                    <div class="stat-label">Temperatura mínima acumulación</div>
+            <!-- Línea decorativa -->
+            <div class="title-line-acs">
+                <div class="line-part-acs line-left"></div>
+                <div class="line-center-acs">
+                    <div class="water-icon"></div>
                 </div>
-                <div class="stat-box">
-                    <div class="stat-number red">70%</div>
-                    <div class="stat-label">Contribución renovable mínima</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number red">15 m</div>
-                    <div class="stat-label">Longitud para retorno obligatorio</div>
-                </div>
+                <div class="line-part-acs line-right"></div>
             </div>
         </div>
     </header>
@@ -2343,58 +2776,67 @@
 
                         <!-- Depósitos -->
                         <div class="element-card" style="border-left-color: #FF9800;">
-                            <div class="element-header">
-                                <div class="element-icon" style="background: #FF9800;">
-                                    <i class="fas fa-database"></i>
-                                </div>
-                                <div>
-                                    <div class="element-title">Depósitos de acumulación</div>
-                                    <div class="element-subtitle">Interacumuladores o acumuladores según capacidad de producción ACS</div>
-                                </div>
-                            </div>
-                            
-                            <div class="element-content">
-                                <p><strong>Características principales:</strong></p>
-                                <ul class="element-list">
-                                    <li><strong>Presión mínima:</strong> <span class="red-number">6 bar</span> (recomendable 8 bar)</li>
-                                    <li><strong>Temperatura:</strong> No inferior a <span class="red-number">70°C</span> (prevención legionelosis)</li>
-                                </ul>
-                                
-                                <div style="margin-top: 1rem;">
-                                    <p><strong>Tipos de depósitos:</strong></p>
-                                    <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 0.5rem;">
-                                        <div style="flex: 1; min-width: 200px; padding: 1rem; border: 1px solid #FFE0B2; border-radius: 8px;">
-                                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.5rem;">
-                                                <div style="width: 30px; height: 30px; background: #FF9800; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: white;">
-                                                    <i class="fas fa-box"></i>
-                                                </div>
-                                                <strong style="color: #FF8F00;">Acumulador</strong>
-                                            </div>
-                                            <div style="font-size: 0.85rem;">Únicamente almacena ACS. Requiere intercambiador exterior + bomba secundario.</div>
+                            <div class="columnas">
+                                <div style="flex: 1 1;">
+                                    <div class="element-header">
+                                        <div class="element-icon" style="background: #FF9800;">
+                                            <i class="fas fa-database"></i>
                                         </div>
-                                        
-                                        <div style="flex: 1; min-width: 200px; padding: 1rem; border: 1px solid #FFE0B2; border-radius: 8px;">
-                                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.5rem;">
-                                                <div style="width: 30px; height: 30px; background: #FF9800; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: white;">
-                                                    <i class="fas fa-layer-group"></i>
-                                                </div>
-                                                <strong style="color: #FF8F00;">Interacumulador doble pared</strong>
-                                            </div>
-                                            <div style="font-size: 0.85rem;">Envolvente exterior por la que circula agua calderas rodeando acumulador.</div>
+                                        <div>
+                                            <div class="element-title">Depósitos de acumulación</div>
+                                            <div class="element-subtitle">Interacumuladores o acumuladores según capacidad de producción ACS</div>
                                         </div>
-                                        
-                                        <div style="flex: 1; min-width: 200px; padding: 1rem; border: 1px solid #FFE0B2; border-radius: 8px;">
-                                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.5rem;">
-                                                <div style="width: 30px; height: 30px; background: #FF9800; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: white;">
-                                                    <i class="fas fa-coil"></i>
+                                    </div>
+                                    
+                                    
+                                    <p><strong>Características principales:</strong></p>
+                                    <ul class="element-list">
+                                        <li><strong>Presión mínima:</strong> <span class="red-number">6 bar</span> (recomendable 8 bar)</li>
+                                        <li><strong>Temperatura:</strong> No inferior a <span class="red-number">70°C</span> (prevención legionelosis)</li>
+                                    </ul>
+                                </div>    
+
+                                <div style="flex: 1 1;">    
+                                    <div style="margin-bottom: 1rem;">
+                                        <p><strong>Tipos de depósitos:</strong></p>
+                                        <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 0.5rem;">
+                                            <div style="flex: 1; min-width: 200px; padding: 1rem; border: 1px solid #FFE0B2; border-radius: 8px;">
+                                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.5rem;">
+                                                    <div style="width: 30px; height: 30px; background: #FF9800; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: white;">
+                                                        <i class="fas fa-box"></i>
+                                                    </div>
+                                                    <strong style="color: #FF8F00;">Acumulador</strong>
                                                 </div>
-                                                <strong style="color: #FF8F00;">Interacumulador serpentín interior</strong>
+                                                <div style="font-size: 0.85rem;">Únicamente almacena ACS. Requiere intercambiador exterior + bomba secundario.</div>
                                             </div>
-                                            <div style="font-size: 0.85rem;">Intercambiador tubular interior para cesión térmica + aislamiento exterior.</div>
+                                            
+                                            <div style="flex: 1; min-width: 200px; padding: 1rem; border: 1px solid #FFE0B2; border-radius: 8px;">
+                                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.5rem;">
+                                                    <div style="width: 30px; height: 30px; background: #FF9800; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: white;">
+                                                        <i class="fas fa-layer-group"></i>
+                                                    </div>
+                                                    <strong style="color: #FF8F00;">Interacumulador doble pared</strong>
+                                                </div>
+                                                <div style="font-size: 0.85rem;">Envolvente exterior por la que circula agua calderas rodeando acumulador.</div>
+                                            </div>
+                                            
+                                            <div style="flex: 1; min-width: 200px; padding: 1rem; border: 1px solid #FFE0B2; border-radius: 8px;">
+                                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.5rem;">
+                                                    <div style="width: 30px; height: 30px; background: #FF9800; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: white;">
+                                                        <i class="fa-solid fa-retweet"></i>
+                                                    </div>
+                                                    <strong style="color: #FF8F00;">Interacumulador serpentín interior</strong>
+                                                </div>
+                                                <div style="font-size: 0.85rem;">Intercambiador tubular interior para cesión térmica + aislamiento exterior.</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> 
+
+                            <div style="display: flex; flex: 1 1;">
+                                <img src="Images/Interac.png" alt="" style="max-width: 100%; height: auto; margin: auto;">
+                            </div>                                                                    
                         </div>
 
                         <!-- Conexiones obligatorias depósitos -->
@@ -2431,9 +2873,7 @@
                                                 <div style="font-size: 0.85rem;">Parte superior del depósito</div>
                                             </div>
                                         </div>
-                                    </div>
-                                    
-                                    <div style="flex: 1; min-width: 200px;">
+
                                         <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 1rem;">
                                             <div style="width: 24px; height: 24px; background: #FF9800; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem; flex-shrink: 0;">
                                                 3
@@ -2443,16 +2883,38 @@
                                                 <div style="font-size: 0.85rem;">Parte inferior para purga de lodos y toma de muestras legionela</div>
                                             </div>
                                         </div>
-                                        
+                                    </div>
+                                    
+                                    <div style="flex: 1; min-width: 200px;">                                                                                
                                         <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 1rem;">
                                             <div style="width: 24px; height: 24px; background: #FF9800; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem; flex-shrink: 0;">
                                                 4
                                             </div>
                                             <div>
                                                 <strong style="color: #FF8F00;">Registro limpieza</strong>
-                                                <div style="font-size: 0.85rem;">&lt;750L: limpieza manual<br>&gt;750L: mínimo DN400 ("Boca de Hombre")</div>
+                                                <div style="font-size: 0.85rem;"><span class="red-number">&lt;750L</span>: limpieza manual<br><span class="red-number">&gt;750L: mínimo DN400</span> ("Boca de Hombre")</div>
                                             </div>
                                         </div>
+
+                                        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 1rem;">
+                                            <div style="width: 24px; height: 24px; background: #FF9800; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem; flex-shrink: 0;">
+                                                5
+                                            </div>
+                                            <div>
+                                                <strong style="color: #FF8F00;">Sistemas de producción</strong>
+                                                <div style="font-size: 0.85rem;">Con intercambiadores exteriores de placas, o serpentines interiores</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 1rem;">
+                                            <div style="width: 24px; height: 24px; background: #FF9800; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem; flex-shrink: 0;">
+                                                6
+                                            </div>
+                                            <div>
+                                                <strong style="color: #FF8F00;">Sondas de regulación</strong>
+                                                <div style="font-size: 0.85rem;">Termómetros, válvula de seguridad, recirculación de ACS...</div>
+                                            </div>
+                                        </div>                                        
                                     </div>
                                 </div>
                                 
@@ -2466,6 +2928,33 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- ¿Qué es un interacumulador? -->
+                        <div class="element-card" style="border-left-color: #FF9800; margin-top: 1.5rem;">
+                            <div class="element-header">
+                                <div class="element-icon" style="background: #FF9800;">
+                                    <i class="fas fa-question-circle"></i>
+                                </div>
+                                <div>
+                                    <div class="element-title">¿Qué es un interacumulador?</div>
+                                    <div class="element-subtitle">Diferencias clave con el acumulador</div>
+                                </div>
+                            </div>
+                            
+                            <div class="element-content">
+                                <p>Son aparatos que producen <strong>acumulación de agua caliente para uso sanitario</strong>, conectados siempre a una fuente de calor externa (caldera, panel solar, etc.).</p>
+                                
+                                <div style="padding: 1rem; background: #FFF3E0; border-radius: 8px; margin: 1rem 0;">
+                                    <p style="margin: 0; font-weight: 600; color: #FF8F00;">Diferencia clave:</p>
+                                    <ul class="element-list">
+                                        <li><strong>Interacumulador:</strong> Puede producir ACS (tiene serpentín integrado)</li>
+                                        <li><strong>Acumulador:</strong> Solo almacena ACS (necesita intercambiador externo)</li>
+                                    </ul>
+                                </div>
+                                
+                                <p>El <strong>serpentín actúa como intercambiador</strong>, transfiriendo calor del circuito primario (fuente de calor) al secundario (ACS). Incluye un <strong>termostato</strong> que controla la temperatura y regula la fuente de calor externa.</p>
+                            </div>
+                        </div>                        
 
                         <!-- Circuito de retorno -->
                         <div class="element-card" style="border-left-color: #2196F3; margin-top: 1.5rem;">
@@ -2522,7 +3011,7 @@
                                     <div style="flex: 1; min-width: 250px;">
                                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem;">
                                             <div style="width: 40px; height: 40px; background: #4CAF50; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white;">
-                                                <i class="fas fa-pipe"></i>
+                                                <i class="fa-solid fa-grip-lines"></i>
                                             </div>
                                             <strong style="color: #388E3C;">Intercambiador tubular</strong>
                                         </div>
@@ -2542,13 +3031,13 @@
                                 </div>
                                 <div>
                                     <div class="element-title">Contadores de agua</div>
-                                    <div class="element-subtitle">Instrumento para medir e indicar el volumen (m³) de agua</div>
+                                    <div class="element-subtitle">Instrumento para medir e indicar el volumen (m³) de agua. Deben estar homologados, precintados y verificados.</div>
                                 </div>
                             </div>
                             
                             <div class="element-content">
                                 <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1rem;">
-                                    <div style="flex: 1; min-width: 200px;">
+                                    <div style="flex: 1; min-width: 200px; background-color: rgba(0, 195, 255, 0.158); padding: 0.5rem; border-radius: 8px;">
                                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.5rem;">
                                             <div style="width: 32px; height: 32px; background: #2196F3; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem;">
                                                 <i class="fas fa-snowflake"></i>
@@ -2560,7 +3049,7 @@
                                         </div>
                                     </div>
                                     
-                                    <div style="flex: 1; min-width: 200px;">
+                                    <div style="flex: 1; min-width: 200px;  background-color: rgba(255, 0, 0, 0.158); padding: 0.5rem; border-radius: 8px;">
                                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.5rem;">
                                             <div style="width: 32px; height: 32px; background: #D32F2F; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem;">
                                                 <i class="fas fa-fire"></i>
@@ -2577,7 +3066,7 @@
                                     <div style="display: flex; align-items: flex-start; gap: 10px;">
                                         <i class="fas fa-exclamation-circle" style="color: #9C27B0; margin-top: 0.2rem;"></i>
                                         <div>
-                                            <strong>Obligatorio:</strong> Se deberá instalar un contador de ACS por cada uno de los usuarios de un edificio comunitario si el sistema de producción de agua caliente sanitaria es centralizado.
+                                            <strong>Obligatorio:</strong> Se deberá instalar un contador de ACS por cada uno de los usuarios de un edificio comunitario si el sistema de producción de agua caliente sanitaria es centralizado. En caso de que el ACS sea producido mediante calderas individuales pero cuenten con instalaciones de apoyo solar térmico comunitario, deberá colocarse un contador por cada usuario que pueda hacer uso de esa agua precalentada.
                                         </div>
                                     </div>
                                 </div>
@@ -2585,6 +3074,14 @@
                                 <div style="margin-top: 1rem;">
                                     <p><strong>Correcta instalación:</strong> El fabricante debe indicar posición del contador, caudal mínimo/máximo/nominal, intervalo de temperaturas, presión máxima de trabajo. Todo contador debe tener una válvula de corte a su entrada y los de ACS, además, dispondrán de una válvula antirretorno.</p>
                                 </div>
+                                <div style="margin-top: 1rem; padding: 1rem; background: #ECEFF1; border-radius: 8px;">
+                                    <div style="display: flex; align-items: flex-start; gap: 10px;">
+                                        <i class="fas fa-search" style="color: #607D8B; margin-top: 0.2rem;"></i>
+                                        <div>
+                                            <strong>Detectar fugas:</strong> Posibilidad de identificar una fuga de agua sin apariencia, a través del movimiento de la palomilla sin existir consumo. Denota claramente la existencia de un problema por posible pérdida o fuga en el circuito de ACS.
+                                        </div>
+                                    </div>
+                                </div>                                
                             </div>
                         </div>
 
@@ -2592,11 +3089,11 @@
                         <div class="element-card" style="border-left-color: #607D8B; margin-top: 1.5rem;">
                             <div class="element-header">
                                 <div class="element-icon" style="background: #607D8B;">
-                                    <i class="fas fa-pipe"></i>
+                                    <i class="fa-solid fa-grip-lines"></i>
                                 </div>
                                 <div>
                                     <div class="element-title">Conducciones</div>
-                                    <div class="element-subtitle">Sistema de transporte de fluido entre dos puntos de una instalación</div>
+                                    <div class="element-subtitle">Sistema de transporte de fluido entre dos puntos de una instalación. Deben ser compatibles con el fluido, no pudiendo afectar a su composición ni reaccionar con él, ser capaces de soportar la presión de trabajo de la instalación, y además mantenerse estables en su rango de temperaturas de trabajo.</div>
                                 </div>
                             </div>
                             
@@ -2611,7 +3108,8 @@
                                             <ul class="element-list">
                                                 <li>Trabajo normal: <span class="red-number">&gt;50°C</span></li>
                                                 <li>Periódica (legionelosis): <span class="red-number">70°C</span></li>
-                                                <li>CTE HS4 prohibe acero galvanizado para <span class="red-number">&gt;60°C</span></li>
+                                                <li>CTE HS4 prohibe acero galvanizado para <span class="red-number">&gt;60°C</span> ; permite acero inoxidable y cobre</li>
+                                                <li>No hay inconveniente en usar termoplásticos solo si son categoría adecuada</li>                                            
                                             </ul>
                                         </div>
                                     </div>
@@ -2625,20 +3123,13 @@
                                             <ul class="element-list">
                                                 <li>Mínima garantizada: <span class="red-number">1 bar</span></li>
                                                 <li>Máxima: <span class="red-number">5 bar</span></li>
-                                                <li>Materiales termoplásticos: menor presión a mayor temperatura</li>
+                                                <li>Se puede usar acero inoxidable y cobre; glavanizado solo si cumple la temperatura</li>
+                                                <li>Materiales termoplásticos: soportan menor presión a mayor temperatura, se debe tener cuidado</li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
-                                
-                                <div style="margin-top: 1rem; padding: 1rem; background: #ECEFF1; border-radius: 8px;">
-                                    <div style="display: flex; align-items: flex-start; gap: 10px;">
-                                        <i class="fas fa-search" style="color: #607D8B; margin-top: 0.2rem;"></i>
-                                        <div>
-                                            <strong>Detectar fugas:</strong> Posibilidad de identificar una fuga de agua sin apariencia, a través del movimiento de la palomilla sin existir consumo. Denota claramente la existencia de un problema por posible pérdida o fuga en el circuito de ACS.
-                                        </div>
-                                    </div>
-                                </div>
+                            
                             </div>
                         </div>
 
@@ -2655,8 +3146,8 @@
                             </div>
                             
                             <div class="element-content">
-                                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
-                                    <div style="flex: 1; min-width: 200px;">
+                                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; text-align: center;">
+                                    <div style="flex: 1 1 200px; display: flex; flex-direction: column; align-items: center;">
                                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem;">
                                             <div style="width: 30px; height: 30px; background: #2196F3; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem;">
                                                 <i class="fas fa-box"></i>
@@ -2668,7 +3159,7 @@
                                         </div>
                                     </div>
                                     
-                                    <div style="flex: 1; min-width: 200px;">
+                                    <div style="flex: 1 1 200px;  display: flex; flex-direction: column; align-items: center;">
                                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem;">
                                             <div style="width: 30px; height: 30px; background: #2196F3; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem;">
                                                 <i class="fas fa-tint"></i>
@@ -2680,7 +3171,7 @@
                                         </div>
                                     </div>
                                     
-                                    <div style="flex: 1; min-width: 200px;">
+                                    <div style="flex: 1 1 200px;  display: flex; flex-direction: column; align-items: center;">
                                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem;">
                                             <div style="width: 30px; height: 30px; background: #2196F3; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem;">
                                                 <i class="fas fa-wind"></i>
@@ -2707,13 +3198,17 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div style="display: flex; flex: 1 1; margin-top: 0.5rem;">
+                                <img src="Images/Expansion.png" alt="" style="max-width: 100%; height: auto; margin: auto;">
+                            </div>                               
                         </div>
 
                         <!-- Bombas circuladoras -->
                         <div class="element-card" style="border-left-color: #9C27B0; margin-top: 1.5rem;">
                             <div class="element-header">
                                 <div class="element-icon" style="background: #9C27B0;">
-                                    <i class="fas fa-pump"></i>
+                                    <i class="fa-solid fa-rotate"></i>
                                 </div>
                                 <div>
                                     <div class="element-title">Bombas circuladoras</div>
@@ -2755,7 +3250,7 @@
                                     <div style="display: flex; align-items: flex-start; gap: 10px;">
                                         <i class="fas fa-info-circle" style="color: #9C27B0; margin-top: 0.2rem;"></i>
                                         <div>
-                                            <strong>Nota:</strong> Circuito primario es cerrado con poca agresividad. Circuitos secundarios y de recirculación son abiertos, recibiendo continuadamente agua de consumo (más agresiva). Materiales adecuados: bronce o acero inoxidable.
+                                            <strong>Nota:</strong> Circuito primario es cerrado con poca agresividad. Circuitos secundarios y de recirculación son abiertos, recibiendo continuadamente agua de consumo (más agresiva). Materiales adecuados: <strong> bronce o acero inoxidable</strong>.
                                         </div>
                                     </div>
                                 </div>
@@ -2819,179 +3314,267 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div style="display: flex; flex: 1 1; margin-top: 0.5rem;">
+                                <img src="Images/Válvulas.png" alt="" style="max-width: 100%; height: auto; margin: auto;">
+                            </div>                             
                         </div>
                     </div>
-                    
-                    <!-- 3.3. Aparatos Productores ACS Centralizada -->
+
+                    <!-- Sección 3.3. APARATOS PRODUCTORES DE ACS CENTRALIZADA -->
                     <div class="section">
                         <div class="section-title">
-                            <div class="section-icon" style="background: #F57C00;">
-                                <i class="fas fa-cogs"></i>
+                            <div class="section-icon" style="background: linear-gradient(135deg, #FF9800, #FFB74D);">
+                                <i class="fas fa-industry"></i>
                             </div>
-                            <h3>3.3. Aparatos Productores ACS Centralizada</h3>
+                            <h3>3.3. APARATOS PRODUCTORES DE ACS CENTRALIZADA</h3>
                         </div>
                         
-                        <!-- 3.3.1 Con depósito interacumulador -->
-                        <div class="compact-card" style="border-top-color: #FF9800; margin-bottom: 1.5rem;">
-                            <div class="compact-header">
-                                <div class="compact-icon" style="background: #FF9800;">
-                                    <i class="fas fa-water"></i>
-                                </div>
-                                <div class="compact-title">3.3.1. Con Depósito Interacumulador</div>
+                        <!-- Introducción -->
+                        <div class="info-box" style="margin: 1.5rem 0;">
+                            <div class="box-icon" style="background: #FF9800;">
+                                <i class="fas fa-info-circle"></i>
                             </div>
-                            <div style="margin-top: 1rem;">
-                                <div class="circuit-diagram" style="background: linear-gradient(135deg, rgba(255, 152, 0, 0.05), rgba(255, 183, 77, 0.05));">
-                                    <div class="circuit-title" style="color: #F57C00;">⚙️ Funcionamiento</div>
-                                    <div class="circuit-steps">
-                                        <div class="circuit-step">
-                                            <div class="circuit-number" style="background: #D32F2F;">1</div>
-                                            <div><strong>Circuito primario</strong><br>Agua sale caldera → serpentín acumulador (superior) → retorno caldera (inferior)</div>
-                                        </div>
-                                        <div class="circuit-step">
-                                            <div class="circuit-number" style="background: #FF9800;">2</div>
-                                            <div><strong>Producción ACS</strong><br>Cesión energía térmica por serpentín calienta agua interior depósito</div>
-                                        </div>
-                                        <div class="circuit-step">
-                                            <div class="circuit-number" style="background: #4CAF50;">3</div>
-                                            <div><strong>Distribución</strong><br>ACS sale parte superior depósito → aparatos consumo</div>
-                                        </div>
-                                        <div class="circuit-step">
-                                            <div class="circuit-number" style="background: #2196F3;">4</div>
-                                            <div><strong>Retorno/Recirculación</strong><br>Bomba hace retornar agua → parte central depósito</div>
-                                        </div>
-                                        <div class="circuit-step">
-                                            <div class="circuit-number" style="background: #9C27B0;">5</div>
-                                            <div><strong>Reposición</strong><br>Agua consumida repuesta por acometida AFCH parte inferior</div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div>
+                                <p>Los sistemas de producción centralizada se dividen en dos configuraciones principales según cómo se realiza la transferencia de calor al agua de consumo. Ambos sistemas mantienen <strong>circuitos separados</strong> entre el agua de calderas (primario) y el agua de consumo (secundario/ACS).</p>
                             </div>
                         </div>
-                        
-                        <!-- 3.3.2 Con intercambiador de placas y depósito acumulador -->
-                        <div class="compact-card" style="border-top-color: #FFB74D; margin-bottom: 1.5rem;">
-                            <div class="compact-header">
-                                <div class="compact-icon" style="background: #FFB74D;">
-                                    <i class="fas fa-exchange-alt"></i>
-                                </div>
-                                <div class="compact-title">3.3.2. Con Intercambiador de Placas y Depósito Acumulador</div>
-                            </div>
-                            <div style="margin-top: 1rem;">
-                                <p>Depósito solo almacena agua. Intercambio calor en intercambiador de placas (no en caldera para preservar características ACS).</p>
-                                
-                                <div class="circuit-diagram" style="margin-top: 1rem; background: linear-gradient(135deg, rgba(255, 183, 77, 0.05), rgba(255, 204, 128, 0.05));">
-                                    <div class="circuit-title" style="color: #FF9800;">🔄 Circuitos</div>
-                                    <div class="circuit-steps">
-                                        <div class="circuit-step" style="border-top-color: #D32F2F;">
-                                            <div class="circuit-number" style="background: #D32F2F;">A</div>
-                                            <div><strong>Circuito Primario</strong><br>Caldera ↔ intercambiador (parte superior)</div>
-                                        </div>
-                                        <div class="circuit-step" style="border-top-color: #2196F3;">
-                                            <div class="circuit-number" style="background: #2196F3;">B</div>
-                                            <div><strong>Circuito Secundario</strong><br>Acumulador ↔ intercambiador (parte inferior)</div>
-                                        </div>
-                                        <div class="circuit-step" style="border-top-color: #4CAF50;">
-                                            <div class="circuit-number" style="background: #4CAF50;">C</div>
-                                            <div><strong>Reposición</strong><br>AFCH por parte inferior depósito</div>
-                                        </div>
-                                    </div>
-                                    <p style="margin-top: 1rem; text-align: center;"><strong>Transferencia calor:</strong> Contacto entre placas intercambiador (circuitos separados).</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Elementos adicionales -->
-                    <div class="section">
-                        <div class="section-title">
-                            <div class="section-icon" style="background: #607D8B;">
-                                <i class="fas fa-tools"></i>
-                            </div>
-                            <h3>Elementos Adicionales del Sistema</h3>
-                        </div>
-                        
-                        <div class="compact-grid">
-                            <div class="compact-card" style="border-top-color: #2196F3;">
-                                <div class="compact-header">
-                                    <div class="compact-icon" style="background: #2196F3;">
-                                        <i class="fas fa-compress-alt"></i>
-                                    </div>
-                                    <div class="compact-title">Depósito de Expansión</div>
-                                </div>
-                                <div style="font-size: 0.9rem;">
-                                    <p><strong>Función:</strong> Absorber aumentos/disminuciones presión por cambios temperatura fluido.</p>
-                                    <ul class="compact-list">
-                                        <li><strong>Depósito metálico:</strong> Dos zonas separadas por membrana elástica</li>
-                                        <li><strong>Zona fluido:</strong> En contacto con agua del sistema</li>
-                                        <li><strong>Zona gas:</strong> Llena de aire/nitrógeno (inerte)</li>
-                                        <li><strong>Aumento temperatura:</strong> Sobrepresión líquido comprime gas</li>
-                                        <li><strong>Disminución temperatura:</strong> Membrana desplaza hacia inferior, aumenta espacio gas</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <div class="compact-card" style="border-top-color: #4CAF50;">
-                                <div class="compact-header">
-                                    <div class="compact-icon" style="background: #4CAF50;">
-                                        <i class="fas fa-tachometer-alt"></i>
-                                    </div>
-                                    <div class="compact-title">Válvulas de Regulación</div>
-                                </div>
-                                <div style="font-size: 0.9rem;">
-                                    <p><strong>Tipos:</strong> Motorizadas (servomotores comandados por sondas) y termostáticas (elemento sensible a temperatura).</p>
-                                    <ul class="compact-list">
-                                        <li><strong>Válvulas 4 vías:</strong> Salida depósitos acumulación (acumulación, agua fría, ACS, recirculación)</li>
-                                        <li><strong>Válvulas 3 vías:</strong> Ubicación próxima puntos consumo (no admiten recirculación)</li>
-                                        <li><strong>Válvulas 2 vías:</strong> Montantes recirculación (reducen caudal al necesario)</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <div class="compact-card" style="border-top-color: #9C27B0;">
-                                <div class="compact-header">
-                                    <div class="compact-icon" style="background: #9C27B0;">
-                                        <i class="fas fa-pump"></i>
-                                    </div>
-                                    <div class="compact-title">Bombas Circuladoras</div>
-                                </div>
-                                <div style="font-size: 0.9rem;">
-                                    <p><strong>Funciones específicas:</strong></p>
-                                    <ul class="compact-list">
-                                        <li><strong>Bombas primario:</strong> Transferencia calor calderas → primer intercambiador</li>
-                                        <li><strong>Bombas secundario:</strong> Movimiento fluido entre intercambiadores externos y depósito</li>
-                                        <li><strong>Bombas recirculación:</strong> Movimiento agua calentada desde depósito hasta último elemento terminal (<span class="red-number">≤15 m</span> longitud)</li>
-                                    </ul>
-                                    <p style="margin-top: 0.5rem;"><strong>Tipos:</strong> Rotor seco (componentes separados del motor) y rotor húmedo (fluido accede hasta rotor, refrigerando/lubricando).</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Resumen visual -->
-                    <div class="stat-highlight" style="margin-top: 2rem;">
-                        <div class="stat-highlight-number">3</div>
-                        <div class="stat-highlight-label">Partes Principales del Sistema Centralizado</div>
-                        <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; margin-top: 1rem;">
-                            <div style="text-align: center; padding: 1rem; min-width: 150px;">
-                                <div style="width: 60px; height: 60px; background: #D32F2F; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; margin: 0 auto 0.5rem;">
-                                    <i class="fas fa-fire"></i>
-                                </div>
-                                <div style="font-weight: 700; color: #B71C1C;">Aparato Productor</div>
-                            </div>
-                            <div style="text-align: center; padding: 1rem; min-width: 150px;">
-                                <div style="width: 60px; height: 60px; background: #4CAF50; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; margin: 0 auto 0.5rem;">
+
+                        <!-- 3.3.1. CON DEPÓSITO INTERACUMULADOR -->
+                        <div style="margin: 2.5rem 0;">
+                            <div class="section-title" style="border-bottom: 2px solid #FF9800; padding-bottom: 0.8rem;">
+                                <div class="section-icon" style="background: #FF9800; width: 40px; height: 40px; font-size: 1.2rem;">
                                     <i class="fas fa-database"></i>
                                 </div>
-                                <div style="font-weight: 700; color: #388E3C;">Depósito Acumulador</div>
+                                <h4 style="margin: 0; font-size: 1.3rem; color: #333;">3.3.1. CON DEPÓSITO INTERACUMULADOR</h4>
                             </div>
-                            <div style="text-align: center; padding: 1rem; min-width: 150px;">
-                                <div style="width: 60px; height: 60px; background: #2196F3; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; margin: 0 auto 0.5rem;">
-                                    <i class="fas fa-shower"></i>
+                            
+                            <div class="columnas" style="gap: 1.5rem; margin-top: 1rem;">
+                                <!-- Descripción -->
+                                <div class="compact-card" style="border-top-color: #FF9800; flex: 1 1 400px;">
+                                    <div class="compact-header">
+                                        <div class="compact-icon" style="background: #FF9800;">
+                                            <i class="fas fa-cogs"></i>
+                                        </div>
+                                        <div class="compact-title">¿Cómo funciona?</div>
+                                    </div>
+                                    
+                                    <div style="font-size: 0.95rem; margin-top: 0.8rem;">
+                                        <p>El sistema utiliza un <strong>interacumulador</strong> que integra el intercambiador (serpentín) en el mismo depósito donde se almacena el ACS.</p>
+                                        
+                                        <div class="procedure-timeline" style="margin: 1.2rem 0;">
+                                            <div class="timeline-step">
+                                                <div class="step-number" style="background: #D32F2F;">1</div>
+                                                <div class="step-title">Circuito Primario</div>
+                                                <div style="font-size: 0.8rem;">Agua de caldera circula por serpentín del interacumulador</div>
+                                            </div>
+                                            <div class="timeline-step">
+                                                <div class="step-number" style="background: #2196F3;">2</div>
+                                                <div class="step-title">Transferencia Calor</div>
+                                                <div style="font-size: 0.8rem;">Calor pasa al agua del depósito a través del serpentín</div>
+                                            </div>
+                                            <div class="timeline-step">
+                                                <div class="step-number" style="background: #4CAF50;">3</div>
+                                                <div class="step-title">Distribución ACS</div>
+                                                <div style="font-size: 0.8rem;">ACS sale por parte superior hacia puntos de consumo</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div style="padding: 0.8rem; background: #FFF3E0; border-radius: 8px; margin: 0.8rem 0;">
+                                            <div style="display: flex; align-items: flex-start; gap: 8px;">
+                                                <i class="fas fa-sync-alt" style="color: #FF9800; margin-top: 0.2rem;"></i>
+                                                <div>
+                                                    <strong>Recirculación:</strong> Una bomba (<span class="red-number">5</span>) hace retornar el agua desde el punto más alejado al depósito por su parte central (<span class="red-number">6</span>), completando el circuito secundario.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div style="padding: 0.8rem; background: #E3F2FD; border-radius: 8px; margin: 0.8rem 0;">
+                                            <div style="display: flex; align-items: flex-start; gap: 8px;">
+                                                <i class="fas fa-tint" style="color: #2196F3; margin-top: 0.2rem;"></i>
+                                                <div>
+                                                    <strong>Reposición:</strong> El agua consumida se repone por acometida de AFCH (<span class="red-number">3</span>) en la parte inferior del interacumulador.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div style="display: flex; flex: 1 1; margin-top: 0.5rem;">
+                                            <img src="Images/Interf.png" alt="" style="max-width: 100%; height: auto; margin: auto;">
+                                        </div>                                         
+                                    </div>
                                 </div>
-                                <div style="font-weight: 700; color: #1976D2;">Puntos Consumo</div>
+                                
+                                <!-- Esquema -->
+                                <div class="compact-card" style="border-top-color: #FF9800; flex: 1 1 400px;">
+                                    <div class="compact-header">
+                                        <div class="compact-icon" style="background: #FF9800;">
+                                            <i class="fas fa-project-diagram"></i>
+                                        </div>
+                                        <div class="compact-title">Esquema de Circuitos</div>
+                                    </div>
+                                    
+                                    <div style="margin-top: 0.8rem;">
+                                        <div style="text-align: center; margin-bottom: 1rem;">
+                                            <div style="font-weight: 700; color: #FF8F00; margin-bottom: 0.5rem;">Sistema con doble circuito cerrado</div>
+                                            <div style="font-size: 0.85rem; color: #666;">Circuito primario y secundario completamente separados</div>
+                                        </div>
+                                        
+                                        <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+                                            <div style="flex: 1; min-width: 150px; padding: 0.8rem; border: 2px solid #D32F2F; border-radius: 8px; text-align: center;">
+                                                <div style="font-size: 1.5rem; color: #D32F2F; margin-bottom: 0.3rem;">
+                                                    <i class="fas fa-fire"></i>
+                                                </div>
+                                                <div style="font-weight: 700; color: #D32F2F; font-size: 0.9rem;">Circuito Primario</div>
+                                                <div style="font-size: 0.8rem;">Caldera → Serpentín → Retorno caldera</div>
+                                            </div>
+                                            
+                                            <div style="flex: 1; min-width: 150px; padding: 0.8rem; border: 2px solid #2196F3; border-radius: 8px; text-align: center;">
+                                                <div style="font-size: 1.5rem; color: #2196F3; margin-bottom: 0.3rem;">
+                                                    <i class="fas fa-shower"></i>
+                                                </div>
+                                                <div style="font-weight: 700; color: #2196F3; font-size: 0.9rem;">Circuito Secundario</div>
+                                                <div style="font-size: 0.8rem;">Depósito → Consumo → Retorno bomba</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div style="display: flex; flex: 1 1; margin-top: 1rem;">
+                                            <img src="Images/Interesq.png" alt="" style="max-width: 100%; height: auto; margin: auto;">
+                                        </div> 
+                                        
+                                        <div class="tip-box" style="margin-top: 1rem; padding: 0.8rem;">
+                                            <i class="fas fa-lightbulb" style="color: #4CAF50;"></i>
+                                            <span style="display: block;"><strong>Ventaja:</strong> Sistema compacto con intercambiador integrado. El serpentín transfiere calor del circuito primario al agua almacenada en el mismo depósito.</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+
+                        <!-- 3.3.2. CON INTERCAMBIADOR DE PLACAS Y DEPÓSITO ACUMULADOR -->
+                        <div style="margin: 2.5rem 0;">
+                            <div class="section-title" style="border-bottom: 2px solid #2196F3; padding-bottom: 0.8rem;">
+                                <div class="section-icon" style="background: #2196F3; width: 40px; height: 40px; font-size: 1.2rem;">
+                                    <i class="fas fa-exchange-alt"></i>
+                                </div>
+                                <h4 style="margin: 0; font-size: 1.3rem; color: #333;">3.3.2. CON INTERCAMBIADOR DE PLACAS Y DEPÓSITO ACUMULADOR</h4>
+                            </div>
+                            
+                            <div class="columnas" style="gap: 1.5rem; margin-top: 1rem;">
+                                <!-- Descripción -->
+                                <div class="compact-card" style="border-top-color: #2196F3; flex: 1 1 400px;">
+                                    <div class="compact-header">
+                                        <div class="compact-icon" style="background: #2196F3;">
+                                            <i class="fas fa-th-large"></i>
+                                        </div>
+                                        <div class="compact-title">Sistema con intercambiador externo</div>
+                                    </div>
+                                    
+                                    <div style="font-size: 0.95rem; margin-top: 0.8rem;">
+                                        <p>En este sistema, el <strong>depósito solo almacena ACS</strong> y el intercambio de calor se realiza en un <strong>intercambiador de placas externo</strong>. Nunca se utiliza directamente la caldera para calentar el agua de consumo.</p>
+                                        
+                                        <div class="important-note" style="margin: 1rem 0;">
+                                            <i class="fas fa-exclamation-circle"></i>
+                                            <strong>Separación de circuitos:</strong> El agua de calderas no puede circular por elementos en contacto con la radiación del combustible para mantener las características sanitarias del ACS.
+                                        </div>
+                                        
+                                        <div style="padding: 0.8rem; background: #E3F2FD; border-radius: 8px; margin: 1rem 0;">
+                                            <div style="font-weight: 700; color: #1976D2; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">
+                                                <i class="fas fa-arrow-right" style="color: #1976D2;"></i>
+                                                Circuito Primario (A)
+                                            </div>
+                                            <div style="font-size: 0.9rem; padding-left: 1.5rem;">
+                                                Se establece entre <strong>caldera e intercambiador</strong>. El agua caliente entra por orificio superior del intercambiador y sale por el inferior inmediato, retornando a la caldera.
+                                            </div>
+                                        </div>
+                                        
+                                        <div style="padding: 0.8rem; background: #FFEBEE; border-radius: 8px; margin: 1rem 0;">
+                                            <div style="font-weight: 700; color: #D32F2F; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">
+                                                <i class="fas fa-arrow-right" style="color: #D32F2F;"></i>
+                                                Circuito Secundario (B)
+                                            </div>
+                                            <div style="font-size: 0.9rem; padding-left: 1.5rem;">
+                                                Lo forman <strong>acumulador e intercambiador</strong>. El agua fría sale del depósito, entra por tubo inferior del intercambiador, se calienta por contacto entre placas y sale como ACS por tubo superior.
+                                            </div>
+                                        </div>
+                                        
+                                        <div style="padding: 0.8rem; background: #E8F5E9; border-radius: 8px;">
+                                            <div style="display: flex; align-items: flex-start; gap: 8px;">
+                                                <i class="fas fa-recycle" style="color: #4CAF50; margin-top: 0.2rem;"></i>
+                                                <div>
+                                                    <strong>Ciclo completo (C):</strong> El ACS se dirige al depósito de inercia, se distribuye al consumo, y mediante bomba circuladora retorna al depósito. El agua consumida se repone por acometida AFCH en parte inferior.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        <div style="display: flex; flex: 1 1; margin-top: 1rem;">
+                                            <img src="Images/Placasesq.png" alt="" style="max-width: 100%; height: auto; margin: auto;">
+                                        </div>                                     
+                                </div>
+                                
+                                <!-- Funcionamiento intercambiador -->
+                                <div class="compact-card" style="border-top-color: #2196F3; flex: 1 1 400px;">
+                                    <div class="compact-header">
+                                        <div class="compact-icon" style="background: #2196F3;">
+                                            <i class="fas fa-fire"></i>
+                                        </div>
+                                        <div class="compact-title">Funcionamiento del intercambiador de placas</div>
+                                    </div>
+                                    
+                                    <div style="margin-top: 0.8rem;">
+                                        <div style="text-align: center; margin-bottom: 1rem;">
+                                            <div style="font-weight: 700; color: #1976D2; margin-bottom: 0.3rem;">Transferencia térmica por contacto entre placas</div>
+                                            <div style="font-size: 0.85rem; color: #666;">Los fluidos primario y secundario nunca se mezclan</div>
+                                        </div>
+                                        
+                                        <div style="display: flex; flex-direction: column; gap: 1rem;">
+                                            <div style="display: flex; align-items: center; padding: 0.8rem; background: #E3F2FD; border-radius: 8px; border-left: 4px solid #1976D2;">
+                                                <div style="width: 40px; height: 40px; background: #1976D2; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; margin-right: 12px; flex-shrink: 0;">
+                                                    <i class="fas fa-arrow-down"></i>
+                                                </div>
+                                                <div>
+                                                    <div style="font-weight: 700; color: #1976D2; font-size: 0.95rem;">Entrada fluido caliente (primario)</div>
+                                                    <div style="font-size: 0.85rem;">Agua caliente de caldera entra por parte superior del intercambiador</div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div style="display: flex; align-items: center; padding: 0.8rem; background: #FFEBEE; border-radius: 8px; border-left: 4px solid #D32F2F;">
+                                                <div style="width: 40px; height: 40px; background: #D32F2F; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; margin-right: 12px; flex-shrink: 0;">
+                                                    <i class="fas fa-arrow-up"></i>
+                                                </div>
+                                                <div>
+                                                    <div style="font-weight: 700; color: #D32F2F; font-size: 0.95rem;">Salida ACS calentada (secundario)</div>
+                                                    <div style="font-size: 0.85rem;">Agua fría se calienta al pasar entre las placas y sale como ACS</div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div style="display: flex; align-items: center; padding: 0.8rem; background: #E8F5E9; border-radius: 8px; border-left: 4px solid #4CAF50;">
+                                                <div style="width: 40px; height: 40px; background: #4CAF50; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; margin-right: 12px; flex-shrink: 0;">
+                                                    <i class="fas fa-ban"></i>
+                                                </div>
+                                                <div>
+                                                    <div style="font-weight: 700; color: #4CAF50; font-size: 0.95rem;">Sin mezcla de fluidos</div>
+                                                    <div style="font-size: 0.85rem;">Los circuitos primario y secundario están completamente separados por las placas metálicas</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div style="display: flex; flex: 1 1; margin-top: 1rem;">
+                                            <img src="Images/Placas.png" alt="" style="max-width: 100%; height: auto; margin: auto;">
+                                        </div> 
+                                        
+                                        <div class="warning-box" style="margin-top: 1rem;">
+                                            <div class="box-icon" style="background: #FF9800;">
+                                                <i class="fas fa-exclamation-triangle"></i>
+                                            </div>
+                                            <div>
+                                                <strong>Importante:</strong> Este sistema requiere una <strong>bomba de secundario</strong> adicional para hacer circular el agua entre el depósito y el intercambiador de placas.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
                 </div>
             </div>
             
@@ -3019,189 +3602,576 @@
                     </div>
                     <div class="topic-number-badge">Tema 4</div>
                 </div>
-                
+
                 <div class="card-content">
-                    <!-- CTE HE4 -->
-                    <div class="compact-card" style="border-top-color: #4CAF50; margin-bottom: 1.5rem;">
-                        <div class="compact-header">
-                            <div class="compact-icon" style="background: #4CAF50;">
-                                <i class="fas fa-file-contract"></i>
+                    <!-- 4.1. Introducción y Normativa CTE HE4 -->
+                    <div class="section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: #4CAF50;">
+                                <i class="fas fa-gavel"></i>
                             </div>
-                            <div class="compact-title">CTE HE4 - Contribución Mínima Energía Renovable</div>
+                            <h3>Introducción y Normativa CTE HE4</h3>
                         </div>
-                        <div style="font-size: 0.9rem; margin-top: 0.5rem;">
-                            <p><strong>Artículo 15.5 HE4:</strong> "Los edificios satisfarán sus necesidades de ACS y de climatización de piscina cubierta empleando en gran medida energía procedente de fuentes renovables o procesos de cogeneración renovables; bien generada en el propio edificio o bien a través de la conexión a un sistema urbano de calefacción".</p>
-                            
-                            <div class="stat-highlight">
-                                <div class="stat-highlight-number">70%</div>
-                                <div class="stat-highlight-label">Contribución mínima energía renovable para demanda anual ACS</div>
+                        
+                        <div class="columnas" style="gap: 1.5rem; margin-top: 1rem;">
+                            <div class="compact-card" style="border-top-color: #4CAF50; flex: 1 1 400px;">
+                                <div class="compact-header">
+                                    <div class="compact-icon" style="background: #4CAF50;">
+                                        <i class="fas fa-sun"></i>
+                                    </div>
+                                    <div class="compact-title">Contexto normativo</div>
+                                </div>
+                                <div style="font-size: 0.95rem; margin-top: 0.5rem;">
+                                    <p>El <strong>Código Técnico de la Edificación (CTE)</strong> en su documento básico HE establece la obligatoriedad de utilizar energía renovable para ACS en edificios nuevos desde 2006.</p>
+                                    <div class="tip-box" style="margin: 1rem 0; padding: 0.8rem;">
+                                        <i class="fas fa-building"></i>
+                                        <span style="display: block;">Instalaciones de apoyo solar térmico son comunes en la mayoría de las nuevas edificaciones para cumplir con estos requisitos.</span>
+                                    </div>
+                                </div>
                             </div>
                             
-                            <div class="important-note" style="margin-top: 1rem;">
-                                <i class="fas fa-info-circle"></i>
-                                <strong>Reducción al 60%:</strong> Cuando demanda ACS sea inferior a <span class="red-number">5000 l/día</span>.
+                            <div class="compact-card" style="border-top-color: #388E3C; flex: 1 1 400px;">
+                                <div class="compact-header">
+                                    <div class="compact-icon" style="background: #388E3C;">
+                                        <i class="fas fa-file-contract"></i>
+                                    </div>
+                                    <div class="compact-title">Exigencia básica HE4 - Artículo 15.5</div>
+                                </div>
+                                <div style="font-size: 0.95rem; margin-top: 0.5rem;">
+                                    <p><strong>"Los edificios satisfarán sus necesidades de ACS y de climatización de piscina cubierta empleando en gran medida energía procedente de fuentes renovables o procesos de cogeneración renovables"</strong>.</p>
+                                    <p>La energía puede generarse en el propio edificio o mediante conexión a sistema urbano de calefacción.</p>
+                                </div>
                             </div>
-                            
-                            <p style="margin-top: 1rem;"><strong>Cogeneración renovable (UNE EN ISO 52000-1:2019):</strong> Generación simultánea energía térmica y eléctrica/mecánica. Solo sistemas alimentados por fuentes renovables (ej: biomasa, no gasóleo).</p>
+                        </div>
+                        
+                        <!-- Definición y porcentajes -->
+                        <div class="info-box" style="margin: 1.5rem 0;">
+                            <div class="box-icon" style="background: #4CAF50;">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <div>
+                                <h4 style="margin-top: 0;">Cogeneración renovable</h4>
+                                <p><strong>UNE EN ISO 52000-1:2019</strong> define cogeneración como generación simultánea de energía térmica y eléctrica/mecánica.</p>
+                                <p>Se consideran solo sistemas alimentados por <strong>energía renovable</strong> (biomasa), no los de combustibles fósiles como gasóleo.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Porcentaje mínimo renovable -->
+                        <div class="stat-highlight" style="margin: 1.5rem 0;">                            
+                            <div class="stat-highlight-label">Contribución mínima energía renovable para demanda anual de ACS: <span class="stat-highlight-number">70%</span></div>
+                            <div style="font-size: 0.9rem; margin-top: 0.5rem; color: #555;">
+                                Incluye pérdidas térmicas por distribución, acumulación y recirculación. Obtenida a partir de valores mensuales.
+                            </div>
+                            <div class="columnas" style="gap: 1rem; margin-top: 1rem;">
+                                <div style="flex: 1; padding: 0.8rem; background: rgba(76, 175, 80, 0.1); border-radius: 8px;">
+                                    <div style="font-weight: 700; color: #388E3C; font-size: 0.95rem;">Reducción aplicable</div>
+                                    <div style="font-size: 0.9rem;">Se reduce al <span class="red-number">60%</span> cuando demanda ACS < <span class="red-number">5000 l/día</span></div>
+                                </div>
+                                <div style="flex: 1; padding: 0.8rem; background: rgba(76, 175, 80, 0.1); border-radius: 8px;">
+                                    <div style="font-weight: 700; color: #388E3C; font-size: 0.95rem;">Origen válido</div>
+                                    <div style="font-size: 0.9rem;">Solo energía renovable de origen in situ, proximidades del edificio, o biomasa sólida</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Tipos de captadores -->
+
+                    <!-- 4.2. Tipos de Captadores Solares Térmicos -->
                     <div class="section">
                         <div class="section-title">
                             <div class="section-icon" style="background: #FF9800;">
-                                <i class="fas fa-sun"></i>
+                                <i class="fas fa-solar-panel"></i>
                             </div>
                             <h3>Tipos de Captadores Solares Térmicos</h3>
                         </div>
                         
-                        <div class="classification-grid">
-                            <div class="classification-item">
-                                <div class="classification-icon" style="color: #FF9800;">
-                                    <i class="fas fa-arrow-up"></i>
+                        <div class="compact-card" style="border-top-color: #FF9800; margin-bottom: 1.5rem;">
+                            <div class="compact-header">
+                                <div class="compact-icon" style="background: #FF9800;">
+                                    <i class="fas fa-lightbulb"></i>
                                 </div>
-                                <h5>Captador Solar de Termosifón</h5>
-                                <p><strong>Principio:</strong> Diferencia densidad fluido por temperatura (fluido caliente asciende, frío desciende).</p>
-                                <p><strong>Flujo continuo:</strong> Por presión diferencial a diferente temperatura.</p>
+                                <div class="compact-title">Funcionamiento básico</div>
+                            </div>
+                            <div style="font-size: 0.95rem; margin-top: 0.5rem;">
+                                <p>Los captadores aprovechan energía solar para calentar agua (ACS, calefacción, piscinas). Pueden calentar directamente el agua o usar <strong>fluido caloportador</strong> con aditivos antioxidantes y anticongelantes.</p>
+                                <div style="padding: 0.8rem; background: #FFF3E0; border-radius: 8px; margin-top: 0.8rem;">
+                                    <div style="display: flex; align-items: flex-start; gap: 8px;">
+                                        <i class="fas fa-flask" style="color: #FF9800; margin-top: 0.2rem;"></i>
+                                        <div><strong>Fluido caloportador:</strong> Especialmente eficiente para captar radiación térmica solar.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="columnas" style="gap: 1rem; margin-top: 1rem;">
+                            <!-- Captador solar de termosifón -->
+                            <div class="compact-card" style="border-top-color: #FF9800; flex: 1 1 300px;">
+                                <div class="compact-header">
+                                    <div class="compact-icon" style="background: #FF9800;">
+                                        <i class="fas fa-arrow-up"></i>
+                                    </div>
+                                    <div class="compact-title">CAPTADOR SOLAR DE TERMOSIFÓN</div>
+                                </div>
+                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">
+                                    <p><strong>Funcionamiento por diferencia de densidad:</strong> Fluido caliente (menos denso) asciende, frío desciende.</p>
+                                    <div style="padding: 0.8rem; background: #FFF3E0; border-radius: 8px; margin-top: 0.5rem;">
+                                        <p>Aplicando calor (radiación solar) a parte del circuito, se establece <strong>flujo continuo por presión diferencial</strong>.</p>
+                                    </div>
+                                    <div style="margin-top: 0.8rem;">
+                                        <div style="font-weight: 700; color: #FF8F00;">Aplicación</div>
+                                        <div style="font-size: 0.85rem;">El fluido caloportador pasa por depósito de agua de consumo para calentarla y producir ACS.</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; flex: 1 1; margin-top: 1rem;">
+                                    <img src="Images/Sifon.png" alt="" style="max-width: 100%; height: auto; margin: auto;">
+                                </div>                                 
                             </div>
                             
-                            <div class="classification-item">
-                                <div class="classification-icon" style="color: #2196F3;">
-                                    <i class="fas fa-square"></i>
+                            <!-- Captadores solares planos -->
+                            <div class="compact-card" style="border-top-color: #2196F3; flex: 1 1 300px;">
+                                <div class="compact-header">
+                                    <div class="compact-icon" style="background: #2196F3;">
+                                        <i class="fas fa-square"></i>
+                                    </div>
+                                    <div class="compact-title">CAPTADORES SOLARES PLANOS</div>
                                 </div>
-                                <h5>Captadores Solares Planos</h5>
-                                <p><strong>Tipo más común:</strong> Tubos bajo plancha vidrio en caja rectangular cerrada.</p>
-                                <p><strong>Principio:</strong> "Trampa de calor" efecto invernadero. Placa colectora calienta fluido caloportador.</p>
+                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">
+                                    <p><strong>Tipo más común</strong> aunque no el más eficiente.</p>
+                                    <div style="padding: 0.8rem; background: #E3F2FD; border-radius: 8px; margin-top: 0.5rem;">
+                                        <p>Conjunto de tubos bajo plancha de vidrio en caja rectangular cerrada.</p>
+                                    </div>
+                                    <div style="margin-top: 0.8rem;">
+                                        <div style="font-weight: 700; color: #1976D2;">Principio "trampa de calor"</div>
+                                        <div style="font-size: 0.85rem;">Tubos unidos a placa colectora reciben radiación atrapada entre placa y vidrio (efecto invernadero).</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; flex: 1 1; margin-top: 3rem;">
+                                    <img src="Images/Plano.png" alt="" style="max-width: 100%; height: auto; margin: auto;">
+                                </div>                                 
                             </div>
                             
-                            <div class="classification-item">
-                                <div class="classification-icon" style="color: #D32F2F;">
-                                    <i class="fas fa-vial"></i>
+                            <!-- Captadores de tubos de vacío -->
+                            <div class="compact-card" style="border-top-color: #D32F2F; flex: 1 1 300px;">
+                                <div class="compact-header">
+                                    <div class="compact-icon" style="background: #D32F2F;">
+                                        <i class="fas fa-vial"></i>
+                                    </div>
+                                    <div class="compact-title">CAPTADORES DE TUBOS DE VACÍO</div>
                                 </div>
-                                <h5>Captadores de Tubos de Vacío</h5>
-                                <p><strong>Estructura:</strong> Tubos vidrio al vacío con eje central conductor fluido.</p>
-                                <p><strong>Ventaja:</strong> Vacío mejora retención calor → <span class="red-number">90%</span> más eficiencia que otros tipos.</p>
-                                <p><strong>Configuración:</strong> Cilíndrica, recibe rayos solares siempre perpendicularmente.</p>
+                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">
+                                    <p><strong>Mayor eficiencia</strong>: <span class="red-number">90%</span> superior respecto a otros tipos.</p>
+                                    <div style="padding: 0.8rem; background: #FFEBEE; border-radius: 8px; margin-top: 0.5rem;">
+                                        <p>Estructura de peine: eje central con fluido caloportador y tubos de vacío como "púas" con placas de cobre interior.</p>
+                                    </div>
+                                    <div style="margin-top: 0.8rem;">
+                                        <div style="font-weight: 700; color: #B71C1C;">Ventajas</div>
+                                        <ul class="compact-list">
+                                            <li>Configuración cilíndrica: captación perpendicular continua</li>
+                                            <li>Vacío: mejor retención del calor captado</li>
+                                            <li>Eficiencia muy superior</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div style="display: flex; flex: 1 1; margin-top: 1rem;">
+                                    <img src="Images/Vacio.png" alt="" style="max-width: 100%; height: auto; margin: auto;">
+                                </div>                                 
+                            </div>
+                        </div>
+                        
+                        <div class="warning-box" style="margin-top: 1.5rem;">
+                            <div class="box-icon" style="background: #FF9800;">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div>
+                                <strong>Sistemas de circuito cerrado:</strong> Lo más común son sistemas termosolares con <strong>circuitos independientes</strong> (primario y secundario). El agua de consumo no pasa por los captadores; un fluido caloportador gana energía térmica y la cede al agua mediante intercambiador, <strong>sin mezclarse nunca</strong>.
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- 4.1. Instalación individual con apoyo solar -->
+
+                    <!-- 4.3. ACS Individual con Apoyo Solar -->
                     <div class="section">
                         <div class="section-title">
                             <div class="section-icon" style="background: #4CAF50;">
                                 <i class="fas fa-home"></i>
                             </div>
-                            <h3>4.1. Instalación Individual con Apoyo Solar</h3>
+                            <h3>4.1. ACS Individual con Apoyo Solar</h3>
                         </div>
                         
-                        <div class="compact-card" style="border-top-color: #4CAF50; margin-bottom: 1.5rem;">
-                            <div class="compact-header">
-                                <div class="compact-icon" style="background: #4CAF50;">
-                                    <i class="fas fa-recycle"></i>
+                        <div class="columnas" style="gap: 1.5rem; margin-top: 1rem;">
+                            <div class="compact-card" style="border-top-color: #4CAF50; flex: 1 1 400px;">
+                                <div class="compact-header">
+                                    <div class="compact-icon" style="background: #4CAF50;">
+                                        <i class="fas fa-sitemap"></i>
+                                    </div>
+                                    <div class="compact-title">Sistema de circuito cerrado individual</div>
                                 </div>
-                                <div class="compact-title">Sistema Circuito Cerrado e Independiente</div>
-                            </div>
-                            <div style="margin-top: 1rem;">
-                                <p><strong>Fluidos separados:</strong> Fluido caloportador (circuito primario) y agua de red (circuito secundario) nunca se mezclan.</p>
-                                
-                                <div class="circuit-diagram">
-                                    <div class="circuit-title">🔄 Circuitos Implicados</div>
-                                    <div class="circuit-steps">
-                                        <div class="circuit-step">
-                                            <div class="circuit-number">1</div>
-                                            <div><strong>Primario Producción Solar</strong><br>Captador → intercambiador (con bomba circuladora + vaso expansión)</div>
+                                <div style="font-size: 0.95rem; margin-top: 0.5rem;">
+                                    <p>Instalación termosolar con <strong>dos circuitos independientes mínimo</strong>: primario (fluido caloportador) y secundario (agua de consumo).</p>
+                                    
+                                    <div class="procedure-timeline" style="margin: 1.2rem 0;">
+                                        <div class="timeline-step">
+                                            <div class="step-number" style="background: #FF9800;">1</div>
+                                            <div class="step-title">Captación Solar</div>
+                                            <div style="font-size: 0.8rem;">Captador solar (<span class="red-number">13</span>) calienta fluido caloportador</div>
                                         </div>
-                                        <div class="circuit-step">
-                                            <div class="circuit-number">2</div>
-                                            <div><strong>Secundario Producción Solar con Recirculación</strong><br>Intercambiador → depósito acumulador</div>
+                                        <div class="timeline-step">
+                                            <div class="step-number" style="background: #2196F3;">2</div>
+                                            <div class="step-title">Intercambio de Calor</div>
+                                            <div style="font-size: 0.8rem;">Intercambiador (<span class="red-number">3</span>) transfiere calor al agua</div>
                                         </div>
-                                        <div class="circuit-step">
-                                            <div class="circuit-number">3</div>
-                                            <div><strong>Secundario Consumo</strong><br>Desde salida ACS caldera</div>
+                                        <div class="timeline-step">
+                                            <div class="step-number" style="background: #4CAF50;">3</div>
+                                            <div class="step-title">Almacenamiento</div>
+                                            <div style="font-size: 0.8rem;">ACS solar se almacena en depósito (<span class="red-number">8</span>)</div>
                                         </div>
                                     </div>
+                                    
+                                    <div style="padding: 0.8rem; background: #E8F5E9; border-radius: 8px; margin: 0.8rem 0;">
+                                        <div style="font-weight: 700; color: #388E3C; margin-bottom: 0.3rem;">Circuito Primario de Producción Solar</div>
+                                        <ul class="compact-list">
+                                            <li>Fluido sale captador (<span class="red-number">13</span>) por tubería ida (<span class="red-number">1</span>)</li>
+                                            <li>Entra intercambiador (<span class="red-number">3</span>) superior, sale inferior</li>
+                                            <li>Retorna al captador por tubería (<span class="red-number">2</span>)</li>
+                                            <li><strong>Bomba circuladora</strong> (<span class="red-number">5</span>) y <strong>vaso expansión</strong> (<span class="red-number">4</span>) mantienen presión</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div style="padding: 0.8rem; background: #E3F2FD; border-radius: 8px; margin: 0.8rem 0;">
+                                        <div style="font-weight: 700; color: #1976D2; margin-bottom: 0.3rem;">Circuito Secundario de Producción Solar</div>
+                                        <ul class="compact-list">
+                                            <li>Otra bomba circuladora (<span class="red-number">14</span>) impulsa agua por conducción (<span class="red-number">7</span>)</li>
+                                            <li>Agua entra intercambiador inferior, sale superior como ACS</li>
+                                            <li>Entra al depósito acumulador (<span class="red-number">8</span>) por tubo (<span class="red-number">6</span>)</li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                
-                                <div class="info-box" style="margin-top: 1.5rem;">
-                                    <div class="box-icon" style="background: #4CAF50;">
+                            </div>
+                            
+                            <div class="compact-card" style="border-top-color: #4CAF50; flex: 1 1 400px;">
+                                <div class="compact-header">
+                                    <div class="compact-icon" style="background: #4CAF50;">
                                         <i class="fas fa-leaf"></i>
                                     </div>
-                                    <div>
-                                        <h4 style="margin-top: 0;">¿Por qué Ahorra Energía?</h4>
-                                        <p>Válvula mezcladora prioriza entrada agua desde depósito acumulador solar → caldera modula apertura gas solo para incremento temperatura necesario → ahorro combustible.</p>
+                                    <div class="compact-title">Integración con caldera y ahorro energético</div>
+                                </div>
+                                
+                                <div style="margin-top: 0.8rem;">
+                                    <div style="text-align: center; margin-bottom: 1rem;">
+                                        <div style="font-weight: 700; color: #388E3C; margin-bottom: 0.3rem;">Sistema solar como precalentador del agua</div>
+                                        <div style="font-size: 0.85rem; color: #666;">Reducción significativa del consumo de combustible</div>
                                     </div>
+                                    
+                                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                                        <div style="display: flex; align-items: flex-start; padding: 0.8rem; background: #FFF3E0; border-radius: 8px; border-left: 4px solid #FF9800;">
+                                            <div style="width: 40px; height: 40px; background: #FF9800; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; margin-right: 12px; flex-shrink: 0;">
+                                                <i class="fas fa-random"></i>
+                                            </div>
+                                            <div>
+                                                <div style="font-weight: 700; color: #FF8F00; font-size: 0.95rem;">Válvula Mezcladora (<span class="red-number">11</span>)</div>
+                                                <div style="font-size: 0.9rem;">Situada al pie de caldera, prioriza entrada de agua desde depósito solar sobre AFCH directa (<span class="red-number">10</span>)</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div style="display: flex; align-items: flex-start; padding: 0.8rem; background: #E8F5E9; border-radius: 8px; border-left: 4px solid #4CAF50;">
+                                            <div style="width: 40px; height: 40px; background: #4CAF50; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; margin-right: 12px; flex-shrink: 0;">
+                                                <i class="fas fa-fire"></i>
+                                            </div>
+                                            <div>
+                                                <div style="font-weight: 700; color: #388E3C; font-size: 0.95rem;">Caldera (<span class="red-number">9</span>) - Modulación</div>
+                                                <div style="font-size: 0.9rem;">Solo debe elevar temperatura agua precalentada, no calentarla desde temperatura red (<span class="red-number">12-14°C</span>). Consiguiente ahorro combustible.</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div style="display: flex; align-items: flex-start; padding: 0.8rem; background: #E3F2FD; border-radius: 8px; border-left: 4px solid #2196F3;">
+                                            <div style="width: 40px; height: 40px; background: #2196F3; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; margin-right: 12px; flex-shrink: 0;">
+                                                <i class="fas fa-shower"></i>
+                                            </div>
+                                            <div>
+                                                <div style="font-weight: 700; color: #1976D2; font-size: 0.95rem;">Circuito Secundario de Consumo</div>
+                                                <div style="font-size: 0.9rem;">Desde salida de ACS de caldera hacia puntos de consumo final</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tip-box" style="margin-top: 1rem;">
+                                        <i class="fas fa-lightbulb"></i>
+                                        <span style="display: block;"><strong>Distinción de tres circuitos:</strong> PRIMARIO DE PRODUCCIÓN SOLAR, SECUNDARIO DE PRODUCCIÓN SOLAR CON RECIRCULACIÓN, y SECUNDARIO DE CONSUMO desde caldera.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="columnas">
+                            <div style="display: flex; flex: 1 1 400px; margin-top: 1rem;">
+                                <img src="Images/Apind.png" alt="" style="max-width: 100%; height: auto; margin: auto;">
+                            </div>                             
+                            <!-- Intercambiador de calor -->
+                            <div class="compact-card" style="border-top-color: #2196F3; margin-top: 1.5rem; flex: 1 1 400px;">
+                                <div class="compact-header">
+                                    <div class="compact-icon" style="background: #2196F3;">
+                                        <i class="fas fa-exchange-alt"></i>
+                                    </div>
+                                    <div class="compact-title">¿Qué es y cómo funciona un intercambiador de calor?</div>
+                                </div>
+                                
+                                <div style="font-size: 0.95rem; margin-top: 0.5rem;">
+                                    <p>Dispositivo que <strong>transfiere calor de un fluido a otro de menor temperatura</strong> mediante placas metálicas o tubos, <strong>sin mezclar los fluidos</strong>.</p>
+                                    
+                                    <div style="padding: 0.8rem; background: #E3F2FD; border-radius: 8px; margin: 0.8rem 0;">
+                                        <div style="display: flex; align-items: flex-start; gap: 8px;">
+                                            <i class="fas fa-thermometer-half" style="color: #2196F3; margin-top: 0.2rem;"></i>
+                                            <div><strong>Principio físico:</strong> El calor fluye del cuerpo más caliente al más frío hasta alcanzar equilibrio térmico.</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="columnas" style="gap: 1rem; margin-top: 1rem;">
+                                        <div style="flex: 1; text-align: center; padding: 1rem; background: #E3F2FD; border-radius: 8px;">
+                                            <div style="font-weight: 700; color: #1976D2;">Entrada fluido caliente</div>
+                                            <div style="font-size: 0.85rem;">Procedente del circuito primario (captador solar)</div>
+                                        </div>
+                                        
+                                        <div style="flex: 1; text-align: center; padding: 1rem; background: #FFEBEE; border-radius: 8px;">
+                                            <div style="font-weight: 700; color: #D32F2F;">Entrada agua fría</div>
+                                            <div style="font-size: 0.85rem;">Agua de consumo a calentar</div>
+                                        </div>
+                                        
+                                        <div style="flex: 1; text-align: center; padding: 1rem; background: #E8F5E9; border-radius: 8px;">
+                                            <div style="font-weight: 700; color: #388E3C;">Salida ACS calentada</div>
+                                            <div style="font-size: 0.85rem;">Agua ya caliente para consumo</div>
+                                        </div>
+                                    </div>
+                                    <div style="display: flex; flex: 1 1; margin-top: 1rem;">
+                                        <img src="Images/Intercambiador.png" alt="" style="max-width: 100%; height: auto; margin: auto;">
+                                    </div>                                    
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- 4.2. Instalación centralizada con apoyo solar -->
+
+                    <!-- 4.4. ACS Centralizada con Apoyo Solar -->
                     <div class="section">
                         <div class="section-title">
-                            <div class="section-icon" style="background: #388E3C;">
+                            <div class="section-icon" style="background: #2196F3;">
                                 <i class="fas fa-building"></i>
                             </div>
-                            <h3>4.2. Instalación Centralizada con Apoyo Solar</h3>
+                            <h3>4.2. ACS Centralizada con Apoyo Solar</h3>
                         </div>
                         
-                        <div class="compact-card" style="border-top-color: #388E3C; margin-bottom: 1.5rem;">
-                            <div class="compact-header">
-                                <div class="compact-icon" style="background: #388E3C;">
-                                    <i class="fas fa-industry"></i>
+                        <div class="columnas">
+                            <div class="compact-card" style="border-top-color: #2196F3; margin-bottom: 1.5rem;">
+                                <div class="compact-header">
+                                    <div class="compact-icon" style="background: #2196F3;">
+                                        <i class="fas fa-cogs"></i>
+                                    </div>
+                                    <div class="compact-title">Sistema con dos productores en serie</div>
                                 </div>
-                                <div class="compact-title">Obligatoria en Nueva Edificación desde 2006</div>
-                            </div>
-                            <div style="margin-top: 1rem;">
-                                <p><strong>Principio:</strong> Dos aparatos productores en serie: paneles solares térmicos + calderas.</p>
                                 
-                                <div class="circuit-diagram">
-                                    <div class="circuit-title">⚙️ Funcionamiento por Etapas</div>
-                                    <div class="circuit-steps">
-                                        <div class="circuit-step">
-                                            <div class="circuit-number">1</div>
-                                            <div><strong>Precalentamiento Solar</strong><br>Paneles → interacumuladores solares (2 primeros depósitos)</div>
+                                <div style="font-size: 0.95rem; margin-top: 0.5rem;">
+                                    <p><strong>Obligatorio en nueva edificación desde 2006</strong>. Mismo principio que instalaciones térmicas pero con <strong>dos aparatos productores funcionando en serie</strong>:</p>
+                                    
+                                    <div class="columnas" style="gap: 1rem; margin-top: 0.8rem;">
+                                        <div style="flex: 1; padding: 0.8rem; background: #FFF3E0; border-radius: 8px; text-align: center;">
+                                            <div style="font-size: 1.5rem; color: #FF9800; margin-bottom: 0.3rem;">
+                                                <i class="fas fa-solar-panel"></i>
+                                            </div>
+                                            <div style="font-weight: 700; color: #FF8F00;">Paneles solares térmicos</div>
+                                            <div style="font-size: 0.85rem;">Producción inicial y precalentamiento</div>
                                         </div>
-                                        <div class="circuit-step">
-                                            <div class="circuit-number">2</div>
-                                            <div><strong>Conducción Agua Precalentada</strong><br>Depósitos solares → depósitos caldera (por parte inferior)</div>
+                                        
+                                        <div style="flex: 1; padding: 0.8rem; background: #FFEBEE; border-radius: 8px; text-align: center;">
+                                            <div style="font-size: 1.5rem; color: #D32F2F; margin-bottom: 0.3rem;">
+                                                <i class="fas fa-fire"></i>
+                                            </div>
+                                            <div style="font-weight: 700; color: #B71C1C;">Calderas</div>
+                                            <div style="font-size: 0.85rem;">Apoyo térmico y elevación final temperatura</div>
                                         </div>
-                                        <div class="circuit-step">
-                                            <div class="circuit-number">3</div>
-                                            <div><strong>Calentamiento Final</strong><br>Caldera eleva temperatura a <span class="red-number">60°C</span></div>
+                                    </div>
+                                    
+                                    <div style="padding: 1rem; background: #E3F2FD; border-radius: 8px; margin-top: 1rem;">
+                                        <div style="font-weight: 700; color: #1976D2; margin-bottom: 0.5rem;">Configuración típica</div>
+                                        <p><span class="red-number">4 depósitos interacumuladores de ACS</span> (<span class="red-number">5</span>) en serie. Dos primeros asociados a paneles solares, dos siguientes a calderas.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; flex: 1 1 400px; margin-top: 1rem;">
+                                <img src="Images/Apcentr.png" alt="" style="max-width: 100%; height: auto; margin: auto;">
+                            </div>                        
+                        </div>
+
+                        <div class="columnas" style="gap: 1.5rem; margin-top: 1rem;">
+                            <div class="compact-card" style="border-top-color: #FF9800; flex: 1 1 400px;">
+                                <div class="compact-header">
+                                    <div class="compact-icon" style="background: #FF9800;">
+                                        <i class="fas fa-sun"></i>
+                                    </div>
+                                    <div class="compact-title">Etapa solar - Primeros dos depósitos</div>
+                                </div>
+                                
+                                <div style="font-size: 0.95rem; margin-top: 0.5rem;">
+                                    <p><strong>Directamente asociados a paneles solares térmicos</strong>.</p>
+                                    
+                                    <div style="padding: 0.8rem; background: #FFF3E0; border-radius: 8px; margin: 0.8rem 0;">
+                                        <div style="display: flex; align-items: flex-start; gap: 8px;">
+                                            <i class="fas fa-recycle" style="color: #FF9800; margin-top: 0.2rem;"></i>
+                                            <div><strong>Circuito primario solar:</strong> Bomba circuladora (<span class="red-number">3</span>) establece circuito ida/retorno entre paneles solares y serpentines (<span class="red-number">7</span>) de interacumuladores.</div>
                                         </div>
-                                        <div class="circuit-step">
-                                            <div class="circuit-number">4</div>
-                                            <div><strong>Distribución</strong><br>Desde último depósito → puntos consumo + retorno</div>
+                                    </div>
+                                    
+                                    <div style="padding: 0.8rem; background: #E3F2FD; border-radius: 8px; margin: 0.8rem 0;">
+                                        <div style="display: flex; align-items: flex-start; gap: 8px;">
+                                            <i class="fas fa-tint" style="color: #2196F3; margin-top: 0.2rem;"></i>
+                                            <div><strong>Acometida AFCH</strong> (<span class="red-number">A</span>) en parte inferior repone ACS consumida.</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="padding: 0.8rem; background: #E8F5E9; border-radius: 8px;">
+                                        <div style="display: flex; align-items: flex-start; gap: 8px;">
+                                            <i class="fas fa-arrows-alt-h" style="color: #4CAF50; margin-top: 0.2rem;"></i>
+                                            <div><strong>Conexión entre depósitos:</strong> Conectados por parte superior, acometen al tercer depósito por parte inferior, haciendo circular agua precalentada.</div>
                                         </div>
                                     </div>
                                 </div>
-                                
-                                <div class="stat-highlight" style="margin-top: 1.5rem;">
-                                    <div class="stat-highlight-number">12-14°C → 60°C</div>
-                                    <div class="stat-highlight-label">Agua red AFCH vs agua precalentada por solar → menor energía requerida por caldera</div>
+                            </div>
+                            
+                            <div class="compact-card" style="border-top-color: #D32F2F; flex: 1 1 400px;">
+                                <div class="compact-header">
+                                    <div class="compact-icon" style="background: #D32F2F;">
+                                        <i class="fas fa-fire"></i>
+                                    </div>
+                                    <div class="compact-title">Etapa caldera - Últimos dos depósitos</div>
                                 </div>
                                 
-                                <div class="important-note" style="margin-top: 1rem;">
-                                    <i class="fas fa-lightbulb"></i>
-                                    <strong>Depósitos de inercia térmica:</strong> Los primeros tres depósitos actúan como reserva térmica para el cuarto (distribución consumo).</div>
+                                <div style="font-size: 0.95rem; margin-top: 0.5rem;">
+                                    <p><strong>Circuitos asociados a calderas de producción</strong> (<span class="red-number">15</span>) de ACS.</p>
+                                    
+                                    <div style="padding: 0.8rem; background: #FFEBEE; border-radius: 8px; margin: 0.8rem 0;">
+                                        <div style="display: flex; align-items: flex-start; gap: 8px;">
+                                            <i class="fas fa-thermometer-three-quarters" style="color: #D32F2F; margin-top: 0.2rem;"></i>
+                                            <div><strong>Funcionamiento:</strong> Los dos primeros depósitos suministran agua precalentada a los siguientes, actuando como depósitos de inercia. Caldera necesita menos calor para alcanzar <span class="red-number">60°C</span> → ahorro energético.</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="padding: 0.8rem; background: #E3F2FD; border-radius: 8px; margin: 0.8rem 0;">
+                                        <div style="display: flex; align-items: flex-start; gap: 8px;">
+                                            <i class="fas fa-shower" style="color: #2196F3; margin-top: 0.2rem;"></i>
+                                            <div><strong>Distribución a consumo:</strong> Desde parte superior tercer depósito, tubería enlaza con parte inferior cuarto depósito. Desde este último sale tubería de ACS (<span class="red-number">13</span>) a puntos de consumo, con entrada de retorno (<span class="red-number">14</span>).</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="padding: 0.8rem; background: #F3E5F5; border-radius: 8px;">
+                                        <div style="display: flex; align-items: flex-start; gap: 8px;">
+                                            <i class="fas fa-database" style="color: #9C27B0; margin-top: 0.2rem;"></i>
+                                            <div><strong>Depósitos de inercia:</strong> Los tres primeros actúan como reserva térmica. Cuarto depósito es de consumo activo.</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         
-                        <!-- Intervenciones con apoyo solar comunitario -->
-                        <div class="warning-box">
-                            <div class="box-icon" style="background: #FF9800;">
-                                <i class="fas fa-exclamation-triangle"></i>
+                        <div class="info-box" style="margin-top: 1.5rem;">
+                            <div class="box-icon" style="background: #2196F3;">
+                                <i class="fas fa-eye"></i>
                             </div>
                             <div>
-                                <h4 style="margin-top: 0;">⚠️ Intervenciones en Edificios con Apoyo Solar Comunitario</h4>
-                                <p><strong>Problema típico:</strong> Fuga agua en edificio nueva construcción sin acceso vivienda.</p>
-                                <ul class="nested-list">
-                                    <li><strong>Corte solo agua fría</strong> desde centralización contadores → <span class="red-number">NO efectivo</span> si fuga en circuito ACS</li>
-                                    <li><strong>Segunda entrada agua:</strong> ACS proveniente acumulador solar edificio → válvula mezcladora en vivienda</li>
-                                    <li><strong>Solución:</strong> Localizar y cerrar <span class="red-number">contador apoyo solar con llave corte</span> en zonas comunes cerca vivienda</li>
-                                </ul>
-                                <p style="margin-top: 0.5rem;"><strong>Importante:</strong> Contador ACS individual por vivienda para reparto gastos comunidad.</p>
+                                <h4 style="margin-top: 0;">Interpretación de instalaciones térmicas</h4>
+                                <p>Aunque complejas visualmente, todas las instalaciones térmicas comparten <strong>los mismos principios básicos de funcionamiento</strong>: circuitos primario/secundario, transferencia de calor sin mezcla, y sistemas de acumulación.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4.5. Aspectos Prácticos: Contadores y Gestión de Fugas -->
+                    <div class="section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: #9C27B0;">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                            <h3>Aspectos Prácticos: Contadores y Gestión de Fugas</h3>
+                        </div>
+                        
+                        <div class="columnas" style="gap: 1.5rem; margin-top: 1rem;">
+                            <div class="compact-card" style="border-top-color: #9C27B0; flex: 1 1 400px;">
+                                <div class="compact-header">
+                                    <div class="compact-icon" style="background: #9C27B0;">
+                                        <i class="fas fa-water"></i>
+                                    </div>
+                                    <div class="compact-title">Sistema comunitario con apoyo solar centralizado</div>
+                                </div>
+                                
+                                <div style="font-size: 0.95rem; margin-top: 0.5rem;">
+                                    <div style="padding: 0.8rem; background: #FFF3E0; border-radius: 8px; margin-top: 0.8rem;margin-bottom: 0.8rem;">
+                                        <div style="display: flex; align-items: flex-start; gap: 8px;">
+                                            <i class="fas fa-exclamation-triangle" style="color: #FF9800; margin-top: 0.2rem;"></i>
+                                            <div><strong>El RITE</strong> obliga a que éste tipo de instalaciones dispongan de un sistema auxiliar de energía para tratamiento anti-legionela.</div>
+                                        </div>
+                                    </div>
+
+                                    <div style="padding: 0.8rem; background: #F3E5F5; border-radius: 8px; margin-bottom: 0.8rem;">
+                                        <p>Vivienda con <strong>dos acometidas de agua</strong>:</p>
+                                        <div class="columnas" style="gap: 0.8rem; margin-top: 0.5rem;">
+                                            <div style="flex: 1; padding: 0.6rem; background: #E3F2FD; border-radius: 6px; text-align: center;">
+                                                <div style="font-weight: 700; color: #1976D2;">AFCH (<span class="red-number">1</span>)</div>
+                                                <div style="font-size: 0.85rem;">Desde batería de contadores divisionarios del edificio</div>
+                                            </div>
+                                            <div style="flex: 1; padding: 0.6rem; background: #FFEBEE; border-radius: 6px; text-align: center;">
+                                                <div style="font-weight: 700; color: #D32F2F;">ACS solar (<span class="red-number">2</span>)</div>
+                                                <div style="font-size: 0.85rem;">De producción solar comunitaria</div>
+                                            </div>
+                                        </div>
+                                        <p style="margin-top: 0.5rem;">Convergen en entrada del aparato productor (<span class="red-number">3</span>) individual de ACS.</p>
+                                    </div>
+                                    
+                                    <div style="padding: 0.8rem; background: #E8F5E9; border-radius: 8px;">
+                                        <div style="display: flex; align-items: flex-start; gap: 8px;">
+                                            <i class="fas fa-calculator" style="color: #4CAF50; margin-top: 0.2rem;"></i>
+                                            <div><strong>Contador ACS individual obligatorio:</strong> Para repartir gastos entre vecinos. Compañía factura a comunidad, comunidad a cada vecino según consumo.</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="padding: 0.8rem; background: #FFF3E0; border-radius: 8px; margin-top: 0.8rem;">
+                                        <div style="display: flex; align-items: flex-start; gap: 8px;">
+                                            <i class="fas fa-tools" style="color: #FF9800; margin-top: 0.2rem;"></i>
+                                            <div><strong>Neutralización de fugas:</strong> En caso de fuga en instalación particular de ACS, actuar sobre contador ACS individual (<span class="red-number">1</span>) y AFCH de batería divisionaria (<span class="red-number">2</span>).</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="compact-card" style="border-top-color: #D32F2F; flex: 1 1 400px;">
+                                <div class="compact-header">
+                                    <div class="compact-icon" style="background: #D32F2F;">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </div>
+                                    <div class="compact-title">Gestión de fugas en instalaciones con apoyo solar</div>
+                                </div>
+                                
+                                <div style="font-size: 0.95rem; margin-top: 0.5rem;">
+                                    <div style="padding: 0.8rem; background: #FFEBEE; border-radius: 8px; margin-bottom: 0.8rem;">
+                                        <p><strong>Escenario típico:</strong> Fuga en edificio nuevo sin acceso a vivienda. Normalmente se corta suministro desde centralización de contadores de agua fría.</p>
+                                    </div>
+                                    
+                                    <div class="danger-box" style="margin-bottom: 0.8rem;">
+                                        <div class="box-icon" style="background: #D32F2F;">
+                                            <i class="fas fa-exclamation-circle"></i>
+                                        </div>
+                                        <div><strong>Problema específico:</strong> Si fuga está en circuito ACS, cortar solo AFCH no es suficiente porque existe segunda vía de entrada: agua caliente desde acumulador solar comunitario.</div>
+                                    </div>
+                                    
+                                    <div style="padding: 0.8rem; background: #FFF3E0; border-radius: 8px; margin-bottom: 0.8rem;">
+                                        <div style="display: flex; align-items: flex-start; gap: 8px;">
+                                            <i class="fas fa-random" style="color: #FF9800; margin-top: 0.2rem;"></i>
+                                            <div><strong>Segunda vía de entrada:</strong> Agua caliente desde acumulador solar se dirige a válvula mezcladora, donde se combina con agua fría antes de llegar a caldera de vivienda.</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="padding: 0.8rem; background: #E3F2FD; border-radius: 8px;">
+                                        <div style="display: flex; align-items: flex-start; gap: 8px;">
+                                            <i class="fas fa-wrench" style="color: #2196F3; margin-top: 0.2rem;"></i>
+                                            <div>
+                                                <strong>Solución práctica:</strong> Aunque válvula mezcladora está dentro de vivienda, debe existir en zonas comunes <strong>contador de apoyo solar con llave de corte</strong>. Cerrar esta llave interrumpe segunda entrada de agua y aísla correctamente la fuga.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -3232,59 +4202,222 @@
                     </div>
                     <div class="topic-number-badge">Anexo I</div>
                 </div>
-                
+
                 <div class="card-content">
-                    <!-- A1. Legionella o Legionelosis -->
+                    <!-- A1. LEGIONELLA O LEGIONELOSIS -->
                     <div class="section">
                         <div class="section-title">
                             <div class="section-icon" style="background: #9C27B0;">
-                                <i class="fas fa-biohazard"></i>
+                                <i class="fas fa-bacteria"></i>
                             </div>
-                            <h3>A1. Legionella o Legionelosis</h3>
+                            <h3>A1. LEGIONELLA O LEGIONELOSIS</h3>
                         </div>
                         
-                        <div class="compact-grid">
-                            <div class="compact-card" style="border-top-color: #9C27B0;">
+                        <div class="columnas" style="gap: 1.5rem; margin-top: 1rem;">
+                            <div class="compact-card" style="border-top-color: #9C27B0; flex: 1 1 350px;">
                                 <div class="compact-header">
                                     <div class="compact-icon" style="background: #9C27B0;">
-                                        <i class="fas fa-temperature-high"></i>
+                                        <i class="fas fa-virus"></i>
                                     </div>
-                                    <div class="compact-title">Condiciones Óptimas Crecimiento</div>
+                                    <div class="compact-title">La bacteria Legionella</div>
                                 </div>
-                                <ul class="compact-list">
-                                    <li><strong>Ambientes humedad y calor:</strong> Verano y otoño</li>
-                                    <li><strong>Transmisión:</strong> Inhalación vapores agua o agua dispersada (mangueras baldeo)</li>
-                                    <li><strong>Óptimo crecimiento:</strong> <span class="red-number">35-37°C</span></li>
-                                    <li><strong>Rango multiplicación:</strong> <span class="red-number">20-50°C</span> (rango a evitar)</li>
-                                    <li><strong>Factores favorables:</strong> Estancamiento agua, acumulación lodo, materia orgánica, corrosión</li>
-                                </ul>
+                                <div style="font-size: 0.95rem; margin-top: 0.5rem;">
+                                    <p><strong>Bacteria que se desarrolla en ambientes de humedad y calor</strong>, especialmente en <strong> verano y otoño</strong>.</p>
+                                    <p>Provoca <strong>legionelosis</strong>, enfermedad altamente contagiosa que se transmite por inhalación de vapores de agua o agua dispersada (mangueras de baldeo).</p>
+                                    
+                                    <div style="padding: 0.8rem; background: #F3E5F5; border-radius: 8px; margin-top: 0.8rem;">
+                                        <div style="display: flex; align-items: flex-start; gap: 8px;">
+                                            <i class="fas fa-thermometer-half" style="color: #9C27B0; margin-top: 0.2rem;"></i>
+                                            <div style="width: 100%;">
+                                                <strong>Condiciones óptimas de crecimiento:</strong>
+                                                <div class="columnas" style="gap: 0.5rem; margin-top: 0.5rem;">
+                                                    <div style="flex: 1 1 100px; padding: 0.5rem; background: rgba(156, 39, 176, 0.1); border-radius: 6px;">
+                                                        <div style="font-weight: 700; color: #7B1FA2;">Óptimo <br><span class="red-number">35-37°C</span></div>
+                                                        
+                                                    </div>
+                                                    <div style="flex: 1 1 100px; padding: 0.5rem; background: rgba(156, 39, 176, 0.1); border-radius: 6px;">
+                                                        <div style="font-weight: 700; color: #7B1FA2;">Rango multiplicación <br><span class="red-number">20-50°C</span></div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             
-                            <div class="compact-card" style="border-top-color: #7B1FA2;">
+                            <div class="compact-card" style="border-top-color: #7B1FA2; flex: 1 1 350px;">
                                 <div class="compact-header">
                                     <div class="compact-icon" style="background: #7B1FA2;">
-                                        <i class="fas fa-vial"></i>
+                                        <i class="fas fa-skull-crossbones"></i>
                                     </div>
-                                    <div class="compact-title">Detalle Bacteria Legionella</div>
+                                    <div class="compact-title">Factores que favorecen su multiplicación</div>
                                 </div>
-                                <div style="text-align: center; margin-top: 1rem;">
-                                    <div class="circuit-diagram">
-                                        <div class="circuit-title">Estructura Bacteriana</div>
-                                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; font-size: 0.85rem; margin-top: 1rem;">
-                                            <div style="padding: 0.8rem; background: #F3E5F5; border-radius: 6px;">
-                                                <div style="font-weight: 700; color: #9C27B0;">Cápsula</div>
-                                            </div>
-                                            <div style="padding: 0.8rem; background: #F3E5F5; border-radius: 6px;">
-                                                <div style="font-weight: 700; color: #9C27B0;">Pared celular</div>
-                                            </div>
-                                            <div style="padding: 0.8rem; background: #F3E5F5; border-radius: 6px;">
-                                                <div style="font-weight: 700; color: #9C27B0;">ADN Nucleoide</div>
-                                            </div>
-                                            <div style="padding: 0.8rem; background: #F3E5F5; border-radius: 6px;">
-                                                <div style="font-weight: 700; color: #9C27B0;">Plasmoide</div>
-                                            </div>
-                                            <div style="padding: 0.8rem; background: #F3E5F5; border-radius: 6px;">
-                                                <div style="font-weight: 700; color: #9C27B0;">Ribosoma</div>
+                                <div style="font-size: 0.95rem; margin-top: 0.5rem;">
+                                    <p>Varios factores en instalaciones de agua favorecen el desarrollo de Legionella:</p>
+                                    
+                                    <div class="danger-box" style="margin: 0.8rem 0;">
+                                        <div class="box-icon" style="background: #D32F2F;">
+                                            <i class="fas fa-exclamation-triangle"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Factores críticos:</strong>
+                                            <ul class="compact-list">
+                                                <li><strong>Estancamiento de agua</strong></li>
+                                                <li><strong>Acumulación de lodos</strong></li>
+                                                <li><strong>Acumulación de materia orgánica</strong></li>
+                                                <li><strong>Materia de corrosión</strong></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- A2. PREVENCIÓN DE LA LEGIONELOSIS -->
+                    <div class="section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: #2196F3;">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>A2. PREVENCIÓN DE LA LEGIONELOSIS</h3>
+                        </div>
+                        
+                        <div class="compact-card" style="border-top-color: #2196F3; margin-bottom: 1.5rem;">
+                            <div class="compact-header">
+                                <div class="compact-icon" style="background: #2196F3;">
+                                    <i class="fas fa-clipboard-check"></i>
+                                </div>
+                                <div class="compact-title">Clasificación de riesgo en instalaciones de ACS</div>
+                            </div>
+                            
+                            <div style="font-size: 0.95rem; margin-top: 0.5rem;">
+                                <div class="columnas" style="gap: 1rem; margin-top: 0.8rem;">
+                                    <div style="flex: 1; padding: 1rem; background: #FFEBEE; border-radius: 8px; border-left: 4px solid #D32F2F;">
+                                        <div style="font-weight: 700; color: #B71C1C; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">
+                                            <i class="fas fa-exclamation-triangle"></i>
+                                            GRUPO 1 - ALTO RIESGO
+                                        </div>
+                                        <div style="font-size: 0.9rem;">Instalaciones de producción de ACS <strong>con acumulación y recirculación</strong></div>
+                                    </div>
+                                    
+                                    <div style="flex: 1; padding: 1rem; background: #FFF3E0; border-radius: 8px; border-left: 4px solid #FF9800;">
+                                        <div style="font-weight: 700; color: #FF8F00; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">
+                                            <i class="fas fa-exclamation-circle"></i>
+                                            MENOR RIESGO
+                                        </div>
+                                        <div style="font-size: 0.9rem;">Instalaciones de ACS <strong>sin recirculación</strong></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="columnas" style="gap: 1.5rem; margin-top: 1rem;">
+                            <div class="compact-card" style="border-top-color: #2196F3; flex: 1 1 400px;">
+                                <div class="compact-header">
+                                    <div class="compact-icon" style="background: #2196F3;">
+                                        <i class="fas fa-thermometer-three-quarters"></i>
+                                    </div>
+                                    <div class="compact-title">Condiciones de funcionamiento habituales</div>
+                                </div>
+                                
+                                <div style="font-size: 0.95rem; margin-top: 0.5rem;">
+                                    <ul class="compact-list">
+                                        <li><strong>Agua acumulada a temperatura ≥ <span class="red-number">60°C</span></strong></li>
+                                        <li><strong>Temperatura ≥ <span class="red-number">50°C</span> en puntos más alejados</strong></li>
+                                        <li>Instalación debe permitir que agua alcance <span class="red-number">70°C</span></li>
+                                        <li>Si sistema aprovechamiento térmico no asegura 60°C continuos, garantizar 60°C en acumulador final antes de distribución</li>
+                                        <li><strong>Temperatura agua fría lo más baja posible</strong>, idealmente <span class="red-number">&lt;20°C</span></li>
+                                    </ul>
+                                    
+                                    <div style="padding: 0.8rem; background: #E3F2FD; border-radius: 8px; margin-top: 0.8rem;">
+                                        <div style="display: flex; align-items: flex-start; gap: 8px;">
+                                            <i class="fas fa-ruler-combined" style="color: #2196F3; margin-top: 0.2rem;"></i>
+                                            <div><strong>Separación tuberías:</strong> Tuberías agua fría suficientemente alejadas de las de agua caliente, o en su defecto, aisladas térmicamente.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="compact-card" style="border-top-color: #1976D2; flex: 1 1 400px;">
+                                <div class="compact-header">
+                                    <div class="compact-icon" style="background: #1976D2;">
+                                        <i class="fas fa-filter"></i>
+                                    </div>
+                                    <div class="compact-title">Medidas adicionales de prevención</div>
+                                </div>
+                                
+                                <div style="font-size: 0.95rem; margin-top: 0.5rem;">
+                                    <div style="padding: 0.8rem; background: #E3F2FD; border-radius: 8px; margin-bottom: 0.8rem;">
+                                        <div style="font-weight: 700; color: #1976D2;">Sistemas de filtración</div>
+                                        <div>Disponer en agua de aporte de <strong>filtros mecánicos de partículas según UNE-EN 13.443 parte 1</strong>, dimensiones entre <span class="red-number">80µm y 150µm</span>.</div>
+                                    </div>
+                                    
+                                    <div style="padding: 0.8rem; background: #E3F2FD; border-radius: 8px; margin-bottom: 0.8rem;">
+                                        <div style="font-weight: 700; color: #1976D2;">Accesibilidad</div>
+                                        <div>Facilitar accesibilidad a equipos para <strong>inspección, limpieza, desinfección y toma de muestras</strong>.</div>
+                                    </div>
+                                    
+                                    <div style="padding: 0.8rem; background: #E3F2FD; border-radius: 8px;">
+                                        <div style="font-weight: 700; color: #1976D2;">Válvulas de retención</div>
+                                        <div>Disponer de sistema de <strong>válvulas de retención según UNE-EN 1.717</strong> que evite retornos de agua por pérdida de presión o disminución de caudal, especialmente para evitar mezclas de agua de diferentes circuitos, calidades o usos.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- A3. NUEVA NORMATIVA RD 487/2022 -->
+                    <div class="section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: #4CAF50;">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h3>A3. NUEVA NORMATIVA RD 487/2022</h3>
+                        </div>
+                        
+                        <div class="compact-card" style="border-top-color: #4CAF50; margin-bottom: 1.5rem;">
+                            <div class="compact-header">
+                                <div class="compact-icon" style="background: #4CAF50;">
+                                    <i class="fas fa-gavel"></i>
+                                </div>
+                                <div class="compact-title">Real Decreto 487/2022 de 21 de junio</div>
+                            </div>
+                            
+                            <div style="font-size: 0.95rem; margin-top: 0.5rem;">
+                                <p>La creación de un <strong>Plan de Prevención y Control de Legionela (PPCL)</strong> y un <strong>Plan Sanitario frente a la Legionela (PSL)</strong> es requerida por el nuevo RD 487/2022.</p>
+                                
+                                <div class="important-note" style="margin: 1rem 0;">
+                                    <i class="fas fa-user-tie"></i>
+                                    <strong>Responsabilidad:</strong> La creación de estos planes recae sobre <strong>el responsable de la instalación</strong>.
+                                </div>
+                                
+                                <div style="padding: 1rem; background: #E8F5E9; border-radius: 8px;">
+                                    <div style="font-weight: 700; color: #388E3C; margin-bottom: 0.5rem;">¿Cómo afecta la normativa al diseño de la instalación?</div>
+                                    
+                                    <div class="columnas" style="gap: 1rem; margin-top: 0.8rem;">
+                                        <div style="flex: 1; padding: 0.8rem; background: rgba(76, 175, 80, 0.1); border-radius: 6px;">
+                                            <div style="font-weight: 700; color: #2E7D32;">1. Acumuladores no estratificados</div>
+                                            <div style="font-size: 0.9rem;">Temperatura debe ser <strong>totalmente homogénea y superior a <span class="red-number">60°C</span></strong>.</div>
+                                        </div>
+                                        
+                                        <div style="flex: 1; padding: 0.8rem; background: rgba(76, 175, 80, 0.1); border-radius: 6px;">
+                                            <div style="font-weight: 700; color: #2E7D32;">2. Temperatura salida uniforme</div>
+                                            <div style="font-size: 0.9rem;">Agua que sale hacia los procesos debe salir <strong>en todo momento sobre <span class="red-number">60°C</span></strong>.</div>
+                                        </div>
+                                        
+                                        <div style="flex: 1; padding: 0.8rem; background: rgba(76, 175, 80, 0.1); border-radius: 6px;">
+                                            <div style="font-weight: 700; color: #2E7D32;">3. Desinfección térmica retorno</div>
+                                            <div style="font-size: 0.9rem;">Agua de retorno antes de volver al acumulador debe pasar por <strong>proceso de desinfección térmica previa</strong>.</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="margin-top: 1rem; padding: 0.8rem; background: #FFF3E0; border-radius: 6px; border-left: 4px solid #FF9800;">
+                                        <div style="display: flex; align-items: flex-start; gap: 8px;">
+                                            <i class="fas fa-fire" style="color: #FF9800; margin-top: 0.2rem;"></i>
+                                            <div>
+                                                <strong>Implicación práctica:</strong> En muchos casos se debe añadir <strong>proceso de calentamiento</strong> para que el agua no retorne fría al acumulador, evitando así la proliferación de legionela.
                                             </div>
                                         </div>
                                     </div>
@@ -3292,163 +4425,180 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- A2. Prevención Legionelosis -->
-                    <div class="section">
-                        <div class="section-title">
-                            <div class="section-icon" style="background: #2196F3;">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <h3>A2. Prevención de la Legionelosis</h3>
-                        </div>
-                        
-                        <div class="danger-box">
-                            <div class="box-icon" style="background: #D32F2F;">
-                                <i class="fas fa-exclamation-triangle"></i>
-                            </div>
-                            <div>
-                                <h4 style="margin-top: 0;">Clasificación Riesgo Instalaciones</h4>
-                                <ul class="nested-list">
-                                    <li><strong>Grupo 1 (alto riesgo):</strong> Instalaciones producción ACS con acumulación y recirculación</li>
-                                    <li><strong>Menor riesgo:</strong> Instalaciones ACS sin recirculación</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="compact-card" style="border-top-color: #2196F3; margin-top: 1.5rem;">
-                            <div class="compact-header">
-                                <div class="compact-icon" style="background: #2196F3;">
-                                    <i class="fas fa-thermometer-three-quarters"></i>
-                                </div>
-                                <div class="compact-title">Condiciones Funcionamiento Habituales</div>
-                            </div>
-                            <div class="two-columns">
-                                <div style="padding: 1rem; background: #E3F2FD; border-radius: 8px;">
-                                    <h5 style="color: #1976D2;">Agua Caliente</h5>
-                                    <ul class="compact-list">
-                                        <li><span class="red-number">≥60°C</span> acumulación</li>
-                                        <li><span class="red-number">≥50°C</span> puntos más alejados</li>
-                                        <li>Instalación permitirá alcanzar <span class="red-number">70°C</span></li>
-                                        <li>Si no se asegura 60°C continuo en acumulador, garantizar 60°C en acumulador final antes distribución</li>
-                                    </ul>
-                                </div>
-                                
-                                <div style="padding: 1rem; background: #E3F2FD; border-radius: 8px;">
-                                    <h5 style="color: #1976D2;">Agua Fría</h5>
-                                    <ul class="compact-list">
-                                        <li>Temperatura lo más baja posible</li>
-                                        <li>Preferiblemente <span class="red-number">&lt;20°C</span> donde clima permita</li>
-                                        <li>Tuberías alejadas de agua caliente o aisladas térmicamente</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <div style="margin-top: 1rem; padding: 1rem; background: #BBDEFB; border-radius: 8px;">
-                                <h5 style="color: #1976D2; margin-bottom: 0.5rem;">Medidas Adicionales</h5>
-                                <ul class="compact-list">
-                                    <li><strong>Filtración aporte agua:</strong> Filtros mecánicos partículas 80-150µm (UNE-EN 13443-1)</li>
-                                    <li><strong>Accesibilidad equipos:</strong> Para inspección, limpieza, desinfección, toma muestras</li>
-                                    <li><strong>Válvulas retención:</strong> Evitar retornos agua por pérdida presión/disminución caudal (UNE-EN 1717)</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- A3. Nueva Normativa RD 487/2022 -->
-                    <div class="section">
-                        <div class="section-title">
-                            <div class="section-icon" style="background: #4CAF50;">
-                                <i class="fas fa-file-signature"></i>
-                            </div>
-                            <h3>A3. Nueva Normativa RD 487/2022</h3>
-                        </div>
-                        
-                        <div class="compact-card" style="border-top-color: #4CAF50;">
-                            <div class="compact-header">
-                                <div class="compact-icon" style="background: #4CAF50;">
-                                    <i class="fas fa-clipboard-list"></i>
-                                </div>
-                                <div class="compact-title">Plan de Prevención y Control de Legionela (PPCL)</div>
-                            </div>
-                            <div style="margin-top: 1rem;">
-                                <p><strong>Responsable:</strong> Titular de la instalación (creación PPCL y Plan Sanitario frente Legionela - PSL).</p>
-                                
-                                <div class="important-note">
-                                    <i class="fas fa-exclamation-circle"></i>
-                                    <strong>¿Cómo afecta al diseño de la instalación?</strong>
-                                </div>
-                                
-                                <div class="two-columns" style="margin-top: 1rem;">
-                                    <div style="padding: 1rem; background: #E8F5E9; border-radius: 8px;">
-                                        <h5 style="color: #388E3C;">Acumuladores No Estratificados</h5>
-                                        <p>Temperatura totalmente homogénea y <span class="red-number">>60°C</span>.</p>
-                                        <p>Agua que sale hacia procesos también >60°C en todo momento.</p>
-                                    </div>
-                                    
-                                    <div style="padding: 1rem; background: #E8F5E9; border-radius: 8px;">
-                                        <h5 style="color: #388E3C;">Desinfección Térmica Previa Retorno</h5>
-                                        <p>Agua retorno antes de volver al acumulador debe pasar por proceso desinfección térmica previa.</p>
-                                        <p>Posible necesidad calentamiento adicional para evitar retorno agua fría al acumulador.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- A4. Protección Catódica -->
+
+                    <!-- A4. PROTECCIÓN CATÓDICA -->
                     <div class="section">
                         <div class="section-title">
                             <div class="section-icon" style="background: #FF9800;">
-                                <i class="fas fa-shield-virus"></i>
+                                <i class="fas fa-shield-alt"></i>
                             </div>
-                            <h3>A4. Protección Catódica</h3>
+                            <h3>A4. PROTECCIÓN CATÓDICA</h3>
                         </div>
                         
                         <div class="compact-card" style="border-top-color: #FF9800; margin-bottom: 1.5rem;">
                             <div class="compact-header">
                                 <div class="compact-icon" style="background: #FF9800;">
-                                    <i class="fas fa-ban"></i>
+                                    <i class="fas fa-bolt"></i>
                                 </div>
-                                <div class="compact-title">Protección contra Corrosión en Depósitos Metálicos</div>
+                                <div class="compact-title">Definición y principio de funcionamiento</div>
                             </div>
-                            <div style="margin-top: 1rem;">
-                                <p><strong>Corrosión/Oxidación:</strong> Fenómenos fisicoquímicos que deterioran depósito metálico. Proceso oxidación/reducción en presencia oxígeno (abundante en depósitos agua caliente).</p>
+                            
+                            <div style="font-size: 0.95rem; margin-top: 0.5rem;">
+                                <p>La protección catódica es el conjunto de dispositivos que <strong>protege una instalación de la corrosión</strong>. Engloba fenómenos fisicoquímicos que dan lugar al deterioro del depósito metálico, siendo la forma más conocida la oxidación.</p>
                                 
-                                <div class="two-columns">
-                                    <div style="padding: 1rem; background: #FFF3E0; border-radius: 8px;">
-                                        <h5 style="color: #FF8F00;">Medio de Transporte Cargas</h5>
-                                        <p>Agua interior acumuladores con sales minerales, cloro, etc. (iones) → medio perfecto procesos electroquímicos corrosión.</p>
+                                <div style="padding: 0.8rem; background: #FFF3E0; border-radius: 8px; margin: 0.8rem 0;">
+                                    <div style="display: flex; align-items: flex-start; gap: 8px;">
+                                        <i class="fas fa-atom" style="color: #FF9800; margin-top: 0.2rem;"></i>
+                                        <div>
+                                            <strong>Oxidación/Reducción (REDOX):</strong> La oxidación es la pérdida de electrones de un elemento que se convierte en un ión positivo. Para que el metal del depósito pierda electrones, otro elemento debe ganarlos, convirtiéndose en ión negativo.
+                                        </div>
                                     </div>
-                                    
-                                    <div style="padding: 1rem; background: #FFF3E0; border-radius: 8px;">
-                                        <h5 style="color: #FF8F00;">Neutralización Proceso</h5>
-                                        <p>Necesario "algo" que neutralice proceso oxidación/reducción y alargue vida útil acumuladores.</p>
+                                </div>
+                                
+                                <div style="padding: 0.8rem; background: #E3F2FD; border-radius: 8px;">
+                                    <div style="display: flex; align-items: flex-start; gap: 8px;">
+                                        <i class="fas fa-water" style="color: #2196F3; margin-top: 0.2rem;"></i>
+                                        <div>
+                                            <strong>Medio de transporte:</strong> Esta reacción necesita un medio de transporte de cargas: <strong>el agua</strong> que contiene sales minerales, cloro y demás elementos disueltos (iones). Este medio es perfecto para procesos electroquímicos de corrosión.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
-                        <!-- Tipos de protección catódica -->
-                        <div class="classification-grid">
-                            <div class="classification-item" style="border: 2px solid #FF9800;">
-                                <div class="classification-icon" style="color: #FF9800;">
-                                    <i class="fas fa-battery-full"></i>
+                        <div class="columnas" style="gap: 1.5rem; margin-top: 1rem;">
+                            <!-- Ánodos de sacrificio -->
+                            <div class="compact-card" style="border-top-color: #FF9800; flex: 1 1 400px;">
+                                <div class="compact-header">
+                                    <div class="compact-icon" style="background: #FF9800;">
+                                        <i class="fas fa-battery-half"></i>
+                                    </div>
+                                    <div class="compact-title">1. ÁNODOS DE SACRIFICIO (Magnesio)</div>
                                 </div>
-                                <h5>Ánodos de Sacrificio (Magnesio)</h5>
-                                <p><strong>Material:</strong> Magnesio (elevada electronegatividad).</p>
-                                <p><strong>Funcionamiento:</strong> Neutralización proceso oxidación/reducción mediante descomposición ánodo hasta desaparición completa.</p>
-                                <div class="compact-chip" style="background: #FFF3E0; color: #FF8F00;">Sacrificio</div>
+                                
+                                <div style="font-size: 0.95rem; margin-top: 0.5rem;">
+                                    <p><strong>Material más utilizado:</strong> Magnesio por su elevada electronegatividad.</p>
+                                    
+                                    <div style="padding: 0.8rem; background: #FFF3E0; border-radius: 8px; margin: 0.8rem 0;">
+                                        <div style="display: flex; align-items: flex-start; gap: 8px;">
+                                            <i class="fas fa-exchange-alt" style="color: #FF9800; margin-top: 0.2rem;"></i>
+                                            <div>
+                                                <strong>Proceso de neutralización:</strong> Lleva inevitablemente a la descomposición del ánodo de magnesio hasta su completa desaparición.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="warning-box">
+                                        <div class="box-icon" style="background: #FF9800;">
+                                            <i class="fas fa-hourglass-end"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Limitación:</strong> Cuando el ánodo se descompone completamente, la protección desaparece por completo. Requiere sustitución periódica.
+                                        </div>
+                                    </div>
+                                    
+
+                                    <div style="display: flex; margin-top: 1rem;">
+                                        <img src="Images/Pcatod.png" alt="" style="max-width: 100%; height: auto; margin: auto;">
+                                    </div>
+                                </div>
                             </div>
                             
-                            <div class="classification-item" style="border: 2px solid #2196F3;">
-                                <div class="classification-icon" style="color: #2196F3;">
-                                    <i class="fas fa-bolt"></i>
+                            <!-- Ánodos de corriente inducida -->
+                            <div class="compact-card" style="border-top-color: #4CAF50; flex: 1 1 400px;">
+                                <div class="compact-header">
+                                    <div class="compact-icon" style="background: #4CAF50;">
+                                        <i class="fas fa-plug"></i>
+                                    </div>
+                                    <div class="compact-title">2. ÁNODOS DE CORRIENTE INDUCIDA (Electrónicos)</div>
                                 </div>
-                                <h5>Ánodos de Corriente Inducida (Electrónicos)</h5>
-                                <p><strong>Suministro electrones:</strong> Directamente desde red eléctrica (transformador CA→CC).</p>
-                                <p><strong>Soporte físico:</strong> Varilla metal noble (titanio) que no interviene en oxidación/reducción.</p>
-                                <p><strong>Regulación:</strong> Dispositivo regulación electrónico incorporado.</p>
-                                <div class="compact-chip" style="background: #E3F2FD; color: #1976D2;">Electrónico</div>
+                                
+                                <div style="font-size: 0.95rem; margin-top: 0.5rem;">
+                                    <p>También conocida como <strong>ánodo electrónico</strong>. Los electrones no son aportados por un metal que se descompone, sino directamente desde la red de suministro eléctrico.</p>
+                                    
+                                    <div style="padding: 0.8rem; background: #E8F5E9; border-radius: 8px; margin: 0.8rem 0;">
+                                        <div style="display: flex; align-items: flex-start; gap: 8px;">
+                                            <i class="fas fa-bolt" style="color: #4CAF50; margin-top: 0.2rem;"></i>
+                                            <div>
+                                                <strong>Transformación necesaria:</strong> Incorpora un transformador que convierte la corriente alterna de red en corriente continua.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="padding: 0.8rem; background: #E8F5E9; border-radius: 8px; margin: 0.8rem 0;">
+                                        <div style="display: flex; align-items: flex-start; gap: 8px;">
+                                            <i class="fas fa-sliders-h" style="color: #4CAF50; margin-top: 0.2rem;"></i>
+                                            <div>
+                                                <strong>Regulación electrónica:</strong> Generalmente incorpora dispositivo de regulación electrónico.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="margin-top: 0.8rem;">
+                                        <div style="font-weight: 700; color: #388E3C;">Componentes clave</div>
+                                        <ul class="compact-list">
+                                            <li><strong>Soporte físico:</strong> Varilla de metal noble (generalmente titanio) que no interviene en el proceso REDOX</li>
+                                            <li><strong>Inyección de electrones:</strong> Desde varilla de titanio se inyectan electrones a través del ánodo</li>
+                                            <li><strong>Neutralización:</strong> Se consigue neutralización del proceso de oxidación/reducción</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="tip-box" style="margin-top: 0.8rem;">
+                                        <i class="fas fa-lightbulb"></i>
+                                        <span style="display: block;"><strong>Ventaja:</strong> No se desgasta como los ánodos de sacrificio, ofreciendo protección continua sin necesidad de sustitución periódica.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Comparación de sistemas -->
+                        <div class="compact-card" style="border-top-color: #9C27B0; margin-top: 1.5rem;">
+                            <div class="compact-header">
+                                <div class="compact-icon" style="background: #9C27B0;">
+                                    <i class="fas fa-balance-scale"></i>
+                                </div>
+                                <div class="compact-title">Comparación de sistemas de protección catódica</div>
+                            </div>
+                            
+                            <div style="font-size: 0.95rem; margin-top: 0.5rem;">
+                                <div class="columnas" style="gap: 1rem; margin-top: 0.8rem;">
+                                    <div style="flex: 1; padding: 1rem; background: #FFF3E0; border-radius: 8px;">
+                                        <div style="font-weight: 700; color: #FF8F00; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">
+                                            <i class="fas fa-battery-half"></i>
+                                            ÁNODOS DE SACRIFICIO
+                                        </div>
+                                        <ul class="compact-list">
+                                            <li><strong>Material:</strong> Magnesio (alta electronegatividad)</li>
+                                            <li><strong>Principio:</strong> Se descompone para proteger</li>
+                                            <li><strong>Mantenimiento:</strong> Sustitución periódica necesaria</li>
+                                            <li><strong>Coste inicial:</strong> Menor</li>
+                                            <li><strong>Duración:</strong> Limitada (se agota)</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div style="flex: 1; padding: 1rem; background: #E8F5E9; border-radius: 8px;">
+                                        <div style="font-weight: 700; color: #388E3C; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">
+                                            <i class="fas fa-plug"></i>
+                                            ÁNODOS ELECTRÓNICOS
+                                        </div>
+                                        <ul class="compact-list">
+                                            <li><strong>Material:</strong> Titanio (metal noble)</li>
+                                            <li><strong>Principio:</strong> Inyección corriente eléctrica</li>
+                                            <li><strong>Mantenimiento:</strong> Mínimo (solo eléctrico)</li>
+                                            <li><strong>Coste inicial:</strong> Mayor</li>
+                                            <li><strong>Duración:</strong> Prácticamente ilimitada</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="info-box" style="margin-top: 1rem;">
+                                    <div class="box-icon" style="background: #9C27B0;">
+                                        <i class="fas fa-info-circle"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Aplicación en depósitos de ACS:</strong> Por tratarse de equipos metálicos con riesgo de corrosión, los depósitos de acumulación de ACS incorporan protecciones catódicas, ya sea mediante ánodos de sacrificio o de corriente inducida.
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -3689,6 +4839,67 @@
                 setTimeout(go, 2300);
             });
         })();
+    </script>
+        <script>
+        // Efectos interactivos para el header
+        document.addEventListener('DOMContentLoaded', function() {
+            // Efecto de interacción con las estadísticas
+            const statBoxes = document.querySelectorAll('.stat-box-acs');
+            
+            statBoxes.forEach(box => {
+                box.addEventListener('mouseenter', function() {
+                    const number = this.querySelector('.stat-number-acs');
+                    if (number.classList.contains('red')) {
+                        number.style.animation = 'heatPulse 0.5s infinite';
+                    }
+                });
+                
+                box.addEventListener('mouseleave', function() {
+                    const number = this.querySelector('.stat-number-acs');
+                    if (number.classList.contains('red')) {
+                        number.style.animation = 'heatPulse 2s infinite';
+                    }
+                });
+            });
+            
+            // Crear gotas de agua adicionales al hacer clic
+            const header = document.querySelector('.hero-header-acs');
+            const waterDrops = document.querySelector('.water-drops');
+            
+            header.addEventListener('click', function(e) {
+                // Solo crear gotas si se hace clic en el header (no en los elementos interactivos)
+                if (e.target.classList.contains('stat-box-acs') || 
+                    e.target.closest('.stat-box-acs') || 
+                    e.target.closest('.title-line-acs')) {
+                    return;
+                }
+                
+                const drop = document.createElement('div');
+                drop.classList.add('drop');
+                
+                // Posición aleatoria
+                const left = e.clientX / window.innerWidth * 100;
+                drop.style.left = left + '%';
+                
+                // Tamaño aleatorio
+                const size = Math.random() * 10 + 5;
+                drop.style.width = size + 'px';
+                drop.style.height = size + 'px';
+                
+                // Duración de animación aleatoria
+                const duration = Math.random() * 5 + 5;
+                drop.style.animationDuration = duration + 's';
+                
+                waterDrops.appendChild(drop);
+                
+                // Eliminar la gota después de que termine la animación
+                setTimeout(() => {
+                    if (drop.parentNode === waterDrops) {
+                        waterDrops.removeChild(drop);
+                    }
+                }, duration * 1000);
+            });
+        });
     </script>
 </body>
 </html>
