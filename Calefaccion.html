@@ -49,6 +49,21 @@
             min-height: 100vh;
             background-attachment: fixed;
         }
+
+        @media (max-width: 630px) {
+            body {
+                --escala: 0.4;
+                transform: scale(var(--escala));
+                transform-origin: top left;
+                width: calc(100% / var(--escala));
+                height: calc(100vh / var(--escala));
+                overflow-x: hidden;
+            }
+
+            .floating-btn {
+                display: none !important;
+            }
+        }         
         
         .container {
             max-width: 1400px;
@@ -210,6 +225,22 @@
             color: white;
         }
         
+        .columnas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .colbox {
+            display: flex;
+            flex: 1 1 220px;
+        }
+        
+        .centrado {
+            display: flex;
+            flex-direction: column;
+        }   
+                
         /* Sistema de tarjetas */
         .horizontal-cards-container {
             display: flex;
@@ -306,7 +337,8 @@
         /* Elementos dentro del contenido */
         .highlight-number {
             color: var(--color-heat);
-            font-weight: 400;
+            font-weight: 700;
+            font-size: 1.05rem;
         }
         
         .section {
@@ -617,8 +649,11 @@
         }
         
         .timeline-step {
-            flex: 1;
-            min-width: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1 1 250px;
             background: #f8f9fa;
             border-radius: 12px;
             padding: 1.2rem;
@@ -741,7 +776,7 @@
             min-width: 300px;
             background: white;
             border-radius: 10px;
-            padding: 1.5rem;
+            padding: 1.7rem;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             border-top: 4px solid #FF9800;
             transition: transform 0.3s ease;
@@ -765,98 +800,6 @@
             font-size: 1.5rem;
         }
         
-        /* Responsividad */
-        @media (max-width: 768px) {
-            .hero-header h1 {
-                font-size: 1.8rem;
-            }
-            
-            .hero-header p {
-                font-size: 1rem;
-            }
-            
-            .logo-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-            }
-            
-            .stat-box {
-                min-width: 150px;
-                padding: 0.8rem 1rem;
-            }
-            
-            .stat-number {
-                font-size: 1.5rem;
-            }
-            
-            .visual-nav {
-                padding: 1rem;
-                top: 10px;
-                gap: 10px;
-            }
-            
-            .nav-item {
-                min-width: 90px;
-                padding: 0.8rem 1rem;
-                font-size: 0.8rem;
-            }
-            
-            .nav-icon {
-                width: 45px;
-                height: 45px;
-                font-size: 1.5rem;
-            }
-            
-            .card-title-top {
-                font-size: 1.6rem;
-            }
-            
-            .card-content {
-                padding: 1.5rem;
-            }
-            
-            .card-header-top {
-                padding: 1.5rem 1.5rem 1.2rem;
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .floating-btn, .floating-btn-left {
-                width: 45px;
-                height: 45px;
-                font-size: 1.25rem;
-            }
-            
-            .floating-btn-left {
-                left: 15px;
-                bottom: 85px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero-header h1 {
-                font-size: 1.5rem;
-            }
-            
-            .card-title-top {
-                font-size: 1.25rem;
-            }
-            
-            .section-title {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
-            }
-            
-            .stats-container {
-                gap: 1rem;
-            }
-            
-            .stat-box {
-                min-width: 120px;
-            }
-        }
         
         /* Estilos para listas anidadas */
         .nested-list {
@@ -951,7 +894,7 @@
         }
         
         .feature-item {
-            flex: 1;
+            flex: 1 1 300px;
             min-width: 200px;
             background: white;
             border-radius: 8px;
@@ -972,43 +915,517 @@
         .feature-icon {
             font-size: 1.2rem;
         }
+
+        /* HEADER VISUAL CALEFACCIÓN */
+        .hero-header {
+            background: linear-gradient(155deg, 
+                #1c0a00 0%, 
+                #3e1f0f 25%, 
+                #7a3a1a 50%, 
+                #c56d2d 75%, 
+                #ff8a3d 100%);
+            color: white;
+            padding: 2.5rem 0 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 2.5rem;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+            box-shadow: 0 10px 30px rgba(255, 87, 34, 0.5);
+            min-height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Animación de llamas */
+        .flames-animation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .flame {
+            position: absolute;
+            background: linear-gradient(to top, transparent, #FF9800, #FF5722);
+            border-radius: 50% 50% 20% 20%;
+            box-shadow: 0 0 20px rgba(255, 87, 34, 0.7);
+            filter: blur(1px);
+        }
+
+        .flame-1 {
+            width: 40px;
+            height: 80px;
+            bottom: 0;
+            left: 15%;
+            animation: flameFlicker 2s infinite ease-in-out;
+        }
+
+        .flame-2 {
+            width: 30px;
+            height: 60px;
+            bottom: 0;
+            right: 20%;
+            animation: flameFlicker 1.8s infinite ease-in-out reverse;
+        }
+
+        .flame-3 {
+            width: 50px;
+            height: 100px;
+            bottom: 0;
+            left: 40%;
+            animation: flameFlicker 2.5s infinite ease-in-out;
+        }
+
+        .flame-4 {
+            width: 35px;
+            height: 70px;
+            bottom: 0;
+            right: 35%;
+            animation: flameFlicker 2.2s infinite ease-in-out;
+        }
+
+        @keyframes flameFlicker {
+            0%, 100% { 
+                transform: scaleY(1) translateY(0); 
+                opacity: 0.8;
+            }
+            25% { 
+                transform: scaleY(1.1) translateY(-5px); 
+                opacity: 1;
+            }
+            50% { 
+                transform: scaleY(0.9) translateY(-2px); 
+                opacity: 0.9;
+            }
+            75% { 
+                transform: scaleY(1.05) translateY(-8px); 
+                opacity: 1;
+            }
+        }
+
+        /* Animación de tuberías */
+        .pipes-animation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .pipe {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .pipe-horizontal {
+            width: 120px;
+            height: 20px;
+        }
+
+        .pipe-vertical {
+            width: 20px;
+            height: 120px;
+        }
+
+        .pipe-1 {
+            top: 20%;
+            left: 10%;
+            animation: pipeGlow 4s infinite;
+        }
+
+        .pipe-2 {
+            top: 40%;
+            right: 15%;
+            animation: pipeGlow 5s infinite reverse;
+        }
+
+        .pipe-3 {
+            bottom: 30%;
+            left: 20%;
+            animation: pipeGlow 6s infinite;
+        }
+
+        .pipe-joint {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .joint-1 { top: 18%; left: 9%; }
+        .joint-2 { top: 38%; right: 14%; }
+        .joint-3 { bottom: 28%; left: 19%; }
+
+        @keyframes pipeGlow {
+            0%, 100% { 
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+                background: rgba(255, 255, 255, 0.1);
+            }
+            50% { 
+                box-shadow: 0 0 20px rgba(255, 193, 7, 0.6);
+                background: rgba(255, 193, 7, 0.2);
+            }
+        }
+
+        /* Animación de calor/ondas */
+        .heat-waves {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .heat-wave {
+            position: absolute;
+            border: 2px solid rgba(255, 87, 34, 0.3);
+            border-radius: 50%;
+            animation: heatPulse 8s infinite linear;
+        }
+
+        .heat-wave-1 {
+            width: 100px;
+            height: 100px;
+            top: 30%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .heat-wave-2 {
+            width: 150px;
+            height: 150px;
+            top: 20%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .heat-wave-3 {
+            width: 200px;
+            height: 200px;
+            bottom: 20%;
+            left: 30%;
+            animation-delay: 4s;
+        }
+
+        @keyframes heatPulse {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.5;
+                border-width: 2px;
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 0.1;
+                border-width: 1px;
+            }
+            100% {
+                transform: scale(0.8);
+                opacity: 0.5;
+                border-width: 2px;
+            }
+        }
+
+        /* Contenido del header */
+        .header-content-visual {
+            position: relative;
+            z-index: 3;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .main-title-visual {
+            margin-bottom: 1rem;
+        }
+
+        .title-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .title-word {
+            font-size: 2.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            line-height: 1.1;
+        }
+
+        .title-1 {
+            color: white;
+            animation: heatGlow 4s infinite alternate;
+            margin-top: 2rem;
+        }
+
+        .title-2 {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 2.2rem;
+            text-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+        }
+
+        .title-3 {
+            color: #FFD54F;
+            text-shadow: 0 0 20px rgba(255, 213, 79, 0.7);
+            position: relative;
+        }
+
+        .title-3:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 250px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #FFD54F, transparent);
+            animation: heatLine 3s infinite;
+            border-radius: 2px;
+        }
+
+        @keyframes heatGlow {
+            0% { 
+                text-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+                color: white;
+            }
+            100% { 
+                text-shadow: 0 5px 25px rgba(255, 87, 34, 0.8), 0 0 30px rgba(255, 152, 0, 0.6);
+                color: #FFECB3;
+            }
+        }
+
+        @keyframes heatLine {
+            0%, 100% { 
+                opacity: 0.3;
+                width: 200px;
+            }
+            50% { 
+                opacity: 1;
+                width: 300px;
+            }
+        }
+
+        .subtitle-visual {
+            margin-bottom: 1.5rem;
+            margin-top: 5rem;
+        }
+
+        .subtitle-text {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+            line-height: 1.5;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            font-weight: 500;
+        }
+
+        .title-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+            margin-top: 2rem;
+        }
+
+        .line-part {
+            height: 3px;
+            background: rgba(255, 255, 255, 0.3);
+            flex: 1;
+            border-radius: 2px;
+        }
+
+        .line-center {
+            width: 50px;
+            height: 50px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .heat-icon {
+            width: 30px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            position: relative;
+            animation: heatPulseIcon 2s infinite;
+            box-shadow: 0 0 15px rgba(255, 87, 34, 0.5);
+        }
+
+        .heat-icon:before {
+            content: '🔥';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5rem;
+            animation: flameIcon 1.5s infinite alternate;
+        }
+
+        @keyframes heatPulseIcon {
+            0% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.7; }
+        }
+
+        @keyframes flameIcon {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            100% { transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        /* Estadísticas térmicas */
+        .heat-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 3;
+        }
+
+        .heat-stat {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1rem 1.5rem;
+            min-width: 150px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .heat-stat:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-value {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #FFECB3;
+            margin-bottom: 0.3rem;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-weight: 600;
+        }
+
+        /* Navegación */
+        .visual-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 2.5rem auto;
+            padding: 1.2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow-card);
+            max-width: 1400px;
+            position: sticky;
+            top: 15px;
+            z-index: 99;
+        }
+        
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            min-width: 100px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            font-size: 0.9rem;
+        }
+        
+        .nav-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .nav-icon {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }        
     </style>
 </head>
 <body>
     <!-- Header -->
     <header class="hero-header">
-        <div class="container header-content">
-            <div class="logo-container">
-                <div class="logo-icon" style="background: var(--gradient-heat);">
-                    <i class="fas fa-fire"></i>
-                </div>
-                <div class="logo-icon" style="background: var(--gradient-water);">
-                    <i class="fas fa-water"></i>
-                </div>
-                <div class="logo-icon" style="background: var(--gradient-pipe);">
-                    <i class="fas fa-oil-can"></i>
-                </div>
-                <div class="logo-icon" style="background: var(--gradient-system);">
-                    <i class="fas fa-thermometer-half"></i>
-                </div>
+        <!-- Animación de llamas -->
+        <div class="flames-animation">
+            <div class="flame flame-1"></div>
+            <div class="flame flame-2"></div>
+            <div class="flame flame-3"></div>
+            <div class="flame flame-4"></div>
+        </div>
+        
+        <!-- Animación de tuberías -->
+        <div class="pipes-animation">
+            <div class="pipe pipe-horizontal pipe-1"></div>
+            <div class="pipe pipe-vertical pipe-2"></div>
+            <div class="pipe pipe-horizontal pipe-3"></div>
+            <div class="pipe-joint joint-1"></div>
+            <div class="pipe-joint joint-2"></div>
+            <div class="pipe-joint joint-3"></div>
+        </div>
+        
+        <!-- Animación de ondas de calor -->
+        <div class="heat-waves">
+            <div class="heat-wave heat-wave-1"></div>
+            <div class="heat-wave heat-wave-2"></div>
+            <div class="heat-wave heat-wave-3"></div>
+        </div>
+        
+        <!-- Contenido principal -->
+        <div class="container header-content-visual">
+            <!-- Título principal -->
+            <div class="main-title-visual">
+                <h1 class="title-text">
+                    <span class="title-word title-1">INSTALACIONES</span>
+                    <span class="title-word title-3">DE CALEFACCIÓN</span>
+                </h1>
             </div>
             
-            <h1>🔥 INSTALACIONES DE CALEFACCIÓN</h1>
-            <p>Guía visual completa sobre sistemas de calefacción individuales y comunitarios</p>
+            <!-- Subtítulo -->
+            <div class="subtitle-visual">
+                <p class="subtitle-text">Sistemas individuales y comunitarios, radiadores, suelo radiante, circuitos abiertos y cerrados, y todo lo que necesitas saber sobre calefacción</p>
+            </div>
             
-            <div class="stats-container">
-                <div class="stat-box">
-                    <div class="stat-number red">70%</div>
-                    <div class="stat-label">Hogares con radiadores en España</div>
+            
+            <!-- Línea decorativa -->
+            <div class="title-line">
+                <div class="line-part line-left"></div>
+                <div class="line-center">
+                    <div class="heat-icon"></div>
                 </div>
-                <div class="stat-box">
-                    <div class="stat-number red">60-80°C</div>
-                    <div class="stat-label">Temperatura agua radiadores</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number red">35-40°C</div>
-                    <div class="stat-label">Temperatura suelo radiante</div>
-                </div>
+                <div class="line-part line-right"></div>
             </div>
         </div>
     </header>
@@ -1108,7 +1525,7 @@
                         <p>Las instalaciones de calefacción se dividen según sus dimensiones en dos tipos:</p>
                         
                         <div class="info-flex-container">
-                            <div class="info-flex-item" style="border-top-color: var(--color-heat);">
+                            <div class="info-flex-item" style="border-top-color: var(--color-heat); align-self: center;">
                                 <div class="info-flex-title">
                                     <div class="info-flex-icon" style="background: var(--color-heat);">
                                         <i class="fas fa-home"></i>
@@ -1127,52 +1544,6 @@
                                 </div>
                                 <p>Son instalaciones en las que <strong>el calor se produce en un solo punto, repartiéndose por conducciones a los aparatos emisores de las viviendas y recintos del edificio</strong>.</p>
                                 <p style="margin-top: 0.5rem;">A su vez, estas instalaciones pueden ser de <strong>circuito cerrado o de circuito abierto</strong>.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- DIAGRAMA CONCEPTUAL -->
-                    <div class="visual-diagram">
-                        <div class="diagram-title">📊 Esquema Conceptual de Instalaciones de Calefacción</div>
-                        <div class="diagram-flex">
-                            <div class="diagram-item">
-                                <div class="diagram-icon">
-                                    <i class="fas fa-home"></i>
-                                </div>
-                                <div style="font-weight: 700; color: var(--color-heat);">INDIVIDUAL</div>
-                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">
-                                    Una caldera por vivienda
-                                </div>
-                            </div>
-                            
-                            <div class="diagram-item">
-                                <div class="diagram-icon">
-                                    <i class="fas fa-arrows-alt-h"></i>
-                                </div>
-                                <div style="font-weight: 700; color: var(--color-water);">CIRCUITO CERRADO</div>
-                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">
-                                    Sistema estanco con vaso de expansión
-                                </div>
-                            </div>
-                            
-                            <div class="diagram-item">
-                                <div class="diagram-icon">
-                                    <i class="fas fa-building"></i>
-                                </div>
-                                <div style="font-weight: 700; color: var(--color-community);">COMUNITARIA</div>
-                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">
-                                    Una caldera para todo el edificio
-                                </div>
-                            </div>
-                            
-                            <div class="diagram-item">
-                                <div class="diagram-icon">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </div>
-                                <div style="font-weight: 700; color: var(--color-pipe);">CIRCUITO ABIERTO</div>
-                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">
-                                    En contacto con el aire (vaso abierto)
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -1231,7 +1602,7 @@
                                 <i class="fas fa-temperature-high"></i>
                             </div>
                             <div>
-                                <p>Los radiadores funcionan mediante un <strong>circuito cerrado de agua, normalmente entre <span class="temp-badge">60°C</span> y <span class="temp-badge">80°C</span></strong>, transmitiendo el calor por radiación y convección y están fabricados en aluminio, chapa de acero o hierro fundido.</p>
+                                <p>Los radiadores funcionan mediante un <strong>circuito cerrado de agua, normalmente entre <span class="highlight-number">60°C</span> y <span class="highlight-number">80°C</span></strong>, transmitiendo el calor por radiación y convección y están fabricados en aluminio, chapa de acero o hierro fundido.</p>
                                 <p style="margin-top: 0.8rem;">Su instalación hidráulica se puede realizar de tres formas: <strong>bitubular, monotubular o por colectores</strong>, siendo la primera la más utilizada.</p>
                             </div>
                         </div>
@@ -1256,7 +1627,7 @@
                                         <div style="font-weight: 700; color: #2196F3; margin-bottom: 0.5rem;">Elementos clave:</div>
                                         <ul class="visual-list">
                                             <li style="padding-left: 2rem;"><strong>Detentor o llave de salida:</strong> Permite la apertura o cierre del aparato emisor, así como el equilibrado del circuito térmico de la instalación.</li>
-                                            <li style="padding-left: 2rem;"><strong>Tubería de retorno:</strong> Recoge el agua de los emisores una vez cedido el calor y la devuelve a la caldera para comenzar de nuevo su ciclo de calentamiento.</li>
+                                            <li style="padding-left: 2rem;"><strong>Llave de radiador:</strong>  permite junto con el detentor la apertura o cierre del aparato emisor.</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -1280,6 +1651,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <div style="display: flex; flex: 1 1;">
+                                <img src="Images/Bitubular.png" alt="" style="max-width: 100%; height: auto; margin: auto;">
+                            </div>                              
                         </div>
                         
                         <!-- 2.1.2 INSTALACIONES MONOTUBULARES -->
@@ -1309,18 +1683,18 @@
                             </div>
                             
                             <!-- LLAVE MONOTUBO Y DETENTOR -->
-                            <div style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 1.5rem;">
-                                <div style="flex: 1; min-width: 300px;">
+                            <div class="info-flex-container">
                                     <div class="feature-item">
                                         <div class="feature-title">
                                             <i class="fas fa-wrench feature-icon"></i>
                                             <span>Llave de Radiador Monotubo</span>
                                         </div>
                                         <p>Permite la apertura o cierre del aparato emisor. Dispone de una <strong>espita que crea una turbulencia en su interior</strong>, facilitando la circulación del agua a través de ella y consiguiendo la cesión de la temperatura.</p>
+                                            <div style="display: flex; flex: 1 1; height: 70%;">
+                                                <img src="Images/Llave.png" alt="" style="max-width: 100%; height: auto; margin: auto;">
+                                            </div>                                        
                                     </div>
-                                </div>
                                 
-                                <div style="flex: 1; min-width: 300px;">
                                     <div class="feature-item">
                                         <div class="feature-title">
                                             <i class="fas fa-toolbox feature-icon"></i>
@@ -1333,8 +1707,11 @@
                                             <li>Junto con la llave de radiador, permite cerrar completamente la entrada de agua al emisor en caso de ser necesaria una reparación.</li>
                                         </ul>
                                     </div>
-                                </div>
                             </div>
+
+                            <div style="display: flex; flex: 1 1;">
+                                <img src="Images/Monotub.png" alt="" style="max-width: 100%; height: auto; margin: auto;">
+                            </div>                             
                         </div>
                         
                         <!-- 2.1.3 INSTALACIONES POR COLECTOR -->
@@ -1368,6 +1745,9 @@
                                     <p>Elemento que se encarga de recibir los circuitos enviados por el colector de ida enviándolos al aparato productor o al distribuidor principal de retorno.</p>
                                 </div>
                             </div>
+                            <div style="display: flex; flex: 1 1;">
+                                <img src="Images/Colector.png" alt="" style="max-width: 100%; height: auto; margin: auto;">
+                            </div>                             
                         </div>
                     </div>
                     
@@ -1389,7 +1769,7 @@
                                     <span>Temperatura</span>
                                 </div>
                                 <p>El suelo radiante es un sistema de calefacción en el que las tuberías se instalan por debajo del suelo de la vivienda sobre una plancha de polietileno, de modo que <strong>todo el suelo de la estancia actúa como emisor</strong>.</p>
-                                <p style="margin-top: 0.5rem;">La temperatura del agua oscila entre <span class="temp-badge">35º</span> y <span class="temp-badge">40º</span>, suficiente para crear un ambiente confortable, <strong>evitando las corrientes de convección que generan los radiadores</strong>.</p>
+                                <p style="margin-top: 0.5rem;">La temperatura del agua oscila entre <span class="highlight-number">35º</span> y <span class="highlight-number">40º</span>, suficiente para crear un ambiente confortable, <strong>evitando las corrientes de convección que generan los radiadores</strong>.</p>
                             </div>
                             
                             <div class="info-flex-item" style="border-top-color: var(--color-system);">
@@ -1432,56 +1812,37 @@
                                     </div>
                                     <p>Elemento embutible, fabricado en plástico o metal que sirve de <strong>alojamiento a los colectores de ida, retorno, valvulería y entradas y salidas de tuberías</strong> hacia los emisores.</p>
                                 </div>
+                                
+                                <!-- NUEVOS ELEMENTOS AÑADIDOS -->
+                                <div class="feature-item">
+                                    <div class="feature-title">
+                                        <i class="fas fa-arrow-right feature-icon"></i>
+                                        <span>Colector de Ida</span>
+                                    </div>
+                                    <p>Elemento conectado <strong>directamente al aparato productor o al distribuidor principal</strong> que se encarga de repartir los circuitos de suelo radiante. Se distingue por <strong> contener caudalímetros </strong> para regular cada circuito.</p>
+                                </div>
+                                
+                                <div class="feature-item">
+                                    <div class="feature-title">
+                                        <i class="fas fa-arrow-left feature-icon"></i>
+                                        <span>Colector de Retorno</span>
+                                    </div>
+                                    <p>Elemento que <strong>recoge el agua de retorno de los circuitos de suelo radiante para enviarla de vuelta a la caldera o distribuidor</strong>. Se distingue por los <strong>detentores</strong>, diseñado para alojar los cabezales termostáticos asociados a los termostatos.</p>
+                                </div>
+                                
+                                <div class="feature-item">
+                                    <div class="feature-title">
+                                        <i class="fas fa-wind feature-icon"></i>
+                                        <span>Purgador Automático</span>
+                                    </div>
+                                    <p>Dispositivo que <strong>elimina automáticamente el aire acumulado en el circuito</strong>, evitando ruidos y favoreciendo la circulación del agua.</p>
+                                </div>
                             </div>
                         </div>
                         
-                        <!-- ESQUEMA SIMPLE -->
-                        <div class="visual-diagram" style="margin-top: 2rem;">
-                            <div class="diagram-title">🏗️ Esquema Simple de Instalaciones de Calefacción Individual</div>
-                            <p style="margin-bottom: 1rem;">Representación conceptual de los diferentes sistemas de calefacción individual.</p>
-                            
-                            <div class="diagram-flex">
-                                <div class="diagram-item">
-                                    <div class="diagram-icon">
-                                        <i class="fas fa-random"></i>
-                                    </div>
-                                    <div style="font-weight: 700; color: #2196F3;">BITUBULAR</div>
-                                    <div style="font-size: 0.9rem; margin-top: 0.5rem;">
-                                        Circuitos independientes de ida y retorno
-                                    </div>
-                                </div>
-                                
-                                <div class="diagram-item">
-                                    <div class="diagram-icon">
-                                        <i class="fas fa-circle-notch"></i>
-                                    </div>
-                                    <div style="font-weight: 700; color: #9C27B0;">MONOTUBULAR</div>
-                                    <div style="font-size: 0.9rem; margin-top: 0.5rem;">
-                                        Radiadores en serie (anillo)
-                                    </div>
-                                </div>
-                                
-                                <div class="diagram-item">
-                                    <div class="diagram-icon">
-                                        <i class="fas fa-project-diagram"></i>
-                                    </div>
-                                    <div style="font-weight: 700; color: #4CAF50;">POR COLECTOR</div>
-                                    <div style="font-size: 0.9rem; margin-top: 0.5rem;">
-                                        Tubería independiente para cada radiador
-                                    </div>
-                                </div>
-                                
-                                <div class="diagram-item">
-                                    <div class="diagram-icon">
-                                        <i class="fas fa-border-style"></i>
-                                    </div>
-                                    <div style="font-weight: 700; color: #388E3C;">SUELO RADIANTE</div>
-                                    <div style="font-size: 0.9rem; margin-top: 0.5rem;">
-                                        Tuberías embebidas bajo el suelo
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            <div style="display: flex; flex: 1 1;">
+                                <img src="Images/Suelorad.png" alt="" style="max-width: 100%; height: auto; margin: auto;">
+                            </div> 
                     </div>
                 </div>
             </div>
@@ -1512,61 +1873,7 @@
                 </div>
                 
                 <div class="card-content">
-                    <!-- INTRODUCCIÓN -->
-                    <div class="definition-box">
-                        <div class="definition-title">
-                            <i class="fas fa-users"></i>
-                            Calefacción Comunitaria
-                        </div>
-                        <p>Como su propio nombre indica, la calefacción comunitaria es un <strong>sistema de calefacción compartido entre las viviendas de un edificio</strong>, donde cada una de ellas disfruta de calefacción gracias a una caldera que es común para todo el inmueble.</p>
-                    </div>
-                    
-                    <!-- TIPOLOGÍAS CONSTRUCTIVAS -->
-                    <div class="section">
-                        <div class="section-title">
-                            <div class="section-icon" style="background: var(--color-community);">
-                                <i class="fas fa-vector-square"></i>
-                            </div>
-                            <h3>Tipologías Constructivas</h3>
-                        </div>
-                        
-                        <div class="info-flex-container">
-                            <div class="info-flex-item" style="border-top-color: #7B1FA2;">
-                                <div class="info-flex-title">
-                                    <div class="info-flex-icon" style="background: #7B1FA2;">
-                                        <i class="fas fa-arrows-alt-v"></i>
-                                    </div>
-                                    <span>Distribución Vertical por Columnas</span>
-                                </div>
-                                <p><strong>La más extendida</strong>. La distribución hacia los emisores se realiza mediante columnas verticales recorriendo todo el edificio, de forma que todos los emisores de una estancia coinciden con los emisores de todas las estancias de su vertical.</p>
-                                <div class="warning-box" style="margin-top: 1rem; padding: 1rem;">
-                                    <i class="fas fa-ban" style="color: #FF9800; margin-right: 0.5rem;"></i>
-                                    <span><strong>Se prohíbe la instalación de llaves de corte al pie de las columnas.</strong></span>
-                                </div>
-                            </div>
-                            
-                            <div class="info-flex-item" style="border-top-color: #7B1FA2;">
-                                <div class="info-flex-title">
-                                    <div class="info-flex-icon" style="background: #7B1FA2;">
-                                        <i class="fas fa-circle-notch"></i>
-                                    </div>
-                                    <span>Distribución Horizontal por Anillos</span>
-                                </div>
-                                <p><strong>Escogida en algunos edificios de nueva construcción</strong> por permitir la colocación de contadores individuales para el control del consumo de energía.</p>
-                                <p style="margin-top: 0.5rem;">Dispone de uno o varios montantes únicos desde los cuales parten las derivaciones a cada vivienda. Ofrece la posibilidad de instalar aparatos de control de consumo de forma individual, encontrándose estos siempre en zona común del inmueble.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="technical-box" style="margin-top: 1.5rem;">
-                            <div class="box-icon" style="background: #7B1FA2;">
-                                <i class="fas fa-calculator"></i>
-                            </div>
-                            <div>
-                                <p><strong>El número de columnas ascendentes de la instalación variará en función de la superficie de las viviendas y, por lo tanto, del número de radiadores a alimentar.</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                    
+                   
                     <!-- 3.1 CIRCUITO CERRADO -->
                     <div class="section">
                         <div class="section-title">
@@ -1575,7 +1882,8 @@
                             </div>
                             <h3>3.1. Instalaciones Comunitarias de Circuito Cerrado</h3>
                         </div>
-                        
+                                                
+
                         <p>La instalación hidráulica moderna de un sistema de calefacción se ejecuta en circuito cerrado, siendo este sistema el más usado. Consiste en un <strong>sistema de tuberías de ida y de retorno en circuito estanco</strong>, equipado con:</p>
                         
                         <div class="features-container" style="margin-top: 1rem;">
@@ -1613,46 +1921,66 @@
                                 <p style="margin-top: 0.8rem;"><strong>Cualquier acción de vaciado del circuito necesitará la localización de la válvula de llenado automático y su cierre inmediato.</strong></p>
                             </div>
                         </div>
+
+                    <!-- INTRODUCCIÓN -->
+                        <div class="definition-box">
+                            <div class="definition-title">
+                                <i class="fas fa-users"></i>
+                                Calefacción Comunitaria
+                            </div>
+                            <p>Como su propio nombre indica, la calefacción comunitaria es un <strong>sistema de calefacción compartido entre las viviendas de un edificio</strong>, donde cada una de ellas disfruta de calefacción gracias a una caldera que es común para todo el inmueble.</p>
+                        </div>
+                    
                         
-                        <!-- 3.1.1 Y 3.1.2 -->
-                        <div style="margin-top: 2rem;">
-                            <h4>3.1.1. Calefacción por Columna vs 3.1.2. Calefacción en Anillo</h4>
-                            
-                            <div class="comparison-container">
-                                <div class="comparison-card">
-                                    <div class="comparison-title">
-                                        <div class="comparison-icon" style="color: #7B1FA2;">
-                                            <i class="fas fa-arrows-alt-v"></i>
-                                        </div>
-                                        <span>Por Columna</span>
+                        <div class="info-flex-container">
+                            <div class="info-flex-item" style="border-top-color: #7B1FA2;">
+                                <div class="info-flex-title">
+                                    <div class="info-flex-icon" style="background: #7B1FA2;">
+                                        <i class="fas fa-arrows-alt-v"></i>
                                     </div>
-                                    <ul class="visual-list">
-                                        <li><strong>Distribución vertical</strong> por columnas</li>
-                                        <li>Recorren <strong>todo el edificio</strong></li>
-                                        <li>Emisores de una estancia coinciden verticalmente con los de otras viviendas</li>
-                                        <li><strong>Prohibidas llaves de corte</strong> al pie de columnas</li>
-                                        <li>Sistema más tradicional y extendido</li>
-                                    </ul>
+                                    <span>Distribución Vertical por Columnas</span>
                                 </div>
-                                
-                                <div class="comparison-card">
-                                    <div class="comparison-title">
-                                        <div class="comparison-icon" style="color: #FF9800;">
-                                            <i class="fas fa-circle-notch"></i>
+                                <div class="columnas">
+                                    <div style="flex: 1 1 200px;">
+                                        <p><strong>La más extendida</strong>. La distribución hacia los emisores se realiza mediante columnas verticales recorriendo todo el edificio, de forma que todos los emisores de una estancia coinciden con los emisores de todas las estancias de su vertical.</p>
+                                        <div class="warning-box" style="margin-top: 1rem; padding: 1rem;">
+                                            <i class="fas fa-ban" style="color: #FF9800; margin-right: 0.5rem;"></i>
+                                            <span><strong>Se prohíbe la instalación de llaves de corte al pie de las columnas.</strong></span>
                                         </div>
-                                        <span>En Anillo</span>
                                     </div>
-                                    <ul class="visual-list">
-                                        <li><strong>Distribución horizontal</strong> por anillos</li>
-                                        <li>Uno o varios <strong>montantes únicos</strong></li>
-                                        <li>Derivaciones individuales a cada vivienda</li>
-                                        <li>Permite <strong>contadores individuales</strong> de consumo</li>
-                                        <li>Contadores en <strong>zona común</strong> del inmueble</li>
-                                        <li>Más moderno, en edificios de nueva construcción</li>
-                                    </ul>
+                                    <div style="display: flex; flex: 1 1 200px;">
+                                        <img src="Images/Columna.png" alt="" style="max-width: 100%; height: auto; margin: auto;">
+                                    </div>                                    
                                 </div>
                             </div>
+                            
+                            <div class="info-flex-item" style="border-top-color: #7B1FA2;">
+                                <div class="info-flex-title">
+                                    <div class="info-flex-icon" style="background: #7B1FA2;">
+                                        <i class="fas fa-circle-notch"></i>
+                                    </div>
+                                    <span>Distribución Horizontal por Anillos</span>
+                                </div>
+                                <div class="columnas">
+                                    <div style="flex: 1 1 200px;">
+                                        <p><strong>Escogida en algunos edificios de nueva construcción</strong> por permitir la colocación de contadores individuales para el control del consumo de energía.</p>
+                                        <p style="margin-top: 0.5rem;">Dispone de uno o varios montantes únicos desde los cuales parten las derivaciones a cada vivienda. Ofrece la posibilidad de instalar aparatos de control de consumo de forma individual, encontrándose estos siempre en zona común del inmueble.</p>
+                                    </div>
+                                    <div style="display: flex; flex: 1 1 200px;">
+                                        <img src="Images/Anillo.png" alt="" style="max-width: 100%; height: auto; margin: auto;">
+                                    </div> 
+                                </div>                               
+                            </div>
                         </div>
+                        
+                        <div class="technical-box" style="margin-top: 1.5rem;">
+                            <div class="box-icon" style="background: #7B1FA2;">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <div>
+                                <p><strong>El número de columnas ascendentes de la instalación variará en función de la superficie de las viviendas y, por lo tanto, del número de radiadores a alimentar.</strong></p>
+                            </div>
+                        </div>                        
                     </div>
                     
                     <!-- 3.2 CIRCUITO ABIERTO -->
@@ -1686,30 +2014,36 @@
                         <!-- 3.2.1 CIRCUITO ABIERTO SUPERIOR -->
                         <div style="margin-top: 2rem;">
                             <h4>3.2.1. Circuito Abierto Superior</h4>
-                            
-                            <div class="procedure-timeline">
-                                <div class="timeline-step">
-                                    <div class="step-number">1</div>
-                                    <div class="step-title">Montante Ascendente de Ida</div>
-                                    <div style="font-size: 0.75rem;">De gran diámetro que parte de la caldera</div>
+
+                            <div class="columnas">
+                                <div class="procedure-timeline" style="flex: 1 1 300px;">
+                                    <div class="timeline-step">
+                                        <div class="step-number">1</div>
+                                        <div class="step-title">Montante Ascendente de Ida</div>
+                                        <div style="font-size: 0.75rem;">De gran diámetro que parte de la caldera</div>
+                                    </div>
+                                    <div class="timeline-step">
+                                        <div class="step-number">2</div>
+                                        <div class="step-title">Distribuidores de Ida</div>
+                                        <div style="font-size: 0.75rem;">Se ramifica hacia radiadores por parte superior</div>
+                                    </div>
+                                    <div class="timeline-step">
+                                        <div class="step-number">3</div>
+                                        <div class="step-title">Circuito de Retorno</div>
+                                        <div style="font-size: 0.75rem;">Agua sale por parte inferior de radiadores</div>
+                                    </div>
+                                    <div class="timeline-step">
+                                        <div class="step-number">4</div>
+                                        <div class="step-title">Retorno a Caldera</div>
+                                        <div style="font-size: 0.75rem;">Montante descendente acomete caldera por parte inferior</div>
+                                    </div>
                                 </div>
-                                <div class="timeline-step">
-                                    <div class="step-number">2</div>
-                                    <div class="step-title">Distribuidores de Ida</div>
-                                    <div style="font-size: 0.75rem;">Se ramifica hacia radiadores por parte superior</div>
-                                </div>
-                                <div class="timeline-step">
-                                    <div class="step-number">3</div>
-                                    <div class="step-title">Circuito de Retorno</div>
-                                    <div style="font-size: 0.75rem;">Agua sale por parte inferior de radiadores</div>
-                                </div>
-                                <div class="timeline-step">
-                                    <div class="step-number">4</div>
-                                    <div class="step-title">Retorno a Caldera</div>
-                                    <div style="font-size: 0.75rem;">Montante descendente acomete caldera por parte inferior</div>
-                                </div>
+
+                                <div style="display: flex; flex: 1 1 300px;">
+                                    <img src="Images/Abierto.png" alt="" style="max-width: 100%; height: auto; margin: auto;">
+                                </div>                                 
                             </div>
-                            
+
                             <div class="technical-box" style="margin-top: 1.5rem;">
                                 <div class="box-icon" style="background: #795548;">
                                     <i class="fas fa-atom"></i>
@@ -1746,66 +2080,6 @@
                                 </div>
                             </div>
                             
-                            <div class="emphasis-box" style="margin-top: 1.5rem;">
-                                <p><strong>Resumen clave:</strong> Las instalaciones de circuito abierto funcionan por <strong>termosifón (circulación natural)</strong>, requieren <strong>inclinación adecuada de tuberías</strong>, y utilizan un <strong>vaso de expansión abierto</strong> en el punto más alto del circuito.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- DIAGRAMA FINAL -->
-                    <div class="visual-diagram" style="margin-top: 3rem;">
-                        <div class="diagram-title">🏢 Resumen de Sistemas Comunitarios</div>
-                        
-                        <div class="diagram-flex">
-                            <div class="diagram-item">
-                                <div class="diagram-icon">
-                                    <i class="fas fa-sync-alt"></i>
-                                </div>
-                                <div style="font-weight: 700; color: #2196F3;">CIRCUITO CERRADO</div>
-                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">
-                                    • Sistema estanco<br>
-                                    • Vaso de expansión cerrado<br>
-                                    • Bomba circuladora<br>
-                                    • Más moderno y común
-                                </div>
-                            </div>
-                            
-                            <div class="diagram-item">
-                                <div class="diagram-icon">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </div>
-                                <div style="font-weight: 700; color: #795548;">CIRCUITO ABIERTO</div>
-                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">
-                                    • Contacto con el aire<br>
-                                    • Vaso de expansión abierto<br>
-                                    • Termosifón (circulación natural)<br>
-                                    • Más antiguo, calderas leña/carbón
-                                </div>
-                            </div>
-                            
-                            <div class="diagram-item">
-                                <div class="diagram-icon">
-                                    <i class="fas fa-arrows-alt-v"></i>
-                                </div>
-                                <div style="font-weight: 700; color: #7B1FA2;">POR COLUMNA</div>
-                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">
-                                    • Distribución vertical<br>
-                                    • Más extendido<br>
-                                    • Prohibido llaves corte en columnas
-                                </div>
-                            </div>
-                            
-                            <div class="diagram-item">
-                                <div class="diagram-icon">
-                                    <i class="fas fa-circle-notch"></i>
-                                </div>
-                                <div style="font-weight: 700; color: #FF9800;">EN ANILLO</div>
-                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">
-                                    • Distribución horizontal<br>
-                                    • Permite contadores individuales<br>
-                                    • Edificios nueva construcción
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -2016,5 +2290,57 @@
         });
         
     </script>
+    <script>
+        // Efecto adicional: hacer que las estadísticas tengan un brillo aleatorio
+        document.addEventListener('DOMContentLoaded', function() {
+            const stats = document.querySelectorAll('.heat-stat');
+            
+            stats.forEach(stat => {
+                setInterval(() => {
+                    stat.style.boxShadow = `0 8px 20px rgba(255, ${Math.floor(Math.random() * 100) + 100}, ${Math.floor(Math.random() * 50)}, 0.4)`;
+                    
+                    setTimeout(() => {
+                        stat.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.2)';
+                    }, 300);
+                }, Math.random() * 3000 + 2000);
+            });
+            
+            // Efecto de partículas de calor
+            const header = document.querySelector('.hero-header');
+            for (let i = 0; i < 15; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('heat-particle');
+                particle.style.cssText = `
+                    position: absolute;
+                    width: ${Math.random() * 4 + 2}px;
+                    height: ${Math.random() * 4 + 2}px;
+                    background: rgba(255, ${Math.floor(Math.random() * 100) + 155}, ${Math.floor(Math.random() * 50)}, ${Math.random() * 0.5 + 0.3});
+                    border-radius: 50%;
+                    top: ${Math.random() * 100}%;
+                    left: ${Math.random() * 100}%;
+                    z-index: 2;
+                    animation: floatUp ${Math.random() * 10 + 5}s infinite ease-in;
+                    animation-delay: ${Math.random() * 5}s;
+                `;
+                header.appendChild(particle);
+            }
+            
+            // Agregar la animación de partículas flotantes
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes floatUp {
+                    0% {
+                        transform: translateY(0) scale(1);
+                        opacity: ${Math.random() * 0.5 + 0.3};
+                    }
+                    100% {
+                        transform: translateY(-100px) scale(0);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>    
 </body>
 </html>
