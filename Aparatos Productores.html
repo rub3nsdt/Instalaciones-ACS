@@ -1,0 +1,2524 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aparatos Productores de Calor - Cuerpo de Bomberos de Madrid</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --color-fire: #D32F2F;
+            --color-fire-light: #FF5252;
+            --color-fire-dark: #B71C1C;
+            --color-rescue: #2196F3;
+            --color-rescue-light: #64B5F6;
+            --color-rescue-dark: #1976D2;
+            --color-tools: #FF9800;
+            --color-tools-light: #FFB74D;
+            --color-tools-dark: #F57C00;
+            --color-security: #4CAF50;
+            --color-security-light: #81C784;
+            --color-security-dark: #388E3C;
+            --color-metal: #607D8B;
+            --color-metal-light: #90A4AE;
+            --color-metal-dark: #455A64;
+            --color-biomass: #8D6E63;
+            --color-biomass-light: #A1887F;
+            --color-biomass-dark: #6D4C41;
+            --color-electric: #9C27B0;
+            --color-electric-light: #BA68C8;
+            --color-electric-dark: #7B1FA2;
+            --color-text: #333333;
+            --color-light: #f8f9fa;
+            --color-dark: #212121;
+            --gradient-fire: linear-gradient(135deg, #D32F2F 0%, #FF5252 100%);
+            --gradient-rescue: linear-gradient(135deg, #2196F3 0%, #64B5F6 100%);
+            --gradient-tools: linear-gradient(135deg, #FF9800 0%, #FFB74D 100%);
+            --gradient-security: linear-gradient(135deg, #4CAF50 0%, #81C784 100%);
+            --gradient-metal: linear-gradient(135deg, #607D8B 0%, #90A4AE 100%);
+            --gradient-biomass: linear-gradient(135deg, #8D6E63 0%, #A1887F 100%);
+            --gradient-electric: linear-gradient(135deg, #9C27B0 0%, #BA68C8 100%);
+            --shadow-card: 0 8px 25px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.15);
+            --border-radius: 12px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(45deg, #f5f7fa 0%, #e4e8f0 100%);
+            color: var(--color-text);
+            line-height: 1.6;
+            min-height: 100vh;
+            background-attachment: fixed;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .hero-header {
+            background: var(--gradient-fire);
+            color: white;
+            padding: 2.5rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 3rem;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            box-shadow: 0 8px 25px rgba(211, 47, 47, 0.3);
+        }
+        
+        .hero-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .logo-icon {
+            background: rgba(255, 255, 255, 0.2);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-icon:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+        
+        .hero-header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            font-weight: 800;
+        }
+        
+        .hero-header p {
+            font-size: 1.2rem;
+            max-width: 900px;
+            margin: 0 auto 1.5rem;
+            opacity: 0.95;
+        }
+        
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+        
+        .stat-box {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            min-width: 200px;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 0.3rem;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .stat-number.red {
+            color: #FFEB3B;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Navegación */
+        .visual-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 2.5rem auto;
+            padding: 1.2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow-card);
+            max-width: 1400px;
+            position: sticky;
+            top: 15px;
+            z-index: 99;
+        }
+        
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            min-width: 100px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            font-size: 0.9rem;
+        }
+        
+        .nav-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .nav-icon {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        /* Sistema de tarjetas */
+        .horizontal-cards-container {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+        
+        .horizontal-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .horizontal-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        /* Encabezado de tarjeta */
+        .card-header-top {
+            padding: 2rem 2rem 1.5rem;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-header-top::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+        
+        .card-title-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .card-icon-large {
+            width: 70px;
+            height: 70px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .card-title-top {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card-subtitle-top {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 12px;
+        }
+        
+        .topic-number-badge {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-content {
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Sistema Flex para contenido */
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .flex-item {
+            flex: 1 1 300px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            border-left: 4px solid;
+        }
+        
+        /* Elementos dentro del contenido */
+        .highlight-number {
+            color: var(--color-fire);
+            font-weight: 400;
+        }
+        
+        .section {
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+        
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            color: #333;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .section-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: white;
+            flex-shrink: 0;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .visual-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .visual-list li {
+            padding: 0.9rem 0;
+            padding-left: 3rem;
+            position: relative;
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+            border-left: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .visual-list li:hover {
+            background-color: rgba(0, 0, 0, 0.02);
+            padding-left: 3.2rem;
+            border-left-color: var(--color-fire);
+        }
+        
+        .visual-list li:before {
+            content: '';
+            position: absolute;
+            left: 1rem;
+            top: 1.4rem;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        
+        /* Cajas especiales */
+        .info-box, .tip-box, .warning-box, .danger-box, .legal-box {
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .info-box::before, .tip-box::before, .warning-box::before, .danger-box::before, .legal-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+            border-left: 6px solid var(--color-rescue);
+        }
+        
+        .tip-box {
+            background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+            border-left: 6px solid var(--color-security);
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #FFF8E1, #FFECB3);
+            border-left: 6px solid var(--color-tools);
+        }
+        
+        .danger-box {
+            background: linear-gradient(135deg, #FFEBEE, #FFCDD2);
+            border-left: 6px solid var(--color-fire);
+        }
+        
+        .legal-box {
+            background: linear-gradient(135deg, #F3E5F5, #E1BEE7);
+            border-left: 6px solid #9C27B0;
+        }
+        
+        .box-icon {
+            font-size: 1.3rem;
+            min-width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        /* Diagramas y elementos visuales */
+        .visual-diagram {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border: 2px dashed #ddd;
+            text-align: center;
+        }
+        
+        .diagram-title {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+        
+        .diagram-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            justify-content: center;
+        }
+        
+        .diagram-item {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease;
+            flex: 1 1 250px;
+            max-width: 300px;
+        }
+        
+        .diagram-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .diagram-icon {
+            font-size: 2rem;
+            color: var(--color-fire);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Footer */
+        .visual-footer {
+            background: linear-gradient(135deg, var(--color-dark), #424242);
+            color: white;
+            padding: 3.5rem 0;
+            text-align: center;
+            margin-top: 5rem;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .visual-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M1200 0L0 0 892.25 114.72 1200 0z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+        
+        .footer-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .footer-icons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-icon:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        /* Botones flotantes */
+        .floating-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: var(--gradient-fire);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            box-shadow: 0 8px 25px rgba(211, 47, 47, 0.4);
+            cursor: pointer;
+            z-index: 100;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1) rotate(15deg);
+        }
+        
+        .floating-btn-left {
+            left: 25px;
+            right: auto;
+            background: var(--gradient-rescue);
+            box-shadow: 0 8px 25px rgba(33, 150, 243, 0.4);
+        }
+        
+        .floating-btn-left:hover {
+            transform: scale(1.1) rotate(-15deg);
+        }
+        
+        /* Etiquetas de categoría */
+        .category-tag {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+        
+        .tag-legal { background: #E3F2FD; color: #1565C0; }
+        .tag-tools { background: #FFF3E0; color: #EF6C00; }
+        .tag-security { background: #E8F5E9; color: #2E7D32; }
+        .tag-doors { background: #F3E5F5; color: #7B1FA2; }
+        .tag-locks { background: #E0F2F1; color: #00695C; }
+        
+        /* Estilo para subtítulos dentro de las secciones */
+        .section h4 {
+            margin: 1.5rem 0 1rem 0;
+            color: #333;
+            font-size: 1.2rem;
+            padding-left: 0.5rem;
+            border-left: 4px solid var(--color-fire);
+            padding-left: 1rem;
+        }
+        
+        /* Timeline horizontal */
+        .procedure-timeline {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            justify-content: space-between;
+        }
+        
+        .timeline-step {
+            flex: 1;
+            min-width: 150px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.2rem;
+            text-align: center;
+            border-top: 4px solid var(--color-rescue);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background: var(--color-rescue);
+            color: white;
+            border-radius: 50%;
+            line-height: 32px;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .step-title {
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
+            color: var(--color-dark);
+        }
+        
+        /* Tablas */
+        .visual-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .visual-table th {
+            background: var(--gradient-rescue);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .visual-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .visual-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .visual-table tr:hover {
+            background-color: #f1f1f1;
+        }
+        
+        /* Colores específicos para elementos de lista */
+        .list-color-1 li:before { background-color: #D32F2F; }
+        .list-color-2 li:before { background-color: #2196F3; }
+        .list-color-3 li:before { background-color: #FF9800; }
+        .list-color-4 li:before { background-color: #4CAF50; }
+        .list-color-5 li:before { background-color: #9C27B0; }
+        .list-color-6 li:before { background-color: #607D8B; }
+        
+        /* Elementos compactos */
+        .compact-card {
+            flex: 1 1 300px;
+            background: white;
+            border-radius: 12px;
+            padding: 1.2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-top: 4px solid;
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+        }
+        
+        .compact-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+        
+        .compact-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .compact-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .compact-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #333;
+            line-height: 1.3;
+        }
+        
+        /* Chips de categoría */
+        .compact-chip {
+            display: inline-block;
+            padding: 0.25rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-right: 0.3rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        /* Responsividad */
+        @media (max-width: 768px) {
+            .hero-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-header p {
+                font-size: 1rem;
+            }
+            
+            .logo-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            .stat-box {
+                min-width: 150px;
+                padding: 0.8rem 1rem;
+            }
+            
+            .stat-number {
+                font-size: 1.5rem;
+            }
+            
+            .visual-nav {
+                padding: 1rem;
+                top: 10px;
+                gap: 10px;
+            }
+            
+            .nav-item {
+                min-width: 90px;
+                padding: 0.8rem 1rem;
+                font-size: 0.8rem;
+            }
+            
+            .nav-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.5rem;
+            }
+            
+            .card-title-top {
+                font-size: 1.6rem;
+            }
+            
+            .card-content {
+                padding: 1.5rem;
+            }
+            
+            .card-header-top {
+                padding: 1.5rem 1.5rem 1.2rem;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .floating-btn, .floating-btn-left {
+                width: 45px;
+                height: 45px;
+                font-size: 1.25rem;
+            }
+            
+            .floating-btn-left {
+                left: 15px;
+                bottom: 85px;
+            }
+            
+            .flex-item {
+                flex: 1 1 100%;
+            }
+            
+            .diagram-item {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .card-title-top {
+                font-size: 1.25rem;
+            }
+            
+            .section-title {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .stats-container {
+                gap: 1rem;
+            }
+            
+            .stat-box {
+                min-width: 120px;
+            }
+            
+            .compact-card {
+                flex: 1 1 100%;
+            }
+        }
+        
+        /* Iconos personalizados */
+        .fa-coal:before { content: "⛏️"; }
+        .fa-pellet:before { content: "🌱"; }
+        .fa-gas:before { content: "🔥"; }
+        .fa-diesel:before { content: "⛽"; }
+        .fa-electric:before { content: "⚡"; }
+        .fa-heat-pump:before { content: "🔄"; }
+        .fa-absorption:before { content: "❄️"; }
+        .fa-solar:before { content: "☀️"; }
+        
+        /* Estilo para datos numéricos en rojo */
+        .red-number {
+            color: #D32F2F;
+            font-weight: 700;
+        }
+        
+        /* Estilo para texto destacado */
+        .highlight-text {
+            background-color: #FFF3E0;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="hero-header">
+        <div class="container header-content">
+            <div class="logo-container">
+                <div class="logo-icon" style="background: var(--gradient-fire);">
+                    <i class="fas fa-fire"></i>
+                </div>
+                <div class="logo-icon" style="background: var(--gradient-rescue);">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="logo-icon" style="background: var(--gradient-tools);">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <div class="logo-icon" style="background: var(--gradient-security);">
+                    <i class="fas fa-temperature-high"></i>
+                </div>
+            </div>
+            
+            <h1>🔥 APARATOS PRODUCTORES DE CALOR</h1>
+            <p>Guía visual completa para intervenciones del Cuerpo de Bomberos del Ayuntamiento de Madrid</p>
+            
+            <div class="stats-container">
+                <div class="stat-box">
+                    <div class="stat-number red">≤70 kW</div>
+                    <div class="stat-label">Calderas murales mixtas</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number red">>70 kW</div>
+                    <div class="stat-label">Cuarto de calderas</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number red">98%</div>
+                    <div class="stat-label">Rendimiento condensación</div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navegación simplificada -->
+    <div class="container">
+        <div class="visual-nav">
+            <a href="#introduccion" class="nav-item" style="background: linear-gradient(135deg, #FFEBEE, #FFFFFF);">
+                <div class="nav-icon" style="background: var(--gradient-fire);">
+                    <i class="fas fa-fire"></i>
+                </div>
+                <span>Introducción</span>
+                <small>Tema 1</small>
+            </a>
+            
+            <a href="#transmision-calor" class="nav-item" style="background: linear-gradient(135deg, #E3F2FD, #FFFFFF);">
+                <div class="nav-icon" style="background: var(--gradient-rescue);">
+                    <i class="fas fa-thermometer-half"></i>
+                </div>
+                <span>Transmisión Calor</span>
+                <small>Tema 2</small>
+            </a>
+            
+            <a href="#calderas" class="nav-item" style="background: linear-gradient(135deg, #FFF3E0, #FFFFFF);">
+                <div class="nav-icon" style="background: var(--gradient-tools);">
+                    <i class="fas fa-industry"></i>
+                </div>
+                <span>Calderas</span>
+                <small>Tema 3</small>
+            </a>
+            
+            <a href="#combustible-solido" class="nav-item" style="background: linear-gradient(135deg, #EFEBE9, #FFFFFF);">
+                <div class="nav-icon" style="background: var(--gradient-biomass);">
+                    <i class="fas fa-coal"></i>
+                </div>
+                <span>Combustible Sólido</span>
+                <small>Tema 3.2.1</small>
+            </a>
+            
+            <a href="#combustible-liquido" class="nav-item" style="background: linear-gradient(135deg, #E3F2FD, #FFFFFF);">
+                <div class="nav-icon" style="background: var(--gradient-metal);">
+                    <i class="fas fa-diesel"></i>
+                </div>
+                <span>Combustible Líquido</span>
+                <small>Tema 3.2.2</small>
+            </a>
+
+            <a href="#combustible-gaseoso" class="nav-item" style="background: linear-gradient(135deg, #FFEBEE, #FFFFFF);">
+                <div class="nav-icon" style="background: var(--gradient-fire);">
+                    <i class="fas fa-gas"></i>
+                </div>
+                <span>Combustible Gaseoso</span>
+                <small>Tema 3.2.3</small>
+            </a>
+
+            <a href="#electricas" class="nav-item" style="background: linear-gradient(135deg, #F3E5F5, #FFFFFF);">
+                <div class="nav-icon" style="background: var(--gradient-electric);">
+                    <i class="fas fa-electric"></i>
+                </div>
+                <span>Eléctricas</span>
+                <small>Tema 3.2.4</small>
+            </a>
+
+            <a href="#bombas-calor" class="nav-item" style="background: linear-gradient(135deg, #E0F2F1, #FFFFFF);">
+                <div class="nav-icon" style="background: var(--gradient-rescue);">
+                    <i class="fas fa-heat-pump"></i>
+                </div>
+                <span>Bombas de Calor</span>
+                <small>Tema 3.2.5</small>
+            </a>
+
+            <a href="#absorcion" class="nav-item" style="background: linear-gradient(135deg, #E8EAF6, #FFFFFF);">
+                <div class="nav-icon" style="background: var(--gradient-metal);">
+                    <i class="fas fa-absorption"></i>
+                </div>
+                <span>Absorción</span>
+                <small>Tema 3.2.6</small>
+            </a>
+        </div>
+    </div>
+    
+    <main class="container">
+        <div class="horizontal-cards-container">
+            
+            <!-- TEMA 1: INTRODUCCIÓN -->
+            <div class="horizontal-card" id="introduccion">
+                <div class="floating-icon" style="top: 20px; right: 30px;">
+                    <i class="fas fa-fire"></i>
+                </div>
+                
+                <div class="card-header-top" style="background: var(--gradient-fire);">
+                    <div class="card-title-container">
+                        <div class="card-icon-large">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div>
+                            <div class="card-title-top">🔥 INTRODUCCIÓN A LOS APARATOS PRODUCTORES DE CALOR</div>
+                            <div class="card-subtitle-top">Tema 1 - Generadores de calor para edificios e instalaciones</div>
+                            <div>
+                                <span class="compact-chip" style="background: #FFEBEE; color: #D32F2F;">Calderas</span>
+                                <span class="compact-chip" style="background: #E3F2FD; color: #1976D2;">≤70 kW</span>
+                                <span class="compact-chip" style="background: #FFF3E0; color: #EF6C00;">>70 kW</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="topic-number-badge">Tema 1</div>
+                </div>
+                
+                <div class="card-content">
+                    <div class="info-box">
+                        <div class="box-icon" style="background: var(--color-rescue);">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div>
+                            <p><strong>Los aparatos productores de calor</strong> generan calor para elevar la temperatura de un fluido térmico. Incluyen calderas, calentadores instantáneos, bombas de calor, acumuladores y sistemas solares térmicos.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: var(--color-fire);">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <h3>Definición de Caldera</h3>
+                        </div>
+                        <p>Equipo generador de calor diseñado para transferir energía térmica a un fluido (generalmente agua) para cubrir demandas de:</p>
+                        <ul class="visual-list list-color-1">
+                            <li>Calefacción</li>
+                            <li>Agua Caliente Sanitaria (ACS)</li>
+                            <li>Otros procesos térmicos</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: var(--color-rescue);">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h3>Clasificación por Potencia según RITE</h3>
+                        </div>
+                        
+                        <div class="flex-container">
+                            <div class="flex-item" style="border-left-color: #4CAF50;">
+                                <h4>Calderas ≤ 70 kW</h4>
+                                <ul class="visual-list list-color-4">
+                                    <li>Instaladas en interior de viviendas</li>
+                                    <li>Deben ser de tipo <strong>C (estancas)</strong></li>
+                                    <li>Consideradas <span class="red-number">calderas pequeñas</span></li>
+                                    <li>Ejemplo: Calderas murales mixtas de gas</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="flex-item" style="border-left-color: #D32F2F;">
+                                <h4>Calderas > 70 kW</h4>
+                                <ul class="visual-list list-color-1">
+                                    <li>Obligatoriamente en <strong>cuarto técnico (cuarto de calderas)</strong></li>
+                                    <li>Aparatos mucho más grandes</li>
+                                    <li>Generalmente de tipo <strong>B</strong></li>
+                                    <li>Servicio centralizado para todo el edificio</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: var(--color-tools);">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <h3>Calderas Murales Mixtas (≤ 70 kW)</h3>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <div class="box-icon" style="background: var(--color-tools);">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <div>
+                                <p><strong>Las más extendidas en viviendas</strong>. Vienen de fábrica preparadas para dar servicio tanto al sistema de calefacción como a la producción de ACS. Todos los elementos necesarios se encuentran contenidos en un pequeño espacio.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: var(--color-metal);">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <h3>Calderas > 70 kW</h3>
+                        </div>
+                        
+                        <div class="info-box">
+                            <div class="box-icon" style="background: var(--color-metal);">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <div>
+                                <p><strong>No tienen fijado desde fábrica un uso específico</strong> (calefacción o ACS). Simplemente son aparatos capaces de transferir calor a un fluido. No incorporan elementos como vaso de expansión, válvula de 3 vías, bomba de circulación, etc., ya que estos deben dimensionarse según la instalación.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TEMA 2: TRANSMISIÓN DE CALOR -->
+            <div class="horizontal-card" id="transmision-calor">
+                <div class="floating-icon" style="top: 20px; right: 30px;">
+                    <i class="fas fa-thermometer-half"></i>
+                </div>
+                
+                <div class="card-header-top" style="background: var(--gradient-rescue);">
+                    <div class="card-title-container">
+                        <div class="card-icon-large">
+                            <i class="fas fa-thermometer-half"></i>
+                        </div>
+                        <div>
+                            <div class="card-title-top">🌡️ TRANSMISIÓN DE CALOR AL FLUIDO TÉRMICO</div>
+                            <div class="card-subtitle-top">Tema 2 - Mecanismos y métodos de calentamiento</div>
+                            <div>
+                                <span class="compact-chip" style="background: #E3F2FD; color: #1976D2;">Conducción</span>
+                                <span class="compact-chip" style="background: #FFEBEE; color: #D32F2F;">Convección</span>
+                                <span class="compact-chip" style="background: #FFF3E0; color: #FF8F00;">Radiación</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="topic-number-badge">Tema 2</div>
+                </div>
+                
+                <div class="card-content">
+                    <div class="info-box">
+                        <div class="box-icon" style="background: var(--color-rescue);">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div>
+                            <p>El aumento de temperatura del fluido térmico se realiza mediante <strong>tres mecanismos de transmisión de calor</strong> (conducción, convección y radiación) y <strong>dos métodos de calentamiento</strong> (directo e indirecto).</p>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: #2196F3;">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            <h3>2.1. MECANISMOS DE TRANSMISIÓN DE CALOR</h3>
+                        </div>
+                        
+                        <div class="flex-container">
+                            <div class="flex-item" style="border-left-color: #2196F3;">
+                                <h4>Conducción</h4>
+                                <ul class="visual-list list-color-2">
+                                    <li>Transferencia de calor a través de la materia</li>
+                                    <li>Entre partículas en contacto directo</li>
+                                    <li>Ejemplo: Depósitos calentadores, resistencias eléctricas sumergidas</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="flex-item" style="border-left-color: #D32F2F;">
+                                <h4>Convección</h4>
+                                <ul class="visual-list list-color-1">
+                                    <li>Transferencia de calor a través del movimiento de fluidos</li>
+                                    <li>Fluido caliente (menos denso) asciende</li>
+                                    <li>Puede ser <strong>natural</strong> (gravedad) o <strong>forzada</strong> (medio mecánico)</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="flex-item" style="border-left-color: #FF9800;">
+                                <h4>Radiación</h4>
+                                <ul class="visual-list list-color-3">
+                                    <li>Transferencia de calor entre dos cuerpos sin contacto</li>
+                                    <li>A través de ondas electromagnéticas</li>
+                                    <li>Ejemplo: Sistemas solares térmicos, llama en cámara de combustión</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: #4CAF50;">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <h3>2.2. MÉTODOS DE CALENTAMIENTO</h3>
+                        </div>
+                        
+                        <div class="flex-container">
+                            <div class="compact-card" style="border-top-color: #D32F2F;">
+                                <div class="compact-header">
+                                    <div class="compact-icon" style="background: #D32F2F;">
+                                        <i class="fas fa-burn"></i>
+                                    </div>
+                                    <div class="compact-title">CALENTAMIENTO DIRECTO</div>
+                                </div>
+                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">
+                                    <div style="display: flex; align-items: flex-start; margin-bottom: 0.5rem;">
+                                        <div style="min-width: 6px; height: 6px; background: #D32F2F; border-radius: 50%; margin: 0.3rem 0.5rem 0 0;"></div>
+                                        <div>El fluido térmico se calienta <strong>directamente</strong> por la fuente de calor</div>
+                                    </div>
+                                    <div style="display: flex; align-items: flex-start; margin-bottom: 0.5rem;">
+                                        <div style="min-width: 6px; height: 6px; background: #D32F2F; border-radius: 50%; margin: 0.3rem 0.5rem 0 0;"></div>
+                                        <div>Métodos: Combustión de combustible, contacto con resistencia eléctrica, radiación solar</div>
+                                    </div>
+                                    <div style="display: flex; align-items: flex-start;">
+                                        <div style="min-width: 6px; height: 6px; background: #D32F2F; border-radius: 50%; margin: 0.3rem 0.5rem 0 0;"></div>
+                                        <div>Sin fluido intermediario</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="compact-card" style="border-top-color: #2196F3;">
+                                <div class="compact-header">
+                                    <div class="compact-icon" style="background: #2196F3;">
+                                        <i class="fas fa-exchange-alt"></i>
+                                    </div>
+                                    <div class="compact-title">CALENTAMIENTO INDIRECTO</div>
+                                </div>
+                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">
+                                    <div style="display: flex; align-items: flex-start; margin-bottom: 0.5rem;">
+                                        <div style="min-width: 6px; height: 6px; background: #2196F3; border-radius: 50%; margin: 0.3rem 0.5rem 0 0;"></div>
+                                        <div>El fluido térmico se calienta mediante un <strong>intercambiador de calor</strong></div>
+                                    </div>
+                                    <div style="display: flex; align-items: flex-start; margin-bottom: 0.5rem;">
+                                        <div style="min-width: 6px; height: 6px; background: #2196F3; border-radius: 50%; margin: 0.3rem 0.5rem 0 0;"></div>
+                                        <div>La fuente de calor calienta un medio intermedio</div>
+                                    </div>
+                                    <div style="display: flex; align-items: flex-start;">
+                                        <div style="min-width: 6px; height: 6px; background: #2196F3; border-radius: 50%; margin: 0.3rem 0.5rem 0 0;"></div>
+                                        <div>Uso común: Sistemas de calefacción centralizada, procesos industriales</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TEMA 3: CALDERAS Y APARATOS PRODUCTORES DE CALOR -->
+            <div class="horizontal-card" id="calderas">
+                <div class="floating-icon" style="top: 20px; right: 30px;">
+                    <i class="fas fa-industry"></i>
+                </div>
+                
+                <div class="card-header-top" style="background: var(--gradient-tools);">
+                    <div class="card-title-container">
+                        <div class="card-icon-large">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <div>
+                            <div class="card-title-top">🏭 CALDERAS Y APARATOS PRODUCTORES DE CALOR</div>
+                            <div class="card-subtitle-top">Tema 3 - Tipos, clasificaciones y características</div>
+                            <div>
+                                <span class="compact-chip" style="background: #FFF3E0; color: #EF6C00;">Individuales</span>
+                                <span class="compact-chip" style="background: #E3F2FD; color: #1976D2;">Colectivas</span>
+                                <span class="compact-chip" style="background: #FFEBEE; color: #D32F2F;">6 Tipos</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="topic-number-badge">Tema 3</div>
+                </div>
+                
+                <div class="card-content">
+                    <div class="info-box">
+                        <div class="box-icon" style="background: var(--color-tools);">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div>
+                            <p><strong>Clasificación según dimensiones e instalación:</strong></p>
+                            <ul class="visual-list list-color-3">
+                                <li><strong>Individuales:</strong> Responden a demandas de viviendas o locales de un único usuario</li>
+                                <li><strong>Colectivas:</strong> Suministran energía a instalaciones de varios usuarios o grandes demandantes (industrias, colegios, hospitales)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: #FF9800;">
+                                <i class="fas fa-gas-pump"></i>
+                            </div>
+                            <h3>3.1. CLASIFICACIÓN POR COMBUSTIBLE/ENERGÍA</h3>
+                        </div>
+                        
+                        <div class="diagram-flex">
+                            <div class="diagram-item">
+                                <div class="diagram-icon">
+                                    <i class="fas fa-coal"></i>
+                                </div>
+                                <h4>Combustibles Sólidos</h4>
+                                <p>Carbón o pellets (biomasa)</p>
+                            </div>
+                            
+                            <div class="diagram-item">
+                                <div class="diagram-icon">
+                                    <i class="fas fa-diesel"></i>
+                                </div>
+                                <h4>Combustibles Líquidos</h4>
+                                <p>Gasoil (gasóleo C)</p>
+                            </div>
+                            
+                            <div class="diagram-item">
+                                <div class="diagram-icon">
+                                    <i class="fas fa-gas"></i>
+                                </div>
+                                <h4>Combustibles Gaseosos</h4>
+                                <p>GN (Gas Natural) y GLP (Gas Licuado de Petróleo)</p>
+                            </div>
+                            
+                            <div class="diagram-item">
+                                <div class="diagram-icon">
+                                    <i class="fas fa-electric"></i>
+                                </div>
+                                <h4>Calderas Eléctricas</h4>
+                                <p>Resistencia eléctrica</p>
+                            </div>
+                            
+                            <div class="diagram-item">
+                                <div class="diagram-icon">
+                                    <i class="fas fa-heat-pump"></i>
+                                </div>
+                                <h4>Bombas de Calor</h4>
+                                <p>Aerotérmicas y geotérmicas</p>
+                            </div>
+                            
+                            <div class="diagram-item">
+                                <div class="diagram-icon">
+                                    <i class="fas fa-absorption"></i>
+                                </div>
+                                <h4>Calderas de Absorción</h4>
+                                <p>Sistemas de refrigeración por absorción</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TEMA 3.2.1: CALDERAS DE COMBUSTIBLE SÓLIDO -->
+            <div class="horizontal-card" id="combustible-solido">
+                <div class="floating-icon" style="top: 20px; right: 30px;">
+                    <i class="fas fa-coal"></i>
+                </div>
+                
+                <div class="card-header-top" style="background: var(--gradient-biomass);">
+                    <div class="card-title-container">
+                        <div class="card-icon-large">
+                            <i class="fas fa-coal"></i>
+                        </div>
+                        <div>
+                            <div class="card-title-top">⛏️ CALDERAS DE COMBUSTIBLE SÓLIDO</div>
+                            <div class="card-subtitle-top">Tema 3.2.1 - Carbón y biomasa (pellets)</div>
+                            <div>
+                                <span class="compact-chip" style="background: #EFEBE9; color: #6D4C41;">Carbón</span>
+                                <span class="compact-chip" style="background: #E8F5E9; color: #388E3C;">Pellets</span>
+                                <span class="compact-chip" style="background: #FFF3E0; color: #FF8F00;">Alto CO₂</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="topic-number-badge">Tema 3.2.1</div>
+                </div>
+                
+                <div class="card-content">
+                    <div class="danger-box">
+                        <div class="box-icon" style="background: var(--color-fire);">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div>
+                            <p><strong>Primeras calderas utilizadas en calefacción doméstica hace casi un siglo.</strong> Actualmente en proceso de retirada gradual por su alto poder contaminante y poca autonomía. Requieren operario para cargar combustible y vaciar cenicero.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: #8D6E63;">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <h3>Caldera de Carbón</h3>
+                        </div>
+                        
+                        <div class="flex-container">
+                            <div class="flex-item" style="border-left-color: #8D6E63;">
+                                <h4>Estructura y Componentes</h4>
+                                <ul class="visual-list list-color-6">
+                                    <li><strong>Fabricación:</strong> Elementos de hierro fundido ensamblados</li>
+                                    <li><strong>Dos cámaras:</strong> Superior (carga y combustión) e inferior (gasificación y cenizas)</li>
+                                    <li><strong>Emparrillado:</strong> Separa cámaras, permite caída de cenizas y aporte de aire</li>
+                                    <li><strong>Cenicero:</strong> Recoge cenizas, regula entrada de aire</li>
+                                    <li><strong>Altar:</strong> Muro de ladrillo refractario que impide salida de partículas</li>
+                                    <li><strong>Conductos de humo:</strong> Circulación de humos y gases calientes</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="flex-item" style="border-left-color: #6D4C41;">
+                                <h4>Ubicación y Características</h4>
+                                <ul class="visual-list">
+                                    <li>Espacios muy confinados, mal ventilados y de difícil acceso</li>
+                                    <li>Almacenamiento de combustible (leña o carbón) muy próximo a la caldera</li>
+                                    <li><span class="red-number">Alto mantenimiento</span> comparado con gasoil, gas o electricidad</li>
+                                    <li>Requiere gran espacio para almacenamiento de combustibles en seco</li>
+                                    <li><span class="red-number">Altas emisiones de CO₂</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: #4CAF50;">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <h3>Pellets (Biomasa)</h3>
+                        </div>
+                        
+                        <div class="info-box">
+                            <div class="box-icon" style="background: #4CAF50;">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <div>
+                                <p><strong>Alternativa ecológica y sostenible al carbón.</strong> Producto natural catalogado como biomasa sólida, formada por cilindros de pocos milímetros de diámetro elaborados a partir de serrín natural seco comprimido a alta presión.</p>
+                            </div>
+                        </div>
+                        
+                        <h4>Funcionamiento Caldera de Pellets</h4>
+                        <div class="procedure-timeline">
+                            <div class="timeline-step">
+                                <div class="step-number">1</div>
+                                <div class="step-title">Alimentación</div>
+                                <div style="font-size: 0.75rem;">Pellets introducidos por tolva de almacenamiento</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="step-number">2</div>
+                                <div class="step-title">Transporte</div>
+                                <div style="font-size: 0.75rem;">Cinta sinfín lleva pellets al quemador según demanda</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="step-number">3</div>
+                                <div class="step-title">Encendido</div>
+                                <div style="font-size: 0.75rem;">Ventilador a bajas revoluciones inicia combustión</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="step-number">4</div>
+                                <div class="step-title">Combustión</div>
+                                <div style="font-size: 0.75rem;">Ventilador aumenta velocidad, creando antorcha uniforme</div>
+                            </div>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <div class="box-icon" style="background: #FF9800;">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div>
+                                <p><strong>⚠️ Problemas en intervención:</strong></p>
+                                <ul class="visual-list">
+                                    <li><strong>Corte eléctrico:</strong> Combustible sigue ardiendo → ebullición del agua → sobrepresiones</li>
+                                    <li><strong>Fermentación del pellet:</strong> En presencia de humedad genera gas metano (3-6 operarios mueren anualmente en España por manipulación en silos)</li>
+                                    <li><strong>Intoxicación por CO:</strong> Combustión incompleta</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TEMA 3.2.2: CALDERAS DE COMBUSTIBLE LÍQUIDO -->
+            <div class="horizontal-card" id="combustible-liquido">
+                <div class="floating-icon" style="top: 20px; right: 30px;">
+                    <i class="fas fa-diesel"></i>
+                </div>
+                
+                <div class="card-header-top" style="background: var(--gradient-metal);">
+                    <div class="card-title-container">
+                        <div class="card-icon-large">
+                            <i class="fas fa-diesel"></i>
+                        </div>
+                        <div>
+                            <div class="card-title-top">⛽ CALDERAS DE COMBUSTIBLE LÍQUIDO (GASOIL)</div>
+                            <div class="card-subtitle-top">Tema 3.2.2 - Gasóleo C para calefacción y ACS</div>
+                            <div>
+                                <span class="compact-chip" style="background: #E3F2FD; color: #1976D2;">Gasóleo C</span>
+                                <span class="compact-chip" style="background: #FFF3E0; color: #EF6C00;">Poco eficientes</span>
+                                <span class="compact-chip" style="background: #F3E5F5; color: #7B1FA2;">Numerosas en Madrid</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="topic-number-badge">Tema 3.2.2</div>
+                </div>
+                
+                <div class="card-content">
+                    <div class="info-box">
+                        <div class="box-icon" style="background: var(--color-metal);">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div>
+                            <p>Utilizan <strong>gasóleo C</strong> (más parafina que gasóleos tipo A y B para vehículos). Fabricadas en hierro fundido o acero. Requieren salida de humos (chimenea) y espacio para depósito anexo de combustible.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: #607D8B;">
+                                <i class="fas fa-oil-can"></i>
+                            </div>
+                            <h3>Funcionamiento</h3>
+                        </div>
+                        
+                        <div class="procedure-timeline">
+                            <div class="timeline-step">
+                                <div class="step-number">1</div>
+                                <div class="step-title">Demanda</div>
+                                <div style="font-size: 0.75rem;">Caldera se enciende por demanda de energía</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="step-number">2</div>
+                                <div class="step-title">Succión</div>
+                                <div style="font-size: 0.75rem;">Bomba succiona gasoil desde tanque a cámara de combustión</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="step-number">3</div>
+                                <div class="step-title">Pulverización</div>
+                                <div style="font-size: 0.75rem;">Inyector pulveriza gasoil a alta presión</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="step-number">4</div>
+                                <div class="step-title">Ignición</div>
+                                <div style="font-size: 0.75rem;">Electrodos inflaman gasoil con descarga eléctrica</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="step-number">5</div>
+                                <div class="step-title">Combustión</div>
+                                <div style="font-size: 0.75rem;">Llamas controladas a ~300°C calientan agua en serpentín</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: #455A64;">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <h3>Estructura Principal</h3>
+                        </div>
+                        
+                        <div class="flex-container">
+                            <div class="flex-item" style="border-left-color: #607D8B;">
+                                <h4>Circuito de Humos</h4>
+                                <ul class="visual-list">
+                                    <li>Conduce humos hacia caja de humos</li>
+                                    <li>Arrebata mayor calor posible para cederlo al agua</li>
+                                    <li>Diseñado con máxima superficie para intercambio de calor</li>
+                                    <li>Reduce velocidad de salida de gases</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="flex-item" style="border-left-color: #455A64;">
+                                <h4>Caja de Humos</h4>
+                                <ul class="visual-list">
+                                    <li>Zona donde confluyen todos los humos</li>
+                                    <li>Envía humos hacia exterior por chimenea</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="flex-item" style="border-left-color: #37474F;">
+                                <h4>Depósito de Gasoil</h4>
+                                <ul class="visual-list">
+                                    <li>Debe estar en mismo habitáculo que caldera</li>
+                                    <li>Distancias mínimas de separación por seguridad</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: #D32F2F;">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <h3>Averías Comunes en Intervención</h3>
+                        </div>
+                        
+                        <div class="danger-box">
+                            <div class="box-icon" style="background: #D32F2F;">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div>
+                                <h4>Fallo del Electrodo</h4>
+                                <p>Electrodos no emiten chispa → gasoil se insufla durante 4-5 segundos → acumulación de gasoil sin quemar. Si electrodos vuelven a funcionar, puede provocar <span class="red-number">explosión</span>.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <div class="box-icon" style="background: #FF9800;">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <div>
+                                <h4>Fallo del Inyector</h4>
+                                <p>Gasoil no se pulveriza correctamente → no se inflama → acumulación en hogar. Resulta en <span class="red-number">humo blanco con olor a parafina</span> que sale por salida de humos e inunda cuarto de calderas.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tip-box">
+                            <div class="box-icon" style="background: #4CAF50;">
+                                <i class="fas fa-power-off"></i>
+                            </div>
+                            <div>
+                                <h4>Solución en Intervención</h4>
+                                <p><strong>Desconexión del quemador y ventilación del hogar.</strong> Apagado desde:</p>
+                                <ul class="visual-list">
+                                    <li>Botón On/Off del aparato</li>
+                                    <li>Clema que une quemador con caldera</li>
+                                    <li>Armario de maniobra de la caldera</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TEMA 3.2.3: CALDERAS DE COMBUSTIBLES GASEOSOS -->
+            <div class="horizontal-card" id="combustible-gaseoso">
+                <div class="floating-icon" style="top: 20px; right: 30px;">
+                    <i class="fas fa-gas"></i>
+                </div>
+                
+                <div class="card-header-top" style="background: var(--gradient-fire);">
+                    <div class="card-title-container">
+                        <div class="card-icon-large">
+                            <i class="fas fa-gas"></i>
+                        </div>
+                        <div>
+                            <div class="card-title-top">🔥 CALDERAS DE COMBUSTIBLES GASEOSOS</div>
+                            <div class="card-subtitle-top">Tema 3.2.3 - Gas natural, propano, butano y sus tipos</div>
+                            <div>
+                                <span class="compact-chip" style="background: #FFEBEE; color: #D32F2F;">4 Tipos</span>
+                                <span class="compact-chip" style="background: #E3F2FD; color: #1976D2;">Estancas</span>
+                                <span class="compact-chip" style="background: #E8F5E9; color: #388E3C;">Condensación</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="topic-number-badge">Tema 3.2.3</div>
+                </div>
+                
+                <div class="card-content">
+                    <div class="info-box">
+                        <div class="box-icon" style="background: var(--color-fire);">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div>
+                            <p>Usan <strong>gas natural</strong> (instalación receptora del edificio) o <strong>propano/butano</strong> (botellas individuales o depósitos). Son las calderas mixtas más comunes.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: #D32F2F;">
+                                <i class="fas fa-wind"></i>
+                            </div>
+                            <h3>Tipos de Calderas de Gas</h3>
+                        </div>
+                        
+                        <div class="flex-container">
+                            <div class="compact-card" style="border-top-color: #F44336;">
+                                <div class="compact-header">
+                                    <div class="compact-icon" style="background: #F44336;">
+                                        <i class="fas fa-wind"></i>
+                                    </div>
+                                    <div class="compact-title">Atmosféricas</div>
+                                </div>
+                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">
+                                    <div style="display: flex; align-items: flex-start; margin-bottom: 0.5rem;">
+                                        <div style="min-width: 6px; height: 6px; background: #F44336; border-radius: 50%; margin: 0.3rem 0.5rem 0 0;"></div>
+                                        <div>Captan oxígeno del aire del recinto</div>
+                                    </div>
+                                    <div style="display: flex; align-items: flex-start; margin-bottom: 0.5rem;">
+                                        <div style="min-width: 6px; height: 6px; background: #F44336; border-radius: 50%; margin: 0.3rem 0.5rem 0 0;"></div>
+                                        <div>Evacuación por tiro natural con salida de humos monotubular</div>
+                                    </div>
+                                    <div style="display: flex; align-items: flex-start;">
+                                        <div style="min-width: 6px; height: 6px; background: #F44336; border-radius: 50%; margin: 0.3rem 0.5rem 0 0;"></div>
+                                        <div><span class="red-number">No se comercializan desde 2010</span> - Susceptibles de intoxicación por CO</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="compact-card" style="border-top-color: #E53935;">
+                                <div class="compact-header">
+                                    <div class="compact-icon" style="background: #E53935;">
+                                        <i class="fas fa-fan"></i>
+                                    </div>
+                                    <div class="compact-title">Tiro Forzado</div>
+                                </div>
+                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">
+                                    <div style="display: flex; align-items: flex-start; margin-bottom: 0.5rem;">
+                                        <div style="min-width: 6px; height: 6px; background: #E53935; border-radius: 50%; margin: 0.3rem 0.5rem 0 0;"></div>
+                                        <div>Ventilador ayuda a evacuación de humos y aporte de aire</div>
+                                    </div>
+                                    <div style="display: flex; align-items: flex-start;">
+                                        <div style="min-width: 6px; height: 6px; background: #E53935; border-radius: 50%; margin: 0.3rem 0.5rem 0 0;"></div>
+                                        <div><span class="red-number">También susceptibles de intoxicación por CO</span> (cámara no estanca)</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="compact-card" style="border-top-color: #C62828;">
+                                <div class="compact-header">
+                                    <div class="compact-icon" style="background: #C62828;">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <div class="compact-title">Estancas</div>
+                                </div>
+                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">
+                                    <div style="display: flex; align-items: flex-start; margin-bottom: 0.5rem;">
+                                        <div style="min-width: 6px; height: 6px; background: #C62828; border-radius: 50%; margin: 0.3rem 0.5rem 0 0;"></div>
+                                        <div>Cámara cerrada herméticamente</div>
+                                    </div>
+                                    <div style="display: flex; align-items: flex-start; margin-bottom: 0.5rem;">
+                                        <div style="min-width: 6px; height: 6px; background: #C62828; border-radius: 50%; margin: 0.3rem 0.5rem 0 0;"></div>
+                                        <div>Toma aire del exterior por salida de humos coaxial</div>
+                                    </div>
+                                    <div style="display: flex; align-items: flex-start;">
+                                        <div style="min-width: 6px; height: 6px; background: #C62828; border-radius: 50%; margin: 0.3rem 0.5rem 0 0;"></div>
+                                        <div>Mayor seguridad - Actualmente obligatorias para ≤70 kW</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="compact-card" style="border-top-color: #4CAF50;">
+                                <div class="compact-header">
+                                    <div class="compact-icon" style="background: #4CAF50;">
+                                        <i class="fas fa-leaf"></i>
+                                    </div>
+                                    <div class="compact-title">Condensación (bajo NOx)</div>
+                                </div>
+                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">
+                                    <div style="display: flex; align-items: flex-start; margin-bottom: 0.5rem;">
+                                        <div style="min-width: 6px; height: 6px; background: #4CAF50; border-radius: 50%; margin: 0.3rem 0.5rem 0 0;"></div>
+                                        <div>Aprovechan calor latente de gases de combustión</div>
+                                    </div>
+                                    <div style="display: flex; align-items: flex-start; margin-bottom: 0.5rem;">
+                                        <div style="min-width: 6px; height: 6px; background: #4CAF50; border-radius: 50%; margin: 0.3rem 0.5rem 0 0;"></div>
+                                        <div>Condensan vapor de agua → recuperan energía</div>
+                                    </div>
+                                    <div style="display: flex; align-items: flex-start;">
+                                        <div style="min-width: 6px; height: 6px; background: #4CAF50; border-radius: 50%; margin: 0.3rem 0.5rem 0 0;"></div>
+                                        <div><span class="red-number">Rendimiento hasta 98%</span> - Gases expulsados a ~55°C (vs 200°C convencionales)</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: #1976D2;">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Rendimientos por Tipo</h3>
+                        </div>
+                        
+                        <div class="visual-table">
+                            <thead>
+                                <tr>
+                                    <th>Tipo de Caldera</th>
+                                    <th>Rendimiento (PCI)</th>
+                                    <th>Características</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Atmosféricas</strong></td>
+                                    <td><span class="red-number">~80%</span></td>
+                                    <td>No comercializadas desde 2010</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Tiro Forzado</strong></td>
+                                    <td><span class="red-number">85-92%</span></td>
+                                    <td>Ventilador para evacuación</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Estancas</strong></td>
+                                    <td><span class="red-number">85-92%</span></td>
+                                    <td>Cámara cerrada hermética</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Condensación</strong></td>
+                                    <td><span class="red-number">hasta 98%</span></td>
+                                    <td>Aprovecha calor latente, bajo NOx</td>
+                                </tr>
+                            </tbody>
+                        </div>
+                        
+                        <div class="tip-box">
+                            <div class="box-icon" style="background: #4CAF50;">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div>
+                                <p><strong>PCI vs PCS:</strong> Poder Calorífico Inferior (PCI) = energía desprendida en combustión completa. Poder Calorífico Superior (PCS) = PCI + energía por condensación de vapor de agua. Calderas de condensación alcanzan altos rendimientos porque añaden calor latente de condensación.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: #FF9800;">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Calderas Comunitarias</h3>
+                        </div>
+                        
+                        <div class="info-box">
+                            <div class="box-icon" style="background: #FF9800;">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div>
+                                <p><strong>Sistema centralizado</strong> que lleva calefacción y ACS a cada vivienda. No necesita caldera individual por vecino → <span class="highlight-text">más seguro y eficiente</span>. Pueden ser de propano (depósito o canalizado) o gas natural (canalizado).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TEMA 3.2.4: CALDERAS ELÉCTRICAS -->
+            <div class="horizontal-card" id="electricas">
+                <div class="floating-icon" style="top: 20px; right: 30px;">
+                    <i class="fas fa-electric"></i>
+                </div>
+                
+                <div class="card-header-top" style="background: var(--gradient-electric);">
+                    <div class="card-title-container">
+                        <div class="card-icon-large">
+                            <i class="fas fa-electric"></i>
+                        </div>
+                        <div>
+                            <div class="card-title-top">⚡ CALDERAS ELÉCTRICAS</div>
+                            <div class="card-subtitle-top">Tema 3.2.4 - Resistencia eléctrica por efecto Joule</div>
+                            <div>
+                                <span class="compact-chip" style="background: #F3E5F5; color: #7B1FA2;">Sin combustión</span>
+                                <span class="compact-chip" style="background: #E3F2FD; color: #1976D2;">Sin chimenea</span>
+                                <span class="compact-chip" style="background: #E8F5E9; color: #388E3C;">Respetuosas</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="topic-number-badge">Tema 3.2.4</div>
+                </div>
+                
+                <div class="card-content">
+                    <div class="info-box">
+                        <div class="box-icon" style="background: var(--color-electric);">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div>
+                            <p>Utilizan <strong>resistencia eléctrica</strong> para calentar directamente el agua. <span class="highlight-text">No necesitan quemar combustible</span> → no requieren chimenea → facilitan instalación, ahorran espacio y son más respetuosas con el medio ambiente.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: #9C27B0;">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h3>Resistencia Eléctrica</h3>
+                        </div>
+                        
+                        <div class="flex-container">
+                            <div class="flex-item" style="border-left-color: #9C27B0;">
+                                <h4>Función y Características</h4>
+                                <ul class="visual-list">
+                                    <li>Convierte energía eléctrica en calor</li>
+                                    <li>Aleación que soporta ~<span class="red-number">1.000°C</span></li>
+                                    <li>Funcionamiento por <strong>efecto Joule</strong>: electrones impactan contra material → resistencia → energía cinética → energía térmica</li>
+                                    <li>Calienta agua por conducción y convección</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="flex-item" style="border-left-color: #7B1FA2;">
+                                <h4>Parámetros Eléctricos</h4>
+                                <ul class="visual-list">
+                                    <li><strong>Resistencia ∝ Longitud del conductor</strong></li>
+                                    <li><strong>Resistencia ∝ 1/Sección (diámetro)</strong></li>
+                                    <li>Corriente eléctrica = flujo de electrones</li>
+                                    <li>Paso estrecho/largo → electrones chocan → calor (efecto Joule)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: #BA68C8;">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <h3>Configuración y Tipos</h3>
+                        </div>
+                        
+                        <div class="flex-container">
+                            <div class="compact-card" style="border-top-color: #9C27B0;">
+                                <div class="compact-header">
+                                    <div class="compact-icon" style="background: #9C27B0;">
+                                        <i class="fas fa-bolt"></i>
+                                    </div>
+                                    <div class="compact-title">Monofásicas / Trifásicas</div>
+                                </div>
+                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">
+                                    <div style="display: flex; align-items: flex-start; margin-bottom: 0.5rem;">
+                                        <div style="min-width: 6px; height: 6px; background: #9C27B0; border-radius: 50%; margin: 0.3rem 0.5rem 0 0;"></div>
+                                        <div><strong>Monofásicas:</strong> Más habituales en viviendas</div>
+                                    </div>
+                                    <div style="display: flex; align-items: flex-start;">
+                                        <div style="min-width: 6px; height: 6px; background: #9C27B0; border-radius: 50%; margin: 0.3rem 0.5rem 0 0;"></div>
+                                        <div><strong>Trifásicas:</strong> Para mayores potencias</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="compact-card" style="border-top-color: #7B1FA2;">
+                                <div class="compact-header">
+                                    <div class="compact-icon" style="background: #7B1FA2;">
+                                        <i class="fas fa-industry"></i>
+                                    </div>
+                                    <div class="compact-title">Especiales para Comunidades</div>
+                                </div>
+                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">
+                                    <div style="display: flex; align-items: flex-start; margin-bottom: 0.5rem;">
+                                        <div style="min-width: 6px; height: 6px; background: #7B1FA2; border-radius: 50%; margin: 0.3rem 0.5rem 0 0;"></div>
+                                        <div>Para instalaciones comunitarias sensibles (laboratorios, empresas urbanas)</div>
+                                    </div>
+                                    <div style="display: flex; align-items: flex-start;">
+                                        <div style="min-width: 6px; height: 6px; background: #7B1FA2; border-radius: 50%; margin: 0.3rem 0.5rem 0 0;"></div>
+                                        <div>Transición en renovación de calderas de carbón</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h4 style="margin-top: 1.5rem;">Componentes Principales</h4>
+                        <ul class="visual-list list-color-5">
+                            <li><strong>Caja de conexiones/bornes:</strong> Desplazada para evitar temperaturas elevadas</li>
+                            <li><strong>Carcasa cilíndrica:</strong> Aislada térmicamente para evitar pérdidas y quemaduras</li>
+                            <li><strong>Bridas de unión</strong> entre caja y carcasa</li>
+                            <li><strong>Tubos de entrada/salida:</strong> Circulación de fluido térmico</li>
+                            <li><strong>Resistencias:</strong> Calientan fluido a su paso</li>
+                            <li><strong>Disposición:</strong> Generalmente horizontal (ocasionalmente vertical por necesidades de espacio)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TEMA 3.2.5: BOMBAS DE CALOR AEROTÉRMICAS Y GEOTÉRMICAS -->
+            <div class="horizontal-card" id="bombas-calor">
+                <div class="floating-icon" style="top: 20px; right: 30px;">
+                    <i class="fas fa-heat-pump"></i>
+                </div>
+                
+                <div class="card-header-top" style="background: var(--gradient-rescue);">
+                    <div class="card-title-container">
+                        <div class="card-icon-large">
+                            <i class="fas fa-heat-pump"></i>
+                        </div>
+                        <div>
+                            <div class="card-title-top">🔄 BOMBAS DE CALOR AEROTÉRMICAS Y GEOTÉRMICAS</div>
+                            <div class="card-subtitle-top">Tema 3.2.5 - Transportan calor en lugar de generarlo</div>
+                            <div>
+                                <span class="compact-chip" style="background: #E3F2FD; color: #1976D2;">4 Fases</span>
+                                <span class="compact-chip" style="background: #E8F5E9; color: #388E3C;">Reversibles</span>
+                                <span class="compact-chip" style="background: #FFF3E0; color: #FF8F00;">Muy eficientes</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="topic-number-badge">Tema 3.2.5</div>
+                </div>
+                
+                <div class="card-content">
+                    <div class="info-box">
+                        <div class="box-icon" style="background: var(--color-rescue);">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div>
+                            <p>Máquinas térmicas que <strong>transportan calor</strong> en lugar de generarlo. En invierno transfieren calor natural (agua, aire, tierra) del exterior al interior. En verano enfrían transfiriendo calor del interior al exterior. <span class="highlight-text">Muy eficientes:</span> transportan más calor que la energía eléctrica que consumen.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: #2196F3;">
+                                <i class="fas fa-snowflake"></i>
+                            </div>
+                            <h3>Funcionamiento (4 Fases por Ciclo)</h3>
+                        </div>
+                        
+                        <div class="procedure-timeline">
+                            <div class="timeline-step">
+                                <div class="step-number">1</div>
+                                <div class="step-title">Compresión</div>
+                                <div style="font-size: 0.75rem;">Aumenta presión y temperatura del refrigerante</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="step-number">2</div>
+                                <div class="step-title">Condensación</div>
+                                <div style="font-size: 0.75rem;">Gas caliente cede energía térmica al circuito de agua caliente</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="step-number">3</div>
+                                <div class="step-title">Expansión</div>
+                                <div style="font-size: 0.75rem;">Válvula de expansión despresuriza refrigerante → baja temperatura</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="step-number">4</div>
+                                <div class="step-title">Evaporación</div>
+                                <div style="font-size: 0.75rem;">Refrigerante absorbe calor ambiental → vuelve a estado gaseoso</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: #1976D2;">
+                                <i class="fas fa-wind"></i>
+                            </div>
+                            <h3>Tipos de Bombas de Calor</h3>
+                        </div>
+                        
+                        <div class="flex-container">
+                            <div class="compact-card" style="border-top-color: #2196F3;">
+                                <div class="compact-header">
+                                    <div class="compact-icon" style="background: #2196F3;">
+                                        <i class="fas fa-wind"></i>
+                                    </div>
+                                    <div class="compact-title">Aire-Aire</div>
+                                </div>
+                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">
+                                    <p>Calor del aire se transfiere directamente al aire del local. Ejemplo: equipo doméstico de aire acondicionado (modo calefacción). Reversible para refrigeración.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="compact-card" style="border-top-color: #64B5F6;">
+                                <div class="compact-header">
+                                    <div class="compact-icon" style="background: #64B5F6;">
+                                        <i class="fas fa-tint"></i>
+                                    </div>
+                                    <div class="compact-title">Agua-Agua</div>
+                                </div>
+                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">
+                                    <p>Sistema adoptado por bombas de calor geotérmicas. Toma calor de circuito de agua en contacto con tierra/capa freática → transfiere a otro circuito de agua.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="compact-card" style="border-top-color: #1976D2;">
+                                <div class="compact-header">
+                                    <div class="compact-icon" style="background: #1976D2;">
+                                        <i class="fas fa-wind"></i>
+                                    </div>
+                                    <div class="compact-title">Aire-Agua</div>
+                                </div>
+                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">
+                                    <p>Sistema de bombas de calor aerotérmicas. Calor del aire → circuito de agua → suelo radiante, radiadores, ventiloconvectores o aerotermos.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="compact-card" style="border-top-color: #90CAF9;">
+                                <div class="compact-header">
+                                    <div class="compact-icon" style="background: #90CAF9;">
+                                        <i class="fas fa-mountain"></i>
+                                    </div>
+                                    <div class="compact-title">Agua-Aire</div>
+                                </div>
+                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">
+                                    <p>Obtiene energía del terreno mediante fluido caloportador → absorbe calor del suelo → transmite al circuito frigorífico. Energía cedida al interior por fancoils, splits o aerotermos.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: #4CAF50;">
+                                <i class="fas fa-mountain"></i>
+                            </div>
+                            <h3>Geotermia</h3>
+                        </div>
+                        
+                        <div class="info-box">
+                            <div class="box-icon" style="background: #4CAF50;">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div>
+                                <p>Aprovecha <strong>temperatura constante del subsuelo</strong> (18-24°C a 15-20m de profundidad) → inercia térmica del terreno. Permite calefacción en invierno, refrigeración en verano y ACS todo el año de manera eficiente y ecológica.</p>
+                            </div>
+                        </div>
+                        
+                        <h4>Tres Circuitos Principales en Geotermia</h4>
+                        <div class="procedure-timeline">
+                            <div class="timeline-step">
+                                <div class="step-number">1</div>
+                                <div class="step-title">Circuito Exterior</div>
+                                <div style="font-size: 0.75rem;">Sondeos que captan/ceden calor al terreno</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="step-number">2</div>
+                                <div class="step-title">Circuito Interior Refrigerante</div>
+                                <div style="font-size: 0.75rem;">Bombas geotérmicas extraen/ceden energía en modo frío/calor</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="step-number">3</div>
+                                <div class="step-title">Circuito Transmisión Térmica</div>
+                                <div style="font-size: 0.75rem;">Cede calor a aparatos de calefacción/ACS o refrigera por aire acondicionado</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: #FF9800;">
+                                <i class="fas fa-retweet"></i>
+                            </div>
+                            <h3>Bombas de Calor Reversibles</h3>
+                        </div>
+                        
+                        <div class="tip-box">
+                            <div class="box-icon" style="background: #FF9800;">
+                                <i class="fas fa-retweet"></i>
+                            </div>
+                            <div>
+                                <p>Incorporan <strong>válvula de inversión o de 4 vías</strong> que permite invertir sentido del flujo del refrigerante y consecuentemente del calor. Mismo equipo puede trabajar en modo calefacción y refrigeración (intercambiadores funcionan como evaporador/condensador alternativamente).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TEMA 3.2.6: CALDERAS DE ABSORCIÓN -->
+            <div class="horizontal-card" id="absorcion">
+                <div class="floating-icon" style="top: 20px; right: 30px;">
+                    <i class="fas fa-absorption"></i>
+                </div>
+                
+                <div class="card-header-top" style="background: var(--gradient-metal);">
+                    <div class="card-title-container">
+                        <div class="card-icon-large">
+                            <i class="fas fa-absorption"></i>
+                        </div>
+                        <div>
+                            <div class="card-title-top">❄️ CALDERAS DE ABSORCIÓN</div>
+                            <div class="card-subtitle-top">Tema 3.2.6 - Refrigeración por absorción (agua+amoniaco o LiBr+agua)</div>
+                            <div>
+                                <span class="compact-chip" style="background: #E8EAF6; color: #3949AB;">Simple efecto</span>
+                                <span class="compact-chip" style="background: #E3F2FD; color: #1976D2;">Doble efecto</span>
+                                <span class="compact-chip" style="background: #FFEBEE; color: #D32F2F;">Alta eficiencia</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="topic-number-badge">Tema 3.2.6</div>
+                </div>
+                
+                <div class="card-content">
+                    <div class="info-box">
+                        <div class="box-icon" style="background: var(--color-metal);">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div>
+                            <p>Sistema de refrigeración que utiliza como equipo para producir frío una máquina que funciona con <strong>agua caliente o calor</strong> (frente a sistemas convencionales que usan electricidad). Permite aprovechar calor residual de otros procesos o energías renovables.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: #607D8B;">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <h3>Principio de Funcionamiento</h3>
+                        </div>
+                        
+                        <p>Ciclo termodinámico de <strong>enfriamiento por absorción</strong>: fluido refrigerante obtiene calor del líquido absorbente que, al pasar de líquido a gas y reducir su presión, logra bajar su temperatura.</p>
+                        
+                        <div class="flex-container">
+                            <div class="compact-card" style="border-top-color: #2196F3;">
+                                <div class="compact-header">
+                                    <div class="compact-icon" style="background: #2196F3;">
+                                        <i class="fas fa-tint"></i>
+                                    </div>
+                                    <div class="compact-title">Agua + Amoniaco (Simple Efecto)</div>
+                                </div>
+                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">
+                                    <div style="display: flex; align-items: flex-start; margin-bottom: 0.5rem;">
+                                        <div style="min-width: 6px; height: 6px; background: #2196F3; border-radius: 50%; margin: 0.3rem 0.5rem 0 0;"></div>
+                                        <div><strong>Absorbente:</strong> Agua</div>
+                                    </div>
+                                    <div style="display: flex; align-items: flex-start;">
+                                        <div style="min-width: 6px; height: 6px; background: #2196F3; border-radius: 50%; margin: 0.3rem 0.5rem 0 0;"></div>
+                                        <div><strong>Refrigerante:</strong> Amoniaco (NH₃)</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="compact-card" style="border-top-color: #009688;">
+                                <div class="compact-header">
+                                    <div class="compact-icon" style="background: #009688;">
+                                        <i class="fas fa-vial"></i>
+                                    </div>
+                                    <div class="compact-title">Bromuro de Litio + Agua (Doble Efecto)</div>
+                                </div>
+                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">
+                                    <div style="display: flex; align-items: flex-start; margin-bottom: 0.5rem;">
+                                        <div style="min-width: 6px; height: 6px; background: #009688; border-radius: 50%; margin: 0.3rem 0.5rem 0 0;"></div>
+                                        <div><strong>Absorbente:</strong> Bromuro de Litio (LiBr)</div>
+                                    </div>
+                                    <div style="display: flex; align-items: flex-start;">
+                                        <div style="min-width: 6px; height: 6px; background: #009688; border-radius: 50%; margin: 0.3rem 0.5rem 0 0;"></div>
+                                        <div><strong>Refrigerante:</strong> Agua destilada</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: #4CAF50;">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Eficiencia y Ahorro Energético</h3>
+                        </div>
+                        
+                        <div class="flex-container">
+                            <div class="flex-item" style="border-left-color: #4CAF50;">
+                                <h4>Ventajas</h4>
+                                <ul class="visual-list list-color-4">
+                                    <li>Aprovecha calor residual (procesos industriales, cogeneración, trigeneración)</li>
+                                    <li>Usa energía primaria en lugar de electricidad</li>
+                                    <li>Más eficiente y ecológica (aprovecha calor que se disiparía)</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="flex-item" style="border-left-color: #388E3C;">
+                                <h4>Eficiencias Conseguidas</h4>
+                                <ul class="visual-list">
+                                    <li><strong>Ciclo doble efecto (LiBr+agua):</strong> <span class="red-number">hasta 1.2</span> respecto a energía consumida</li>
+                                    <li><strong>Ciclo simple efecto (Amoniaco+agua):</strong> <span class="red-number">~0.7</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-title">
+                            <div class="section-icon" style="background: #D32F2F;">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <h3>Intervenciones en Calderas de Absorción</h3>
+                        </div>
+                        
+                        <div class="danger-box">
+                            <div class="box-icon" style="background: #D32F2F;">
+                                <i class="fas fa-skull-crossbones"></i>
+                            </div>
+                            <div>
+                                <h4>Amoniaco + Agua</h4>
+                                <ul class="visual-list">
+                                    <li>Solución de <span class="red-number">NH₃+H₂O al 52%</span></li>
+                                    <li>Trabaja a <span class="red-number">14-24 bar</span> y ~<span class="red-number">180°C</span></li>
+                                    <li>Amoniaco en concentraciones cercanas al <span class="red-number">95%</span> a 20-40 bar</li>
+                                    <li>Ubicación: Grandes producciones de frío (naves de conservación en Mercamadrid)</li>
+                                    <li>Precauciones extremas por posibilidad de fugas por defectos mecánicos o incendios</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <div class="box-icon" style="background: #FF9800;">
+                                <i class="fas fa-vial"></i>
+                            </div>
+                            <div>
+                                <h4>Bromuro de Litio + Agua</h4>
+                                <ul class="visual-list">
+                                    <li>Solución de <span class="red-number">LiBr+H₂O al 52%</span></li>
+                                    <li>Bromuro de litio = sal inocua similar a sal común (gran afinidad con agua)</li>
+                                    <li>Agua como refrigerante: a presión absoluta de <span class="red-number">9 mbar</span> (vs 1012 mbar atmosférica) se evapora a <span class="red-number">3°C</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="info-box">
+                            <div class="box-icon" style="background: #2196F3;">
+                                <i class="fas fa-gas"></i>
+                            </div>
+                            <div>
+                                <p><strong>Factores críticos en intervención:</strong> Posibilidad de fallo en instalación de gas asociada (si necesita quemador) y posibilidad de fuga de amoniaco.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+    
+    <!-- Botones flotantes -->
+    <button class="floating-btn" id="scrollTopBtn" title="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <button class="floating-btn floating-btn-left" id="scrollNextBtn" title="Siguiente sección">
+        <i class="fas fa-arrow-down"></i>
+    </button>
+    
+    <!-- Footer -->
+    <footer class="visual-footer">
+        <div class="container">
+            <div class="footer-content">
+                <h2 style="color: #ffffff; margin-bottom: 1.5rem; font-size: 2rem;">🔥 APARATOS PRODUCTORES DE CALOR</h2>
+                <p style="font-size: 1.1rem; max-width: 800px; margin: 0 auto 2rem; opacity: 0.9;">
+                    Guía visual completa basada en la documentación del Cuerpo de Bomberos del Ayuntamiento de Madrid - Manual de Bomberos
+                </p>
+                
+                <div class="footer-icons">
+                    <div class="footer-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="footer-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <div class="footer-icon">
+                        <i class="fas fa-coal"></i>
+                    </div>
+                    <div class="footer-icon">
+                        <i class="fas fa-gas"></i>
+                    </div>
+                    <div class="footer-icon">
+                        <i class="fas fa-electric"></i>
+                    </div>
+                    <div class="footer-icon">
+                        <i class="fas fa-heat-pump"></i>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2.5rem;">
+                    <p style="opacity: 0.8; font-size: 0.95rem; margin-bottom: 0.5rem;">
+                        <i class="fas fa-info-circle"></i> Esta guía visual tiene carácter informativo y no sustituye la formación del Cuerpo de Bomberos.
+                    </p>
+                    <p style="opacity: 0.7; font-size: 0.9rem;">
+                        © 2025 Guía Visual de Aparatos Productores de Calor - Basado en documentación del Cuerpo de Bomberos del Ayuntamiento de Madrid
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Botón para volver arriba
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTopBtn.style.display = 'flex';
+            } else {
+                scrollTopBtn.style.display = 'none';
+            }
+        });
+        
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Navegación suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Función para navegar a la siguiente sección
+        const scrollNextBtn = document.getElementById('scrollNextBtn');
+        
+        // Obtener todas las secciones con IDs de navegación
+        const sections = Array.from(document.querySelectorAll('.horizontal-card[id]'));
+        
+        // Ordenar las secciones por su posición en la página
+        sections.sort((a, b) => {
+            return a.offsetTop - b.offsetTop;
+        });
+        
+        // Función para encontrar la sección actual
+        function getCurrentSection() {
+            for (let i = sections.length - 1; i >= 0; i--) {
+                if (window.scrollY + 150 >= sections[i].offsetTop) {
+                    return i;
+                }
+            }
+            return 0;
+        }
+        
+        // Función para navegar a la siguiente sección
+        function goToNextSection() {
+            const currentIndex = getCurrentSection();
+            const nextIndex = currentIndex + 1;
+            
+            if (nextIndex < sections.length) {
+                const nextSection = sections[nextIndex];
+                window.scrollTo({
+                    top: nextSection.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+                
+                // Actualizar URL sin recargar la página
+                history.pushState(null, null, `#${nextSection.id}`);
+            } else {
+                // Si estamos en la última sección, ir al principio
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
+        // Evento para el botón de siguiente sección
+        scrollNextBtn.addEventListener('click', goToNextSection);
+        
+        // Mostrar/ocultar botón según la posición
+        window.addEventListener('scroll', () => {
+            const currentIndex = getCurrentSection();
+            
+            // Mostrar siempre el botón, pero cambiar el icono si estamos en la última sección
+            if (currentIndex === sections.length - 1) {
+                scrollNextBtn.innerHTML = '<i class="fas fa-home"></i>';
+                scrollNextBtn.title = "Volver al inicio";
+            } else {
+                scrollNextBtn.innerHTML = '<i class="fas fa-arrow-down"></i>';
+                scrollNextBtn.title = "Siguiente sección";
+            }
+            
+            // Ocultar botón cuando estamos cerca del final de la última sección
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
+                scrollNextBtn.style.opacity = '0.5';
+            } else {
+                scrollNextBtn.style.opacity = '1';
+            }
+        });
+        
+        // Navegación con teclado (tecla derecha o barra espaciadora)
+        document.addEventListener('keydown', (e) => {
+            // Tecla derecha o barra espaciadora (excepto cuando se está escribiendo en un campo)
+            if ((e.key === 'ArrowRight' || e.key === ' ') && 
+                !['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) {
+                
+                e.preventDefault(); // Evitar comportamiento por defecto del espacio
+                goToNextSection();
+            }
+            
+            // Tecla izquierda para ir a la sección anterior
+            if (e.key === 'ArrowLeft' && 
+                !['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) {
+                
+                e.preventDefault();
+                const currentIndex = getCurrentSection();
+                const prevIndex = currentIndex - 1;
+                
+                if (prevIndex >= 0) {
+                    const prevSection = sections[prevIndex];
+                    window.scrollTo({
+                        top: prevSection.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+        
+        // Inicializar: mostrar el botón después de cargar
+        window.addEventListener('load', () => {
+            scrollNextBtn.style.display = 'flex';
+            
+            // Si hay un hash en la URL, navegar a esa sección
+            if (window.location.hash) {
+                setTimeout(() => {
+                    const targetElement = document.querySelector(window.location.hash);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 100);
+            }
+        });
+    </script>
+</body>
+</html>
