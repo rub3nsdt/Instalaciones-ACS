@@ -1740,31 +1740,540 @@
         .point-content {
             flex: 1;
             font-size: 0.9rem;
+        }  
+        
+        /* HEADER VISUAL - APARATOS PRODUCTORES DE CALOR */
+        .hero-header-heat {
+            background: var(--gradient-fire-water);
+            color: white;
+            padding: 2.5rem 0 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 2.5rem;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+            box-shadow: 0 10px 30px rgba(211, 47, 47, 0.4);
+            min-height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Animación de partículas de calor */
+        .heat-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,82,82,0.8) 0%, rgba(255,152,0,0.6) 50%, transparent 70%);
+            box-shadow: 0 0 15px rgba(255,82,82,0.7);
+            animation: particleFloat 10s infinite ease-in-out;
+        }
+
+        .particle:nth-child(1) {
+            width: 12px;
+            height: 12px;
+            top: 20%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .particle:nth-child(2) {
+            width: 8px;
+            height: 8px;
+            top: 40%;
+            right: 20%;
+            animation-delay: 2s;
+            background: radial-gradient(circle, rgba(255,193,7,0.8) 0%, rgba(255,152,0,0.6) 50%, transparent 70%);
+        }
+
+        .particle:nth-child(3) {
+            width: 10px;
+            height: 10px;
+            bottom: 30%;
+            left: 30%;
+            animation-delay: 4s;
+            background: radial-gradient(circle, rgba(255,82,82,0.8) 0%, rgba(244,67,54,0.6) 50%, transparent 70%);
+        }
+
+        .particle:nth-child(4) {
+            width: 6px;
+            height: 6px;
+            top: 60%;
+            left: 60%;
+            animation-delay: 6s;
+        }
+
+        .particle:nth-child(5) {
+            width: 14px;
+            height: 14px;
+            bottom: 20%;
+            right: 30%;
+            animation-delay: 8s;
+            background: radial-gradient(circle, rgba(255,193,7,0.8) 0%, rgba(255,152,0,0.6) 50%, transparent 70%);
+        }
+
+        @keyframes particleFloat {
+            0%, 100% { 
+                transform: translateY(0) translateX(0);
+                opacity: 0.7;
+            }
+            25% { 
+                transform: translateY(-20px) translateX(10px);
+                opacity: 1;
+            }
+            50% { 
+                transform: translateY(-10px) translateX(-10px);
+                opacity: 0.8;
+            }
+            75% { 
+                transform: translateY(-30px) translateX(5px);
+                opacity: 0.9;
+            }
+        }
+
+        /* Animación de llamas */
+        .flames-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .flame {
+            position: absolute;
+            bottom: 0;
+            width: 40px;
+            height: 80px;
+            background: linear-gradient(to top, 
+                rgba(255,82,82,0) 0%, 
+                rgba(255,82,82,0.8) 30%, 
+                rgba(255,193,7,0.9) 60%, 
+                rgba(255,235,59,1) 100%);
+            border-radius: 50% 50% 20% 20%;
+            filter: blur(2px);
+            animation: flameFlicker 1.5s infinite alternate ease-in-out;
+        }
+
+        .flame-1 {
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        .flame-2 {
+            left: 50%;
+            width: 50px;
+            height: 100px;
+            animation-delay: 0.3s;
+        }
+
+        .flame-3 {
+            right: 20%;
+            animation-delay: 0.6s;
+        }
+
+        @keyframes flameFlicker {
+            0%, 100% { 
+                transform: scaleY(1) scaleX(1);
+                height: 80px;
+                opacity: 0.8;
+            }
+            50% { 
+                transform: scaleY(1.2) scaleX(0.9);
+                height: 90px;
+                opacity: 1;
+            }
+        }
+
+        /* Animación de vapor/calor */
+        .steam-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .steam {
+            position: absolute;
+            bottom: 0;
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(224,224,224,0.4) 30%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(8px);
+            animation: steamRise 15s infinite linear;
+        }
+
+        .steam-1 {
+            left: 25%;
+            animation-delay: 0s;
+            width: 50px;
+            height: 50px;
+        }
+
+        .steam-2 {
+            left: 45%;
+            animation-delay: 5s;
+        }
+
+        .steam-3 {
+            right: 25%;
+            animation-delay: 10s;
+            width: 60px;
+            height: 60px;
+        }
+
+        @keyframes steamRise {
+            0% { 
+                transform: translateY(0) translateX(0) scale(0.5);
+                opacity: 0;
+            }
+            10% { 
+                opacity: 0.8;
+            }
+            50% { 
+                transform: translateY(-150px) translateX(20px) scale(1.2);
+                opacity: 0.6;
+            }
+            90% { 
+                opacity: 0.3;
+            }
+            100% { 
+                transform: translateY(-300px) translateX(-10px) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* Animación de ondas de calor */
+        .heat-waves {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .heat-wave {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 193, 7, 0.3);
+            animation: heatWaveExpand 8s infinite linear;
+        }
+
+        .heat-wave-1 {
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+        }
+
+        .heat-wave-2 {
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 2s;
+        }
+
+        .heat-wave-3 {
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 4s;
+        }
+
+        .heat-wave-4 {
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 6s;
+        }
+
+        @keyframes heatWaveExpand {
+            0% { 
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 1;
+                border-color: rgba(255, 193, 7, 0.8);
+            }
+            100% { 
+                transform: translate(-50%, -50%) scale(8);
+                opacity: 0;
+                border-color: rgba(33, 150, 243, 0.1);
+            }
+        }
+
+        /* Contenido del header */
+        .header-content-heat {
+            position: relative;
+            z-index: 3;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .main-title-heat {
+            margin-bottom: 1rem;
+        }
+
+        .title-text-heat {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .title-word-heat {
+            font-size: 2.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            line-height: 1.1;
+        }
+
+        .title-1-heat {
+            color: white;
+            animation: titleGlowHeat 4s infinite alternate;
+            margin-top: 2rem;
+        }
+
+        .title-2-heat {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 2.2rem;
+        }
+
+        .title-3-heat {
+            color: #c7b727;
+            text-shadow: 0 0 15px rgba(255, 235, 59, 0.7);
+            position: relative;
+        }
+
+        .title-3-heat:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 250px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #FFEB3B, transparent);
+            animation: heatLine 3s infinite;
+        }
+
+        @keyframes titleGlowHeat {
+            0% { text-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); }
+            100% { text-shadow: 0 5px 20px rgba(255, 82, 82, 0.8), 0 0 30px rgba(255, 82, 82, 0.5); }
+        }
+
+        @keyframes heatLine {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .subtitle-heat {
+            margin-bottom: 1.5rem;
+            margin-top: 5rem;
+        }
+
+        .subtitle-text-heat {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+            line-height: 1.5;
+            color: #212121;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .title-line-heat {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .line-part-heat {
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            flex: 1;
+        }
+
+        .line-center-heat {
+            width: 40px;
+            height: 40px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .heat-icon {
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, #FF9800 0%, #FF5722 100%);
+            border-radius: 50%;
+            position: relative;
+            animation: heatPulse 2s infinite;
+            box-shadow: 0 0 15px rgba(255, 87, 34, 0.7);
+        }
+
+        .heat-icon:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            border: 2px solid rgba(255, 152, 0, 0.3);
+            border-radius: 50%;
+            animation: heatPulse 2s infinite reverse;
+        }
+
+        @keyframes heatPulse {
+            0% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.7; }
+        }
+
+        /* Elementos decorativos adicionales */
+        .boiler-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .boiler {
+            position: absolute;
+            bottom: 10%;
+            left: 10%;
+            width: 80px;
+            height: 120px;
+            background: linear-gradient(to right, #455A64 0%, #607D8B 50%, #78909C 100%);
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            opacity: 0.7;
+        }
+
+        .boiler:before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 10px;
+            width: 60px;
+            height: 15px;
+            background: #37474F;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .boiler:after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: -10px;
+            width: 20px;
+            height: 40px;
+            background: #90A4AE;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .thermometer {
+            position: absolute;
+            bottom: 15%;
+            right: 15%;
+            width: 20px;
+            height: 100px;
+            background: linear-gradient(to top, #D32F2F 0%, #FF9800 50%, #2196F3 100%);
+            border-radius: 10px;
+            opacity: 0.7;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .thermometer:before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background: #F44336;
+            border-radius: 50%;
         }        
 
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="hero-header">
-        <div class="container header-content">
-            <div class="logo-container">
-                <div class="logo-icon" style="background: var(--gradient-fire);">
-                    <i class="fas fa-fire"></i>
-                </div>
-                <div class="logo-icon" style="background: var(--gradient-rescue);">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <div class="logo-icon" style="background: var(--gradient-tools);">
-                    <i class="fas fa-tools"></i>
-                </div>
-                <div class="logo-icon" style="background: var(--gradient-security);">
-                    <i class="fas fa-temperature-high"></i>
-                </div>
+    <!-- Header para Aparatos Productores de Calor -->
+    <header class="hero-header-heat">
+        <!-- Sistema de partículas de calor animado -->
+        <div class="heat-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        
+        <!-- Animación de llamas -->
+        <div class="flames-container">
+            <div class="flame flame-1"></div>
+            <div class="flame flame-2"></div>
+            <div class="flame flame-3"></div>
+        </div>
+        
+        <!-- Animación de vapor -->
+        <div class="steam-container">
+            <div class="steam steam-1"></div>
+            <div class="steam steam-2"></div>
+            <div class="steam steam-3"></div>
+        </div>
+        
+        <!-- Animación de ondas de calor -->
+        <div class="heat-waves">
+            <div class="heat-wave heat-wave-1"></div>
+            <div class="heat-wave heat-wave-2"></div>
+            <div class="heat-wave heat-wave-3"></div>
+            <div class="heat-wave heat-wave-4"></div>
+        </div>
+        
+        <!-- Elementos decorativos - caldera y termómetro -->
+        <div class="boiler-container">
+            <div class="boiler"></div>
+            <div class="thermometer"></div>
+        </div>
+        
+        <!-- Contenido principal -->
+        <div class="container header-content-heat">
+            <!-- Título principal -->
+            <div class="main-title-heat">
+                <h1 class="title-text-heat">
+                    <span class="title-word-heat title-1-heat">APARATOS PRODUCTORES</span>
+                    <span class="title-word-heat title-3-heat">DE CALOR</span>
+                </h1>
             </div>
             
-            <h1>🔥 APARATOS PRODUCTORES DE CALOR</h1>
-            <p>Guía visual completa para intervenciones del Cuerpo de Bomberos del Ayuntamiento de Madrid</p>
+            <!-- Subtítulo -->
+            <div class="subtitle-heat">
+                <p class="subtitle-text-heat">Guía visual completa sobre calderas, sistemas de calefacción, combustibles y procedimientos de intervención</p>
+            </div>
+            
+            <!-- Línea decorativa -->
+            <div class="title-line-heat">
+                <div class="line-part-heat line-left-heat"></div>
+                <div class="line-center-heat">
+                    <div class="heat-icon"></div>
+                </div>
+                <div class="line-part-heat line-right-heat"></div>
+            </div>
         </div>
     </header>
     
@@ -5042,5 +5551,33 @@
             }
         });
     </script>
+
+    <script>
+        // Efecto de interacción para las partículas al hacer hover
+        document.addEventListener('mousemove', (e) => {
+            const particles = document.querySelectorAll('.particle');
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+            
+            particles.forEach((particle, index) => {
+                const speed = 0.5;
+                const x = (mouseX * speed * 100) - 50;
+                const y = (mouseY * speed * 100) - 50;
+                
+                // Aplicar un efecto sutil de movimiento a las partículas
+                particle.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
+        
+        // Efecto de título interactivo
+        const title = document.querySelector('.title-3-heat');
+        title.addEventListener('mouseover', () => {
+            title.style.textShadow = '0 0 25px rgba(255, 235, 59, 0.9), 0 0 40px rgba(255, 235, 59, 0.6)';
+        });
+        
+        title.addEventListener('mouseout', () => {
+            title.style.textShadow = '0 0 15px rgba(255, 235, 59, 0.7)';
+        });
+    </script>    
 </body>
 </html>
