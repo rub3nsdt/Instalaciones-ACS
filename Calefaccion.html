@@ -638,11 +638,14 @@
         .tag-open { background: #E0F2F1; color: #00695C; }
         
         /* Iconos decorativos flotantes */
+        /* ESTILOS PARA ICONOS FLOTANTES DECORATIVOS */
         .floating-icon {
             position: absolute;
-            font-size: 3rem;
-            opacity: 0.05;
-            z-index: 0;
+            font-size: 2rem;
+            opacity: 0.3;
+            z-index: 1;
+            animation: float 20s infinite ease-in-out;
+            pointer-events: none; /* Para que no interfiera con clics */
         }
         
         /* Estilo para subtítulos dentro de las secciones */
