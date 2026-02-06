@@ -580,7 +580,15 @@
             gap: 1.5rem;
             margin-top: 1rem;
             justify-content: center;
+            width: 90%;
         }
+
+         @media (max-width: 1000px) {
+           .diagram-flex {
+            width: 100%;
+        } 
+        }
+
         
         .diagram-item {
             background: white;
@@ -589,7 +597,7 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.08);
             text-align: center;
             transition: transform 0.3s ease;
-            flex: 1 1 300px;
+            flex: 1 1 280px;
             max-width: 400px;
             text-decoration: none;
             color: #333;
@@ -2844,7 +2852,7 @@
                             <h3>3.1. CLASIFICACIÓN POR COMBUSTIBLE/ENERGÍA</h3>
                         </div>
                         
-                        <div class="diagram-flex" style="width: 90%; margin: auto;">
+                        <div class="diagram-flex" style=" margin: auto;">
                             <a class="diagram-item" href="#combustible-solido">
                                 <div class="diagram-icon">
                                     <i class="fa-solid fa-gem"></i>
